@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html>
 <head>
-  <title>Particip</title>
+  <title>Currier de Moldavie</title>
   <!--[if lt IE 9]>
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
   <![endif]-->
@@ -86,13 +86,13 @@
           <% end %>
         </ul>
         <div class="tag_cloud">
-          <h4>Tags:</h4>
+          <h4>étiquettes:</h4>
           <% tag_cloud Article.tag_counts, %w[s m l] do |tag, css_class| %>
             <%= link_to tag.name, tag_path(tag.name), class: css_class %>
           <% end %>
         </div>
         <div class="tag_cloud">
-          <h4>Articles par:</h4>
+          <h4>articles par:</h4>
           <% author_cloud Article.author_counts, %w[s m l] do |author, css_class| %>
             <%= link_to author.name, author_path(author.name), class: css_class %>
           <% end %>
@@ -100,24 +100,28 @@
       </div>
     </div>
     <div class="page-header"></div>
-     <div class="row">
-      <div class="span2">
+     <div class="span6">
+      <div class="span">
         <ul class="unstyled">
           <li><%= link_to "Home", root_path %></li>
-
         </ul>
       </div>
-      <div class="span2">
+      <div class="span">
         <ul class="unstyled">
-          <li><%= link_to "About Us", root_path %></li>
+          <li><%= link_to "About Us", about_path %></li>
         </ul>
       </div>
-      <div class="span2">
+      <div class="span">
         <ul class="unstyled">
-          <li><%= link_to "Articles", contact_path %></li>
+          <li><%= link_to "Articles", articles_path %></li>
         </ul>
       </div>
-      <div class="span2">
+      <div class="span">
+        <ul class="unstyled">
+          <li><%= link_to "Membres", membres_path %></li>
+        </ul>
+      </div>
+      <div class="span">
         <ul class="unstyled">
           <li><%= link_to "Contacts", contact_path %></li>
         </ul>

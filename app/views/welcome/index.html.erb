@@ -9,7 +9,7 @@
             <%= image_tag art.avatar.url(:slide) if !nil %>
             <div class="carousel-caption">
               <h4 class="sliderLink"><%= link_to (art.title), art if !nil %></h4>
-              <p><%#= sanitize art.preview if !nil %></p>
+              <p>auteur: <%= raw art.author_list.map { |t| link_to t, author_path(t) }.join(', ') %></p>
             </div>
           </div>
         <% end %>

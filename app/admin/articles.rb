@@ -1,6 +1,7 @@
 ActiveAdmin.register Article do
 
   index do
+    selectable_column
     column "ID", :sortable => :id do |article|
       article.id
     end

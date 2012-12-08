@@ -10,7 +10,7 @@
         <%= link_to (image_tag article.avatar.url(:thumb)), article %>
       </div>
       <div class="span4">
-        <strong><%= sanitize truncate(article.content, omision: "...", length: 700) %></strong><br />
+        <strong><%= sanitize truncate(article.content, omision: "...", length: 700), :tags => %w(h) %></strong><br />
         <h6><%= link_to 'Read more', article %> | <%= link_to 'Edit', edit_article_path(article) %></h6>
       </div>
       <div class="span4"></div>

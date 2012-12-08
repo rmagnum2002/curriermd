@@ -20,7 +20,7 @@ Particip::Application.configure do
     address: "localhost",
     port: 1025,
     enable_starttls_auto: false,
-    domain: "particip.com",
+    domain: "currier.md",
   }
   config.action_mailer.perform_deliveries = true
   config.action_mailer.raise_delivery_errors = true

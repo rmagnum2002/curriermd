@@ -30,8 +30,15 @@ class ArticlesController < InheritedResources::Base
     end
   end
 
-  # def edit
-  #   # redirect_to root_path, :notice => "Uknown URL"
-  #   @article = Article.find(params[:id])
-  # end
+  def edit
+    respond_to root_path, notice: "Sorry, the page you are looking for doesn't exists"
+  end
+
+  def new
+    respond_to root_path, notice: "Sorry, the page you are looking for doesn't exists"
+  end
+
+  def destroy
+    respond_to root_path, notice: "Sorry, the page you are looking for doesn't exists"
+  end
 end

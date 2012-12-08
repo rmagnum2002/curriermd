@@ -7,9 +7,9 @@ class UserMailer < ActionMailer::Base
   #   en.user_mailer.feedback.subject
   #
   def feedback(feedback)
-    @host = "particip.md"
-    @link = "www.particip.md"
+    @host = "curroer.md"
+    @link = "www.currier.md"
     @feedback = feedback
-    mail to: "particip@mail.md"
+    mail to: "currier@mail.md"
   end
 end
