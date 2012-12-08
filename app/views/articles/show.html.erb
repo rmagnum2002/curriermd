@@ -1,0 +1,45 @@
+<div class="row">
+
+  <div class="span6">
+    <h2><%= @article.title %></h2>
+    <small><%= l @article.created_at, :format => :long %> |
+      Autor:
+      <%= raw @article.author_list.map { |l| link_to l, author_path(l) }.join(', ') %>
+      <%# @article.authors.each do |author| %>
+        <%#= author.name %>
+      <%# end %>
+    </small><br />
+    <% if @article.tag_list.present? %>
+    <small>Tags: <%= raw @article.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></small><br />
+    <% end %>
+  </div>
+
+  <div class="span6">
+    <div class="thumbnail">
+      <%= image_tag @article.avatar.url(:slide), class: "img-polaroid" %>
+    </div>
+  </div>
+  <div class="span6">
+    <div class="page-header"></div>
+    <strong><%= raw @article.preview %></strong>
+  </div>
+  <div class="span6">
+    <%= raw @article.content %>
+  </div>
+
+  <%# if @related_articles.present? %>
+  <!-- <div class="span6">
+  <h4>Related articles</h4>
+  <div><%#= image_tag 'divider.gif' %></div>
+    <%# for art in @related_articles %>
+      <%# if art.id != @article.id %>
+      <div class="span2">
+        <%#= link_to image_tag(art.avatar.url(:thumb)), article_path(art) %>
+      </div>
+      <%# end %>
+    <%# end %>
+    <div><%#= image_tag 'divider.gif' %></div>
+  </div>
+  <%# end %> -->
+</div>
+<%= link_to 'Retour', articles_path %>

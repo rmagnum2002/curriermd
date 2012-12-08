@@ -1,0 +1,37 @@
+<div class="span6">
+  <address>
+    <strong>Section moldave de l'UPF</strong><br>
+      USM, str. Mateevici, 60,<br>
+      MD-2009 <br>
+      Chisinau, Moldova <br>
+    <abbr title="Phone">Telefon:</abbr> +(373) 6904488<br>
+      mail: <a href="mailto:#">sylviedonos@yahoo.fr</a>
+  </address>
+  <div class="page-header"></div>
+  <p class="infoNote">All fields marked with <span class="req">*</span> are mandatory. We promise never to sell or otherwise abuse your information.</p>
+  <%= form_for :feedback, url: url_for(action: 'feedback') do |f| %>
+  <ol>
+    <li>
+      <label for="name">Nome <span class="req">*</span></label>
+      <%= f.text_field :name, class:'span5', placeholder: "Your full name" %>
+    </li>
+    <li>
+      <label for="name">Email <span class="req">*</span></label>
+      <%= f.email_field :email, class:'span5', placeholder: "Your email" %>
+    </li>
+    <li>
+      <label for="name">Phone <span class="req">*</span></label>
+      <%= f.phone_field :phone, class:'span5', placeholder: "Your phone" %>
+    </li>
+    <li>
+      <label for="name">Message <span class="req">*</span></label>
+      <%= f.text_area :message, class:'span5', placeholder: "Your message", rows: "5" %>
+    </li>
+  </ol>
+  <div class="blankSeparator"></div>
+  <div class="btnLeft">
+    <%= f.submit "SEND MESSAGE", :type => 'submit', :class => 'btn' %>
+  </div>
+  <br />
+  <% end %>
+</div>

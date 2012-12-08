@@ -1,0 +1,69 @@
+@import "twitter/bootstrap/bootstrap";
+@import "twitter/bootstrap/responsive";
+
+// Set the correct sprite paths
+@iconSpritePath: asset-path("twitter/bootstrap/glyphicons-halflings.png");
+@iconWhiteSpritePath: asset-path("twitter/bootstrap/glyphicons-halflings-white.png");
+
+// Set the Font Awesome (Font Awesome is default. You can disable by commenting below lines)
+// Note: If you use asset_path() here, your compiled boostrap_and_overrides.css will not
+//       have the proper paths. So for now we use the absolute path.
+@fontAwesomeEotPath: asset-path("fontawesome-webfont.eot");
+@fontAwesomeWoffPath: asset-path("fontawesome-webfont.woff");
+@fontAwesomeTtfPath: asset-path("fontawesome-webfont.ttf");
+@fontAwesomeSvgPath: asset-path("fontawesome-webfont.svg");
+
+// Font Awesome
+@import "fontawesome";
+
+// Your custom LESS stylesheets goes here
+//
+// Since bootstrap was imported above you have access to its mixins which
+// you may use and inherit here
+//
+// If you'd like to override bootstrap's own variables, you can do so here as well
+// See http://twitter.github.com/bootstrap/customize.html#variables for their names and documentation
+//
+// Example:
+// @linkColor: #ff0000;
+
+body{
+  background: #e6eef1;
+}
+.container{
+  max-width: 950px;
+}
+.articles{
+  margin-right:80px;
+}
+a, a:hover {
+  color: #2e5662;
+  text-decoration: none;
+}
+.date{
+  font-family:"Lucida Console", Monaco, monospace;
+}
+
+.test.navbar-inverse .navbar-inner {
+  background-color: #1B1B1B;
+  background-image: -moz-linear-gradient(top, #2e5662, #1d4551);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#2e5662), to(#1d4551));
+  background-image: -webkit-linear-gradient(top, #2e5662, #1d4551);
+  background-image: -o-linear-gradient(top, #2e5662, #1d4551);
+  background-image: linear-gradient(to bottom, #2e5662, #1d4551);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff222222', endColorstr='#ff111111', GradientType=0);
+  background-color: #1B1B1B;
+  background-image: -moz-linear-gradient(top, #2e5662, #1d4551);
+  background-image: -webkit-gradient(linear, 0 0, 0 100%, from(#2e5662), to(#1d4551));
+  background-image: -webkit-linear-gradient(top, #2e5662, #1d4551);
+  background-image: -o-linear-gradient(top, #2e5662, #1d4551);
+  background-image: linear-gradient(to bottom, #2e5662, #1d4551);
+  background-repeat: repeat-x;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#ff222222', endColorstr='#ff111111', GradientType=0);
+  border-color: #252525;
+}
+
+.sliderLink a {
+  color:white;
+}

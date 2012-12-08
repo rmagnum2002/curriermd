@@ -1,0 +1,53 @@
+<div class="row" style="width:800px;margin:auto;">
+  <%= form_for(@article) do |f| %>
+  <% if @article.errors.any? %>
+  <div id="error_explanation">
+    <h2><%= pluralize(@article.errors.count, "error") %> prohibited this article from being saved:</h2>
+
+    <ul>
+      <% @article.errors.full_messages.each do |msg| %>
+      <li><%= msg %></li>
+      <% end %>
+    </ul>
+  </div>
+  <% end %>
+
+  <div class="field">
+    <%= f.label :title %><br />
+    <%= f.text_field :title %>
+  </div>
+  <div class="field">
+    <%#= f.label :preview %><br />
+    <%#= f.cktext_area :preview %>
+  </div>
+  <div class="field">
+    <%= f.label :content %><br />
+    <%= f.cktext_area :content %>
+  </div>
+  <div class="field tags">
+    <%= f.label :author_tokens, "Authors" %><br/>
+    <%= f.text_field :author_tokens, data: {load: @article.authors} %>
+  </div>
+  <div class="field tags">
+    <%= f.label :tag_tokens, "Tags" %><br/>
+    <%= f.text_field :tag_tokens, data: {load: @article.tags} %>
+  </div>
+  <div class="field">
+    <label>Article Avatar</label>
+    <%= image_tag(@article.avatar_url(:thumb)) if @article.avatar? %>
+    <%= f.file_field :avatar %>
+    <%= f.hidden_field :avatar_cache %>
+  </div>
+  <% unless @article.avatar.blank? %>
+  <div class="field">
+    <label>
+      <%= f.check_box :remove_avatar %>
+      Remove avatar
+    </label>
+  </div>
+  <% end %>
+  <div class="actions">
+    <%= f.submit %>
+  </div>
+  <% end %>
+</div>

@@ -1,0 +1,27 @@
+<div class="row">
+  <div class="span6">
+  <% if @main_articles.present? %>
+    <div id="myCarousel" class="carousel slide">
+      <!-- Carousel items -->
+      <div class="carousel-inner">
+        <% @main_articles.each_with_index do |art, index| %>
+          <div class="item <% if index == 0 %>active<% end %>">
+            <%= image_tag art.avatar.url(:slide) if !nil %>
+            <div class="carousel-caption">
+              <h4 class="sliderLink"><%= link_to (art.title), art if !nil %></h4>
+              <p><%#= sanitize art.preview if !nil %></p>
+            </div>
+          </div>
+        <% end %>
+      </div>
+      <!-- Carousel nav -->
+      <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
+      <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
+    </div>
+  <% end %>
+  </div>
+</div>
+<div class="row">
+  <div class="page-header"></div>
+</div>
+

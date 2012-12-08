@@ -1,0 +1,121 @@
+# Sample localization file for English. Add more files in this directory for other locales.
+# See https://github.com/svenfuchs/rails-i18n/tree/master/rails%2Flocale for starting points.
+
+fr:
+
+  menu:
+    home:        "Accueil"
+    about:       "À propos de nous"
+    articles:    "Articles"
+    projects:    "Proiecte"
+    participate: "Participă!"
+    contacts:    "Contacts"
+
+  will_paginate:
+    previous_label: "Précédent"
+    next_label:     "Suivant"
+
+  time:
+    am: am
+    formats:
+      default: ! '%a, %d %b %Y %H:%M:%S %z'
+      long: ! '%B %d, %Y %H:%M'
+      short: ! '%d %b %H:%M'
+    pm: pm
+
+  date:
+    abbr_day_names:
+    - Dum
+    - Lun
+    - Mar
+    - Mier
+    - Joi
+    - Vin
+    - Samb
+    abbr_month_names:
+    -
+    - Ian
+    - Feb
+    - Mar
+    - Apr
+    - Mai
+    - Iun
+    - Iul
+    - Aug
+    - Sept
+    - Oct
+    - Nov
+    - Dec
+    day_names:
+    - Duminica
+    - Luni
+    - Marti
+    - Miercuri
+    - Joi
+    - Vineri
+    - Sambata
+    formats:
+      default: ! '%d-%m-%Y'
+      long: ! '%d %B %Y'
+      short: ! '%d %b'
+    month_names:
+    -
+    - Ianuarie
+    - Februarie
+    - Martie
+    - Aprilie
+    - Mai
+    - Iunie
+    - Iulie
+    - August
+    - Septembrie
+    - Octombrie
+    - Noiembrie
+    - Decembrie
+    order:
+    - :day
+    - :month
+    - :year
+  datetime:
+    distance_in_words:
+      circa_x_ore:
+        one: circa o ora
+        other: circa %{count} ore
+      about_x_months:
+        one: circa o luna
+        other: circa %{count} luni
+      about_x_years:
+        one: circa un anno
+        other: circa %{count} anni
+      almost_x_years:
+        one: circa 1 anno
+        other: circa %{count} anni
+      half_a_minute: mezzo minuto
+      less_than_x_minutes:
+        one: meno di un minuto
+        other: meno di %{count} minuti
+      less_than_x_seconds:
+        one: meno di un secondo
+        other: meno di %{count} secondi
+      over_x_years:
+        one: oltre un anno
+        other: oltre %{count} anni
+      x_days:
+        one: 1 giorno
+        other: ! '%{count} giorni'
+      x_minutes:
+        one: 1 minuto
+        other: ! '%{count} minuti'
+      x_months:
+        one: 1 mese
+        other: ! '%{count} mesi'
+      x_seconds:
+        one: 1 secondo
+        other: ! '%{count} secondi'
+    prompts:
+      day: Giorno
+      hour: Ora
+      minute: Minuto
+      month: Mese
+      second: Secondi
+      year: Anno
