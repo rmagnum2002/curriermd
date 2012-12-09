@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20121208093909) do
+ActiveRecord::Schema.define(:version => 20121209221853) do
 
   create_table "abouts", :force => true do |t|
     t.text     "details"
@@ -63,6 +63,7 @@ ActiveRecord::Schema.define(:version => 20121208093909) do
     t.string   "avatar"
     t.integer  "views",       :default => 0
     t.integer  "recomend"
+    t.integer  "sticky"
   end
 
   create_table "authors", :force => true do |t|

@@ -18,7 +18,7 @@ class WelcomeController < ApplicationController
   def index
     @class_home = true
     @main_articles = Article.order('created_at desc').limit(5)
-    @recomends = Article.where(recomend: true).order('created_at desc').limit(3)
+    @recomends = Article.where(recomend: true).order('created_at desc').limit(4)
   end
 
   def about

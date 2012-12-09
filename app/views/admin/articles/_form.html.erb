@@ -17,6 +17,10 @@
     <%= f.text_field :title %>
   </div>
   <div class="field">
+    <%= f.label :recomend, "Recommander cet article" %><br />
+    <%= f.check_box :recomend %>
+  </div>
+  <div class="field">
     <%#= f.label :preview %><br />
     <%#= f.cktext_area :preview %>
   </div>
@@ -25,11 +29,11 @@
     <%= f.cktext_area :content %>
   </div>
   <div class="field tags">
-    <%= f.label :author_tokens, "Authors" %><br/>
+    <%= f.label :author_tokens, "Auteurs" %><br/>
     <%= f.text_field :author_tokens, data: {load: @article.authors} %>
   </div>
   <div class="field tags">
-    <%= f.label :tag_tokens, "Tags" %><br/>
+    <%= f.label :tag_tokens, "Etiquettes" %><br/>
     <%= f.text_field :tag_tokens, data: {load: @article.tags} %>
   </div>
   <div class="field">
@@ -42,7 +46,7 @@
   <div class="field">
     <label>
       <%= f.check_box :remove_avatar %>
-      Remove avatar
+      Retirer avatar
     </label>
   </div>
   <% end %>

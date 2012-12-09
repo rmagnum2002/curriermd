@@ -13,9 +13,11 @@ gem 'passenger'
 group :assets do
   gem 'sass-rails',   '~> 3.2.3'
   gem 'coffee-rails', '~> 3.2.1'
-
+  gem "less-rails"
   # See https://github.com/sstephenson/execjs#readme for more supported runtimes
-  # gem 'therubyracer', :platforms => :ruby
+  gem 'therubyracer', :platforms => :ruby
+  gem 'libv8', '~> 3.11.8'
+
 
   gem 'uglifier', '>= 1.0.3'
   gem 'twitter-bootstrap-rails'
@@ -29,7 +31,7 @@ gem "meta_search",    '>= 1.1.0.pre'
 
 gem 'will_paginate', '~> 3.0'
 gem 'will_paginate-bootstrap'
-#gem 'acts-as-taggable-on'
+gem 'acts-as-taggable-on'
 gem "rmagick"
 gem "carrierwave"
 
@@ -38,7 +40,7 @@ gem "mini_magick"
 
 #gem "globalize3"
 # To use ActiveModel has_secure_password
-# gem 'bcrypt-ruby', '~> 3.0.0'
+gem 'bcrypt-ruby', '~> 3.0.0'
 
 # To use Jbuilder templates for JSON
 # gem 'jbuilder'

@@ -22,7 +22,7 @@ class ArticlesController < InheritedResources::Base
   def show
     @article = Article.find(params[:id])
     @article.increment!(:views, 1)
-    @related_articles = Article.tagged_with(@article.tag_list).limit(3)
+    @related_articles = Article.tagged_with(@article.tag_list).limit(4)
 
     respond_to do |format|
       format.html # show.html.erb
@@ -31,14 +31,28 @@ class ArticlesController < InheritedResources::Base
   end
 
   def edit
-    respond_to root_path, notice: "Sorry, the page you are looking for doesn't exists"
+    redirect_to root_path, notice: "Sorry, the page you are looking for doesn't exists"
+  end
+
+  def update
+    @article = Article.find(params[:id])
+
+    respond_to do |format|
+      if @article.update_attributes(params[:article])
+        format.html { redirect_to admin_article_path(@article), notice: 'Article was successfully updated.' }
+        format.json { head :ok }
+      else
+        format.html { render action: "edit" }
+        format.json { render json: @article.errors, status: :unprocessable_entity }
+      end
+    end
   end
 
   def new
-    respond_to root_path, notice: "Sorry, the page you are looking for doesn't exists"
+    redirect_to root_path, notice: "Sorry, the page you are looking for doesn't exists"
   end
 
   def destroy
-    respond_to root_path, notice: "Sorry, the page you are looking for doesn't exists"
+    redirect_to root_path, notice: "Sorry, the page you are looking for doesn't exists"
   end
 end

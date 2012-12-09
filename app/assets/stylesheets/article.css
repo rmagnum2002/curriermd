@@ -153,3 +153,7 @@ form .field label{font-size: 14px; font-weight: bold;}
   font-family:"Lucida Console", Monaco, monospace;
   line-height: 30px;
 }
+.sticky{
+    padding-right: 5px;
+    padding-bottom: 5px;
+}

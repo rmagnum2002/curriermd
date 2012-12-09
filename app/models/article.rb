@@ -1,7 +1,8 @@
 class Article < ActiveRecord::Base
   attr_accessible :author_id, :category_id, :content, :preview, :title, :author_list, :tag_tokens,
-                  :tag_list, :avatar, :avatar_cache, :remove_avatar, :author_ids, :author_tokens, :tag_ids
-  #acts_as_taggable
+                  :tag_list, :avatar, :avatar_cache, :remove_avatar, :author_ids, :author_tokens, :tag_ids,
+                  :recomend
+  acts_as_taggable
 
   # translates :title, :content, :preview
 

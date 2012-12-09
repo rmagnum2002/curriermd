@@ -73,10 +73,29 @@
       </div>
       <div class="span6 articles">
         <%= yield %>
+        <div class="tag_cloud">
+          <h5>Voyez articles par:</h5>
+          <% author_cloud Article.author_counts, %w[s m l] do |author, css_class| %>
+            <%= link_to author.name, author_path(author.name), class: css_class %>
+          <% end %>
+        </div>
+
       </div>
       <div class="span3">
         <div class=""><%#= raw(lang_links) %></div>
-        <h4 class="news_title">Les plus vues</h4>
+        <h5><%= sticky_article.title %></h5>
+        <span class="sticky pull-left"><%= image_tag sticky_article.avatar.url(:thumb), size: "100x100" %></span>
+        <small><%= sanitize truncate(sticky_article.content, omision: "...", length: 1200), :tags => %w(h) %></small>
+        <small><%= link_to "lire la suite", article_path(sticky_article) %></small>
+        <div class="page-header"></div>
+        <div class="tag_cloud">
+          <h4>Étiquettes:</h4>
+          <% tag_cloud Article.tag_counts, %w[s m l] do |tag, css_class| %>
+            <%= link_to tag.name, tag_path(tag.name), class: css_class %>
+          <% end %>
+        </div>
+        <div class="page-header"></div>
+        <h4>Les plus vues</h4>
         <ul>
           <% for article in most_viewed_articles %>
           <li>
@@ -85,18 +104,6 @@
           </li>
           <% end %>
         </ul>
-        <div class="tag_cloud">
-          <h4>étiquettes:</h4>
-          <% tag_cloud Article.tag_counts, %w[s m l] do |tag, css_class| %>
-            <%= link_to tag.name, tag_path(tag.name), class: css_class %>
-          <% end %>
-        </div>
-        <div class="tag_cloud">
-          <h4>articles par:</h4>
-          <% author_cloud Article.author_counts, %w[s m l] do |author, css_class| %>
-            <%= link_to author.name, author_path(author.name), class: css_class %>
-          <% end %>
-        </div>
       </div>
     </div>
     <div class="page-header"></div>

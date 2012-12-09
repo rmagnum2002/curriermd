@@ -22,6 +22,17 @@
   </div>
 </div>
 <div class="row">
-  <div class="page-header"></div>
+  <div class="span6">
+    <div class="page-header"></div>
+    <h5>Articles recommandé</h5>
+    <% if @recomends.present? %>
+      <% for art in @recomends %>
+        <div class="span">
+          <%= link_to image_tag(art.avatar.url(:thumb), size: "100x100"), article_path(art) %>
+          <h6 style="width:100px;"><%= link_to (truncate(art.title, omision: "...", length: 50)), article_path(art) %></h6>
+        </div>
+      <% end %>
+    <% end %>
+  </div>
 </div>
 
