@@ -11,6 +11,12 @@ ActiveAdmin.register Article do
     column "Created at", :sortable => :created_at do |article|
       l article.created_at, :format => :long
     end
+    column "Recomended", :sortable => :created_at do |article|
+      Article::RECOMENDED[article.recomend]
+    end
+    column "Sticky", :sortable => :created_at do |article|
+      Article::STICKY[article.sticky]
+    end
     default_actions
   end
 
@@ -26,6 +32,7 @@ ActiveAdmin.register Article do
   controller do
     def update
       @article = Article.find(params[:id])
+      @sticky = Article.where(sticky: true)
 
       respond_to do |format|
         if @article.update_attributes(params[:article])

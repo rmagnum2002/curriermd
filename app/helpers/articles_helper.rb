@@ -1,6 +1,6 @@
 module ArticlesHelper
   def sticky_article
-    Article.find_by_id(10)
+    Article.where(sticky: true).first
   end
 
   def latest_articles

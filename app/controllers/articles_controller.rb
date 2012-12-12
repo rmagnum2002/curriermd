@@ -35,6 +35,11 @@ class ArticlesController < InheritedResources::Base
   end
 
   def update
+    @art = Article.where(sticky: true).first
+    if @art.present?
+      @art.sticky = 0
+      @art.save
+    end
     @article = Article.find(params[:id])
 
     respond_to do |format|

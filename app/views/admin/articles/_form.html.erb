@@ -17,23 +17,29 @@
     <%= f.text_field :title %>
   </div>
   <div class="field">
-    <%= f.label :recomend, "Recommander cet article" %><br />
+    <%= f.label :recomend, "Recommander cet article" %>
     <%= f.check_box :recomend %>
   </div>
+  <br>
   <div class="field">
-    <%#= f.label :preview %><br />
-    <%#= f.cktext_area :preview %>
+    <%= f.label :sticky, "Set this article as sticky note" %>
+    <%= f.check_box :sticky %>
   </div>
+  <br>
+<!--   <div class="field"> -->
+    <%#= f.label :preview %>
+    <%#= f.cktext_area :preview %>
+<!--   </div> -->
   <div class="field">
-    <%= f.label :content %><br />
+    <%= f.label :content %>
     <%= f.cktext_area :content %>
   </div>
   <div class="field tags">
-    <%= f.label :author_tokens, "Auteurs" %><br/>
+    <%= f.label :author_tokens, "Auteurs" %>
     <%= f.text_field :author_tokens, data: {load: @article.authors} %>
   </div>
   <div class="field tags">
-    <%= f.label :tag_tokens, "Etiquettes" %><br/>
+    <%= f.label :tag_tokens, "Etiquettes" %>
     <%= f.text_field :tag_tokens, data: {load: @article.tags} %>
   </div>
   <div class="field">
