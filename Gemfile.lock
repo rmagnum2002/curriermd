@@ -53,11 +53,11 @@ GEM
     carrierwave (0.7.1)
       activemodel (>= 3.2.0)
       activesupport (>= 3.2.0)
-    chosen-rails (0.9.9)
+    chosen-rails (0.9.10)
       coffee-rails (~> 3.2)
       railties (~> 3.0)
       sass-rails (~> 3.2)
-    ckeditor (3.7.1)
+    ckeditor (3.7.3)
       mime-types
       orm_adapter
     coffee-rails (3.2.2)
@@ -113,7 +113,7 @@ GEM
     mime-types (1.19)
     mini_magick (3.4)
       subexec (~> 0.2.1)
-    multi_json (1.4.0)
+    multi_json (1.5.0)
     mysql2 (0.3.10)
     orm_adapter (0.4.0)
     passenger (3.0.18)
@@ -146,7 +146,7 @@ GEM
       rake (>= 0.8.7)
       rdoc (~> 3.4)
       thor (>= 0.14.6, < 2.0)
-    rake (10.0.2)
+    rake (10.0.3)
     rdoc (3.12)
       json (~> 1.4)
     ref (1.0.2)
@@ -170,7 +170,7 @@ GEM
     treetop (1.4.12)
       polyglot
       polyglot (>= 0.3.1)
-    twitter-bootstrap-rails (2.1.7)
+    twitter-bootstrap-rails (2.1.9)
       actionpack (>= 3.1)
       execjs
       railties (>= 3.1)
@@ -193,7 +193,7 @@ DEPENDENCIES
   bcrypt-ruby (~> 3.0.0)
   carrierwave
   chosen-rails
-  ckeditor (= 3.7.1)
+  ckeditor (= 3.7.3)
   coffee-rails (~> 3.2.1)
   jquery-rails
   less-rails
