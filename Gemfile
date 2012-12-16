@@ -35,7 +35,7 @@ gem 'acts-as-taggable-on'
 gem "rmagick"
 gem "carrierwave"
 
-gem "ckeditor", "3.7.1"
+gem "ckeditor", "3.7.3"
 gem "mini_magick"
 
 #gem "globalize3"
