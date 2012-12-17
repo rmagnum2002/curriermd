@@ -1,5 +1,5 @@
 ActiveAdmin.register About do
-  actions  :edit, :index
+
   index do
     selectable_column
     column "Details" do |about|
