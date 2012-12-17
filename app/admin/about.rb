@@ -1,5 +1,5 @@
 ActiveAdmin.register About do
-actions :all, :except => [:destroy]
+actions :all, :except => [:destroy, :new]
   index do
     selectable_column
     column "Details" do |about|
