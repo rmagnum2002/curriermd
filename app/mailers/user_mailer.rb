@@ -1,5 +1,5 @@
 class UserMailer < ActionMailer::Base
-  default from: "particip@mail.md"
+  default from: "courrier@mail.md"
 
   # Subject can be set in your I18n file at config/locales/en.yml
   # with the following lookup:
@@ -7,9 +7,9 @@ class UserMailer < ActionMailer::Base
   #   en.user_mailer.feedback.subject
   #
   def feedback(feedback)
-    @host = "curroer.md"
-    @link = "www.currier.md"
+    @host = "courrier.md"
+    @link = "www.courrier.md"
     @feedback = feedback
-    mail to: "currier@mail.md"
+    mail to: "rmagnum2002@gmail.com"
   end
 end
