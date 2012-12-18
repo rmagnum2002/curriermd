@@ -73,7 +73,7 @@ Particip::Application.configure do
     port: 587,
     domain: "gmail.com",
     user_name: "rmagnum2002",
-    password: "renaultt",
+    password: "renaultt2002",
     authentication: "plain",
     enable_starttls_auto: true
   }
