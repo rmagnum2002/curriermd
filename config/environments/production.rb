@@ -72,8 +72,8 @@ Particip::Application.configure do
     address: "smtp.gmail.com",
     port: 587,
     domain: "gmail.com",
-    user_name: "rmagnum2002",
-    password: "renaultt2002",
+    user_name: "",
+    password: "",
     authentication: "plain",
     enable_starttls_auto: true
   }
