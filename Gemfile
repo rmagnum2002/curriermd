@@ -37,6 +37,7 @@ gem "carrierwave"
 
 gem "ckeditor", "3.7.3"
 gem "mini_magick"
+gem "friendly_id", "~> 4.0.1"
 
 #gem "globalize3"
 # To use ActiveModel has_secure_password

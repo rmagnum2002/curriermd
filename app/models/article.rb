@@ -5,6 +5,8 @@ class Article < ActiveRecord::Base
   acts_as_taggable
 
   # translates :title, :content, :preview
+  extend FriendlyId
+  friendly_id :title, use: :slugged
 
   has_many :authorships
   has_many :authors, through: :authorships
