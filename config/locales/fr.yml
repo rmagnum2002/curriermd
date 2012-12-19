@@ -7,6 +7,18 @@
 # Emended by Benjamin des Gachons and Patrick Chew : <http://www.fitima.org/docs/fiche.pdf>
 
 fr:
+  menu:
+    home:        "Accueil"
+    about:       "À propos de nous"
+    articles:    "Articles"
+    projects:    "Proiecte"
+    participate: "Participă!"
+    contacts:    "Contacts"
+
+  will_paginate:
+    previous_label: "Précédent"
+    next_label:     "Suivant"
+
   date:
     formats:
       default: "%d/%m/%Y"
