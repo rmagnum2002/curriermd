@@ -29,6 +29,10 @@ class ApplicationController < ActionController::Base
 
 private
 
+  def set_admin_locale
+    I18n.locale = :fr
+  end
+
   def catch_not_found
     yield
   rescue ActiveRecord::RecordNotFound

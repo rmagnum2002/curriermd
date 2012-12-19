@@ -5,13 +5,13 @@ ActiveAdmin.register Article do
     column "ID", :sortable => :id do |article|
       article.id
     end
-    column "Title", :sortable => :title do |article|
+    column "Titre", :sortable => :title do |article|
       link_to article.title, admin_article_path(article)
     end
-    column "Created at", :sortable => :created_at do |article|
+    column "Cree a la date", :sortable => :created_at do |article|
       l article.created_at, :format => :long
     end
-    column "Recomended", :sortable => :created_at do |article|
+    column "Recommande", :sortable => :created_at do |article|
       Article::RECOMENDED[article.recomend]
     end
     column "Sticky", :sortable => :created_at do |article|
