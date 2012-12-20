@@ -43,15 +43,13 @@
               <li class=<%= "active" if @class_about %>><%= link_to (t "menu.about"), about_path %></li>
               <li class=<%= "active" if @class_articles %>><%= link_to (t "menu.articles"), articles_path %></li>
               <li class=<%= "active" if @class_membres %>><%= link_to (t "menu.membres"), membres_path %></li>
-              <!-- <li class=<%#= "active" if @class_projects %>><%#= link_to (t "menu.projects"), articles_path %></li>
-              <li class=<%#= "active" if @class_participate %>><%#= link_to (t "menu.participate"), participate_path %></li> -->
               <li class=<%= "active" if @class_contact %>><%= link_to (t "menu.contacts"), contact_path %></li>
               <li>
-                <%#= search_form_for @q, url: articles_path, html: { class: "navbar-form pull-right" } do |f| %>
+                <%= form_for @search, :url => articles_path, html: { class: "navbar-form pull-right" } do |f| %>
                   <div class="field">
-                    <%#= f.text_field :title_cont, class: "span2", placeholder: "Search" %><%#= f.submit "Search" %>
+                    <%= f.text_field :title_or_content_contains, class: "span2", placeholder: "articles" %><%= f.submit "rechercher", class: "btn btn-inverse" %>
                   </div>
-                <%# end %>
+                <% end %>
               </li>
             </ul>
   <!--           <form class="navbar-search pull-left">
@@ -112,27 +110,27 @@
      <div class="span6">
       <div class="span">
         <ul class="unstyled">
-          <li><%= link_to "Home", root_path %></li>
+          <li><%= link_to (t "menu.home"), root_path %></li>
         </ul>
       </div>
       <div class="span">
         <ul class="unstyled">
-          <li><%= link_to "About Us", about_path %></li>
+          <li><%= link_to (t "menu.about"), about_path %></li>
         </ul>
       </div>
       <div class="span">
         <ul class="unstyled">
-          <li><%= link_to "Articles", articles_path %></li>
+          <li><%= link_to (t "menu.articles"), articles_path %></li>
         </ul>
       </div>
       <div class="span">
         <ul class="unstyled">
-          <li><%= link_to "Membres", membres_path %></li>
+          <li><%= link_to (t "menu.membres"), membres_path %></li>
         </ul>
       </div>
       <div class="span">
         <ul class="unstyled">
-          <li><%= link_to "Contacts", contact_path %></li>
+          <li><%= link_to (t "menu.contacts"), contact_path %></li>
         </ul>
       </div>
     </div>

@@ -2,13 +2,15 @@ class ArticlesController < InheritedResources::Base
 
   def index
     @class_articles = true
-      @q = Article.search(params[:q])
-    if params[:q]
-      @articles = @q.result(:distinct => true).paginate(:page => params[:page], :per_page => 5)
+    @search = Article.search(params[:search])
+    if params[:search]
+      @articles = @search.order('created_at desc').paginate(:page => params[:page], :per_page => 5)
     elsif params[:tag]
        @articles = Article.tagged_with(params[:tag]).order('created_at desc').paginate(:page => params[:page], :per_page => 5)
     elsif params[:author]
       @articles = Article.authored_with(params[:author]).order('created_at desc').paginate(:page => params[:page], :per_page => 5)
+    elsif params[:year]
+      @articles = Article.where('created_at like ?', "%#{params[:year]}%")
     else
       @articles = Article.order('created_at desc').paginate(:page => params[:page], :per_page => 5)
     end
@@ -20,6 +22,7 @@ class ArticlesController < InheritedResources::Base
   end
 
   def show
+    @search = Article.search(params[:search])
     @article = Article.find(params[:id])
     @article.increment!(:views, 1)
     @related_articles = Article.tagged_with(@article.tag_list).limit(4)

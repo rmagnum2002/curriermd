@@ -17,25 +17,25 @@ class WelcomeController < ApplicationController
 
   def index
     @class_home = true
+    @search = Article.search(params[:search])
     @main_articles = Article.order('created_at desc').limit(5)
     @recomends = Article.where(recomend: true).order('created_at desc').limit(4)
   end
 
   def about
     @class_about = true
+    @search = Article.search(params[:search])
     @about = About.first
-  end
-
-  def participate
-    @class_participate = true
   end
 
   def contact
     @class_contact = true
+    @search = Article.search(params[:search])
   end
 
   def membres
     @class_membres = true
+    @search = Article.search(params[:search])
     @membre = Member.first
   end
 
@@ -43,10 +43,12 @@ class WelcomeController < ApplicationController
     @feedback = Feedback.new
     if request.post?
       @feedback = Feedback.new params[:feedback]
-        if @feedback.save
-          UserMailer.feedback(@feedback).deliver
-        end
-      redirect_to contact_path, :notice => "Feedback sent. Thank you!"
+      if @feedback.save
+        UserMailer.feedback(@feedback).deliver
+        redirect_to contact_path, :notice => "Feedback sent. Thank you!"
+      else
+        redirect_to contact_path, :notice => "Feedback not sent."
+      end
     end
   end
 
