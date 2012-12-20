@@ -7,7 +7,11 @@
     </h6>
     <div class="row">
       <div class="span2">
-        <%= link_to (image_tag article.avatar.url(:thumb)), article %>
+        <% if article.avatar.present? %>
+          <%= link_to (image_tag article.avatar.url(:thumb)), article %>
+        <% else %>
+          <%= link_to image_tag "nophoto.png" %>
+        <% end %>
       </div>
       <div class="span4">
         <%= sanitize truncate(article.content, omision: "...", length: 700), :tags => %w(h) %><br />

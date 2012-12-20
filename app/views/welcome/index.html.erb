@@ -6,7 +6,11 @@
       <div class="carousel-inner">
         <% @main_articles.each_with_index do |art, index| %>
           <div class="item <% if index == 0 %>active<% end %>">
-            <%= image_tag art.avatar.url(:slide) if !nil %>
+            <% if art.avatar.present? %>
+              <%= image_tag art.avatar.url(:slide) if !nil %>
+            <% else %>
+              <%= image_tag "nophoto_slider.png" %>
+            <% end %>
             <div class="carousel-caption">
               <h4 class="sliderLink"><%= link_to (art.title), art if !nil %></h4>
               <p>auteur: <%= raw art.author_list.map { |t| link_to t, author_path(t) }.join(', ') %></p>

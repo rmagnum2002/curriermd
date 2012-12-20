@@ -14,11 +14,13 @@
     <% end %>
   </div>
 
+  <% if @article.avatar.present? %>
   <div class="span6">
     <div class="thumbnail">
       <%= image_tag @article.avatar.url(:slide), class: "img-polaroid" %>
     </div>
   </div>
+  <% end %>
   <div class="span6">
     <div class="page-header"></div>
     <!-- AddThis Button BEGIN -->
