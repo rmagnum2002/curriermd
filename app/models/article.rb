@@ -4,6 +4,10 @@ class Article < ActiveRecord::Base
                   :recomend, :sticky
   acts_as_taggable
 
+  scope :year, lambda{|year|
+    where(" EXTRACT(YEAR FROM created_at) = ? ", year ) if year.present?
+  }
+
   # translates :title, :content, :preview
   extend FriendlyId
   friendly_id :title, use: :slugged

@@ -9,6 +9,8 @@ class ArticlesController < InheritedResources::Base
        @articles = Article.tagged_with(params[:tag]).order('created_at desc').paginate(:page => params[:page], :per_page => 5)
     elsif params[:author]
       @articles = Article.authored_with(params[:author]).order('created_at desc').paginate(:page => params[:page], :per_page => 5)
+    elsif params[:year]
+      @articles = Article.year(params[:year]).order('created_at desc').paginate(:page => params[:page], :per_page => 5)
     else
       @articles = Article.order('created_at desc').paginate(:page => params[:page], :per_page => 5)
     end

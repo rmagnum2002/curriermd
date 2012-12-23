@@ -1,4 +1,17 @@
 <div class="span6">
+  <div class="dropdown">
+    Afficher les articles par
+    <a class="dropdown-toggle" id="drop4" role="button" data-toggle="dropdown" href="#">
+      année
+      <b class="caret"></b></a>
+    <ul id="menu1" class="dropdown-menu" role="menu" aria-labelledby="drop4">
+      <% for art in articles_by_years do %>
+      <li><%= link_to art, articles_path( :year => art) %></li>
+      <% end %>
+    </ul>
+  </div>
+</div>
+<div class="span6">
   <% @articles.each do |article| %>
     <%= image_tag 'divider.gif', class: "article_divider" %>
     <h4><%= link_to article.title, article %></h4>

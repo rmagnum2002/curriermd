@@ -10,4 +10,8 @@ module ArticlesHelper
   def most_viewed_articles
     Article.order('views desc').limit(3)
   end
+
+  def articles_by_years
+    Article.uniq.pluck("EXTRACT(YEAR FROM created_at)")
+  end
 end
