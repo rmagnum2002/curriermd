@@ -18,3 +18,4 @@
 Capfile
 /config/database.yml
 /public/system/
+/public/uploads/
