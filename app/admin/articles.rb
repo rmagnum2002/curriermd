@@ -22,27 +22,27 @@ ActiveAdmin.register Article do
 
   show do
     render "article"
-    active_admin_comments
+    # active_admin_comments
   end
 
   form do |f|
     render "form"
   end
 
-  controller do
-    def update
-      @article = Article.find(params[:id])
-      @sticky = Article.where(sticky: true)
+  # controller do
+  #   def update
+  #     @article = Article.find(params[:id])
+  #     @sticky = Article.where(sticky: true)
 
-      respond_to do |format|
-        if @article.update_attributes(params[:article])
-          format.html { redirect_to admin_article_path, notice: 'Article was successfully updated.' }
-          format.json { head :ok }
-        else
-          format.html { render action: "edit" }
-          format.json { render json: @article.errors, status: :unprocessable_entity }
-        end
-      end
-    end
-  end
+  #     respond_to do |format|
+  #       if @article.update_attributes(params[:article])
+  #         format.html { redirect_to admin_article_path, notice: 'Article was successfully updated.' }
+  #         format.json { head :ok }
+  #       else
+  #         format.html { render action: "edit" }
+  #         format.json { render json: @article.errors, status: :unprocessable_entity }
+  #       end
+  #     end
+  #   end
+  # end
 end

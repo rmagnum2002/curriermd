@@ -26,11 +26,13 @@
       </div>
       <div class="field">
         <label>Appartient à l'édition</label>
-        <h3><%= f.text_field :title %></h3>
+        <%= f.collection_select :edition_id, Edition.find(:all), :id, :name, :prompt => "Choisissez une édition" %>
+        ou en créer un nouveau:
+        <%= f.text_field :new_edition_name %>
       </div>
       <div class="span8">
         <div class="field">
-            <span>Recommander cet article</span>
+            <span>Réglez cet article visible sur toutes les pages</span>
             <%= f.check_box :recomend %>
             <span style="margin-right:20px;"></span>
             <span>Set this article as sticky note</span>
@@ -64,6 +66,7 @@
     <!--   </div> -->
     </div>
     <div class="tab-pane" id="profile">
+      <br>
       <div class="field">
         <%= f.label :content %>
         <%= f.cktext_area :content, height: 800 %>

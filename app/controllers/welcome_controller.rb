@@ -19,7 +19,7 @@ class WelcomeController < ApplicationController
     @class_home = true
     @search = Article.search(params[:search])
     @main_articles = Article.order('created_at desc').limit(5)
-    @recomends = Article.where(recomend: true).order('created_at desc').limit(3)
+    @recomends = Article.where(recomend: true).order('created_at desc').limit(6)
   end
 
   def about

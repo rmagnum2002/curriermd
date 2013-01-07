@@ -1,7 +1,7 @@
 class Article < ActiveRecord::Base
   attr_accessible :author_id, :category_id, :content, :preview, :title, :author_list, :tag_tokens,
                   :tag_list, :avatar, :avatar_cache, :remove_avatar, :author_ids, :author_tokens, :tag_ids,
-                  :recomend, :sticky
+                  :recomend, :sticky, :edition_id, :new_edition_name
   acts_as_taggable
 
   scope :year, lambda{|year|
@@ -17,6 +17,13 @@ class Article < ActiveRecord::Base
   has_many :taggings
   has_many :tags, through: :taggings
   attr_reader :author_tokens, :tag_tokens
+  belongs_to :edition
+  attr_accessor :new_edition_name
+  before_save :create_edition_from_name
+
+def create_edition_from_name
+  create_edition(:name => new_edition_name) unless new_edition_name.blank?
+end
 
   RECOMENDED = { 1 => 'Recomended', 0 => '' }
   STICKY = { 1 => 'Sticky', 0 => '' }
