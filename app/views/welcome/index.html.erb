@@ -34,7 +34,7 @@
     <li class="span4">
       <div class="thumbnail">
           <% if art.avatar.present? %>
-            <%= link_to image_tag(art.avatar.url), article_path(art) %>
+            <%= link_to image_tag(art.avatar.url(:thumb), size: "170x130"), article_path(art) %>
           <% else %>
             <%= link_to image_tag "nophoto.png" %>
           <% end %>

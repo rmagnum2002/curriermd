@@ -12,9 +12,7 @@
 }
 
 .field.tags {
-  border: 1px dotted gray;
   margin: 40px 0 40px 0;
-  padding: 0 10px 10px 10px;
 }
 form .field label{font-size: 14px; font-weight: bold;}
 
@@ -23,7 +21,7 @@ form .field label{font-size: 14px; font-weight: bold;}
     height: auto !important;
     height: 1%;
     width: 770px;
-    border: 1px solid #8496ba;
+    border: 1px solid #C9D0D6;
     cursor: text;
     font-size: 12px;
     font-family: Verdana, sans-serif;

@@ -12,52 +12,72 @@
   </div>
   <% end %>
 
-  <div class="field">
-    <%= f.label :title %><br />
-    <%= f.text_field :title %>
+  <ul class="nav nav-tabs" id="myTab">
+    <li class="active"><a href="#home">Titre et Options</a></li>
+    <li><a href="#profile">Contenu de l'Article</a></li>
+  </ul>
+
+  <div class="tab-content">
+    <div class="tab-pane active" id="home">
+      <div class="field">
+        <br>
+        <label>Titre</label>
+        <h3><%= f.text_field :title %></h3>
+      </div>
+      <div class="field">
+        <label>Appartient à l'édition</label>
+        <h3><%= f.text_field :title %></h3>
+      </div>
+      <div class="span8">
+        <div class="field">
+            <span>Recommander cet article</span>
+            <%= f.check_box :recomend %>
+            <span style="margin-right:20px;"></span>
+            <span>Set this article as sticky note</span>
+            <%= f.check_box :sticky %>
+        </div>
+      </div>
+      <br>
+      <div class="field tags">
+        <%= f.label :author_tokens, "Auteurs" %>
+        <%= f.text_field :author_tokens, data: {load: @article.authors} %><br>
+        <%= f.label :tag_tokens, "Etiquettes" %>
+        <%= f.text_field :tag_tokens, data: {load: @article.tags} %>
+      </div>
+      <div class="field">
+        <label>Article Avatar</label>
+        <%= image_tag(@article.avatar_url(:thumb)) if @article.avatar? %>
+        <%= f.file_field :avatar %>
+        <%= f.hidden_field :avatar_cache %>
+      </div>
+      <% unless @article.avatar.blank? %>
+      <div class="field">
+        <label>
+          <%= f.check_box :remove_avatar %>
+          Retirer avatar
+        </label>
+      </div>
+      <% end %>
+    <!--   <div class="field"> -->
+        <%#= f.label :preview %>
+        <%#= f.cktext_area :preview %>
+    <!--   </div> -->
+    </div>
+    <div class="tab-pane" id="profile">
+      <div class="field">
+        <%= f.label :content %>
+        <%= f.cktext_area :content, height: 800 %>
+      </div>
+      <div class="actions">
+        <%= f.submit %>
+      </div>
+      <% end %>
+    </div>
   </div>
-  <div class="field">
-    <%= f.label :recomend, "Recommander cet article" %>
-    <%= f.check_box :recomend %>
-  </div>
-  <br>
-  <div class="field">
-    <%= f.label :sticky, "Set this article as sticky note" %>
-    <%= f.check_box :sticky %>
-  </div>
-  <br>
-<!--   <div class="field"> -->
-    <%#= f.label :preview %>
-    <%#= f.cktext_area :preview %>
-<!--   </div> -->
-  <div class="field">
-    <%= f.label :content %>
-    <%= f.cktext_area :content %>
-  </div>
-  <div class="field tags">
-    <%= f.label :author_tokens, "Auteurs" %>
-    <%= f.text_field :author_tokens, data: {load: @article.authors} %>
-  </div>
-  <div class="field tags">
-    <%= f.label :tag_tokens, "Etiquettes" %>
-    <%= f.text_field :tag_tokens, data: {load: @article.tags} %>
-  </div>
-  <div class="field">
-    <label>Article Avatar</label>
-    <%= image_tag(@article.avatar_url(:thumb)) if @article.avatar? %>
-    <%= f.file_field :avatar %>
-    <%= f.hidden_field :avatar_cache %>
-  </div>
-  <% unless @article.avatar.blank? %>
-  <div class="field">
-    <label>
-      <%= f.check_box :remove_avatar %>
-      Retirer avatar
-    </label>
-  </div>
-  <% end %>
-  <div class="actions">
-    <%= f.submit %>
-  </div>
-  <% end %>
 </div>
+<script type="text/javascript">
+  $('#myTab a').click(function (e) {
+    e.preventDefault();
+    $(this).tab('show');
+  })
+</script>
