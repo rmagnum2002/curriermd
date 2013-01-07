@@ -8,6 +8,9 @@ class Article < ActiveRecord::Base
     where(" EXTRACT(YEAR FROM created_at) = ? ", year ) if year.present?
   }
 
+  scope :edition, lambda{|edition|
+    where(" EXTRACT(YEAR FROM edition_at) = ? ", year ) if edition.present?
+  }
   # translates :title, :content, :preview
   extend FriendlyId
   friendly_id :title, use: :slugged
@@ -21,9 +24,9 @@ class Article < ActiveRecord::Base
   attr_accessor :new_edition_name
   before_save :create_edition_from_name
 
-def create_edition_from_name
-  create_edition(:name => new_edition_name) unless new_edition_name.blank?
-end
+  def create_edition_from_name
+    create_edition(:name => new_edition_name) unless new_edition_name.blank?
+  end
 
   RECOMENDED = { 1 => 'Recomended', 0 => '' }
   STICKY = { 1 => 'Sticky', 0 => '' }
