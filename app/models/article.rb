@@ -35,6 +35,9 @@ class Article < ActiveRecord::Base
   #   attr_accessible :locale
   # end
 
+  def self.in_edition(name)
+    Edition.find_by_name!(name).articles
+  end
 
   # methods to display authors and links to their articles
   #
@@ -51,8 +54,7 @@ class Article < ActiveRecord::Base
   end
 
   def self.author_counts
-  Author.select("authors.*, count(authorships.author_id) as count").
-    joins(:authorships).group("authorships.author_id")
+    Author.select("authors.*, count(authorships.author_id) as count").joins(:authorships).group("authorships.author_id")
   end
   #
   # end methods to have displayed authors and links to their articles
@@ -73,8 +75,7 @@ class Article < ActiveRecord::Base
   end
 
   def self.tag_counts
-    Tag.select("tags.*, count(taggings.tag_id) as count").
-      joins(:taggings).group("taggings.tag_id")
+    Tag.select("tags.*, count(taggings.tag_id) as count").joins(:taggings).group("taggings.tag_id")
   end
   #
   # end methods to have displayed authors and links to their articles

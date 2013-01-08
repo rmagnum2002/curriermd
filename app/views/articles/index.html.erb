@@ -37,7 +37,7 @@
     </h6>
 <!--     <div><small><strong>views: <%#= article.views %></strong></small></div> -->
     <span class="pull-right"><small><%= l article.created_at, :format => :long %></small></span>
-    <span class=""><small>Edition: <%= link_to article.edition.name if article.edition.present? %></small></span>
+    <span class=""><small>Edition: <%= link_to article.edition.name, articles_path(edition: article.edition.name) if article.edition.present? %></small></span>
 
   <% end %>
   <%= image_tag 'divider.gif', class: "article_divider" %>
