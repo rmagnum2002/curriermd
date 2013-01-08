@@ -11,6 +11,9 @@ ActiveAdmin.register Article do
     column "Cree a la date", :sortable => :created_at do |article|
       l article.created_at, :format => :long
     end
+    column "Edition", :sortable => :created_at do |article|
+      link_to article.edition.name, admin_edition_path(article.edition) if article.edition.present?
+    end
     column "Recommande", :sortable => :created_at do |article|
       Article::RECOMENDED[article.recomend]
     end

@@ -7,7 +7,7 @@
       <%= raw @article.author_list.map { |l| link_to l, author_path(l) }.join(', ') %>
     </small><br />
     <small>Tags: <%= raw @article.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></small>
-    <small>Edition: <%= link_to @article.edition.name, admin_edition_path(@article.edition) %></small><br />
+    <small>Edition: <%= link_to @article.edition.name, admin_edition_path(@article.edition) if @article.edition.present? %></small><br />
   </div>
 
   <div class="span8">

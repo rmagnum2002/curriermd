@@ -2,7 +2,7 @@ class Article < ActiveRecord::Base
   attr_accessible :author_id, :category_id, :content, :preview, :title, :author_list, :tag_tokens,
                   :tag_list, :avatar, :avatar_cache, :remove_avatar, :author_ids, :author_tokens, :tag_ids,
                   :recomend, :sticky, :edition_id, :new_edition_name
-  acts_as_taggable
+  # acts_as_taggable
 
   scope :year, lambda{|year|
     where(" EXTRACT(YEAR FROM created_at) = ? ", year ) if year.present?

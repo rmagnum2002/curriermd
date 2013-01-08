@@ -13,7 +13,8 @@
 <body>
   <div class="container site">
     <div class="page-header">
-      <div class="span3 muted pull-right">"En partenariat avec <a href="http://www.francophonie.org/" target ="_blank">l'Organisation Internationale de la Francophonie"</a>.</div>
+      <div class="span3 muted pull-right">"Avec l'appui
+financier de <a href="http://www.francophonie.org/" target ="_blank">l'OIF"</a>.</div>
       <!-- <div class="logotitle">Courier de Moldavie</div> -->
       <div id="logo">
         <div><%= image_tag 'logo.png', size: "400x70" %></div>
@@ -72,16 +73,19 @@
       </div>
       <div class="span6 articles">
         <%= yield %>
+        <%= image_tag 'divider.gif', class: "article_divider" %>
         <div class="tag_cloud">
           <h5>Voyez articles par:</h5>
           <% author_cloud Article.author_counts, %w[s m l] do |author, css_class| %>
             <%= link_to author.name, author_path(author.name), class: css_class %>
           <% end %>
         </div>
-
+        <%= image_tag 'divider.gif', class: "article_divider" %>
       </div>
       <div class="span3">
         <!-- <div class=""><%#= raw(lang_links) %></div> -->
+        <div class="">La dernière édition de notre journal <br><%= link_to Edition.last.name %></div>
+        <%= image_tag 'divider.gif', class: "article_divider" %>
         <% if sticky_article.present? %>
           <h5><%= sticky_article.title %></h5>
           <span class="sticky pull-left">
@@ -92,14 +96,14 @@
           <small><%= sanitize truncate(sticky_article.content, omision: "...", length: 1200), :tags => %w(h) %></small>
           <small><%= link_to "lire la suite", article_path(sticky_article) %></small>
         <% end %>
-        <div class="page-header"></div>
+        <%= image_tag 'divider.gif', class: "article_divider" %>
         <div class="tag_cloud">
           <h4>Étiquettes:</h4>
           <% tag_cloud Article.tag_counts, %w[s m l] do |tag, css_class| %>
             <%= link_to tag.name, tag_path(tag.name), class: css_class %>
           <% end %>
         </div>
-        <div class="page-header"></div>
+        <%= image_tag 'divider.gif', class: "article_divider" %>
         <h4>Les plus vues</h4>
         <ul>
           <% for article in most_viewed_articles %>
@@ -109,6 +113,7 @@
           </li>
           <% end %>
         </ul>
+        <%= image_tag 'divider.gif', class: "article_divider" %>
       </div>
     </div>
     <div class="page-header"></div>

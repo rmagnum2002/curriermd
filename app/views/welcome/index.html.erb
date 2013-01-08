@@ -27,26 +27,25 @@
 </div>
 <div class="page-header"></div>
 <h4>Articles recommandé</h4>
-<div class="row-fluid">
+<div class="row">
   <% if @recomends.present? %>
+  <div class="span6">
   <ul class="thumbnails">
     <% for art in @recomends %>
-    <li class="span4">
+    <li class="span2">
       <div class="thumbnail">
           <% if art.avatar.present? %>
-            <%= link_to image_tag(art.avatar.url(:thumb), size: "170x130"), article_path(art) %>
+            <%= link_to image_tag(art.avatar.url(:thumb)), article_path(art) %>
           <% else %>
             <%= link_to image_tag "nophoto.png" %>
-          <% end %>
-        <div class="caption">
-          <h5><%= truncate(art.title, omision: "...", length: 50) %></h5>
-          <p><%= link_to "Lire la suite" %>
-            </p>
-        </div>
+          <% end %><br>
+          <small><%= truncate(art.title, omision: "...", length: 50) %></small><br>
+          <small><%= link_to "Lire la suite", art %></small>
       </div>
     </li>
     <% end %>
   </ul>
+  </div>
   <% else %>
     <h5>Il n'y a pas encore d'articles recommandés</h5>
   <% end %>

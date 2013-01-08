@@ -33,10 +33,11 @@
       <div class="span4"></div>
     </div>
     <h6>
-      Étiquettes:: <%= raw article.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
+      Étiquettes: <%= raw article.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
     </h6>
 <!--     <div><small><strong>views: <%#= article.views %></strong></small></div> -->
     <span class="pull-right"><small><%= l article.created_at, :format => :long %></small></span>
+    <span class=""><small>Edition: <%= link_to article.edition.name if article.edition.present? %></small></span>
 
   <% end %>
   <%= image_tag 'divider.gif', class: "article_divider" %>
