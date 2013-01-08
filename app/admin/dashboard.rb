@@ -12,6 +12,7 @@ ActiveAdmin.register_page "Dashboard" do
 
     # Here is an example of a simple dashboard with columns and panels.
   @articles =  Article.order('created_at desc').limit(5)
+  @most_viewed = Article.order('views desc').limit(5)
 
     columns do
       column do
@@ -23,23 +24,26 @@ ActiveAdmin.register_page "Dashboard" do
             column "Auteur" do |article|
               raw article.author_list.map { |t| link_to t, admin_author_path(t) }.join(', ')
             end
-          end
-        end
-      end
-      column do
-        panel "Recent Articles" do
-          ul do
-            Article.order('created_at desc').limit(5).map do |article|
-              li link_to(article.title, admin_article_path(article))
+            column "Cree a" do |article|
+              l article.created_at
             end
           end
         end
       end
       column do
-        panel "Recent Articles" do
-          ul do
-            Article.order('created_at desc').limit(5).map do |article|
-              li link_to(article.title, admin_article_path(article))
+        panel "Les plus vues" do
+          table_for @most_viewed do
+            column "Titre" do |article|
+              link_to(article.title, admin_article_path(article))
+            end
+            column "Clics" do |article|
+              article.views
+            end
+            column "Auteur" do |article|
+              raw article.author_list.map { |t| link_to t, admin_author_path(t) }.join(', ')
+            end
+            column "Cree a" do |article|
+              l article.created_at
             end
           end
         end
