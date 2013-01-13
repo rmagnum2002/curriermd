@@ -37,8 +37,7 @@
 <!--     <strong><%#= raw @article.preview %></strong> -->
   </div>
   <div class="span6">
-    <%= link_to("Previous Post", @article.previous_article) if @article.previous_article %>
-    <%= link_to("Next Post", @article.next_article) if @article.next_article %>
+    <%= render 'next_prev_links' %>
     <%= raw @article.content %>
     <%= link_to 'Retour', articles_path %>
   </div>

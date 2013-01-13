@@ -1,0 +1,14 @@
+<% if @article.previous_article %>
+  <a href="/articles/<%= @article.previous_article.slug %>" id="prev_art">
+    <b class="arrow"></b>
+    <span>Article précédent</span>
+    <strong><%= @article.previous_article.title %></strong>
+  </a>
+<% end %>
+<% if @article.next_article %>
+  <a href="/articles/<%= @article.next_article.slug %>" id="next_art">
+    <b class="arrow"></b>
+    <span>Article suivant</span>
+    <strong><%= @article.next_article.title %></strong>
+  </a>
+<% end %>
