@@ -25,7 +25,8 @@ class Article < ActiveRecord::Base
   before_save :create_edition_from_name
 
   def create_edition_from_name
-    create_edition(:name => new_edition_name) unless new_edition_name.blank?
+    # create_edition(name: new_edition_name) unless new_edition_name.blank?
+    Edition.find_or_create_by_name(name: new_edition_name) unless new_edition_name.blank?
   end
 
   RECOMENDED = { 1 => 'Recomended', 0 => '' }
@@ -81,4 +82,12 @@ class Article < ActiveRecord::Base
   # end methods to have displayed authors and links to their articles
 
   mount_uploader :avatar, ArticleAvatarUploader
+
+  def previous_article
+    self.class.first(:conditions => ["created_at < ?", created_at], :order => "created_at desc")
+  end
+
+  def next_article
+    self.class.first(:conditions => ["created_at > ?", created_at], :order => "created_at asc")
+  end
 end
