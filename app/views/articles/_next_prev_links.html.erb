@@ -8,7 +8,7 @@
 <% if @article.next_article %>
   <a href="/articles/<%= @article.next_article.slug %>" id="next_art">
     <b class="arrow"></b>
-    <span>Article suivant</span>
     <strong><%= @article.next_article.title %></strong>
+    <span>Article suivant</span>
   </a>
 <% end %>
