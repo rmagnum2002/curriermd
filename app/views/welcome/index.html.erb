@@ -37,7 +37,7 @@
           <% if art.avatar.present? %>
             <%= link_to image_tag(art.avatar.url(:thumb)), article_path(art) %>
           <% else %>
-            <%= link_to(image_tag "nophoto.png"), article_path(art) %>
+            <%= link_to image_tag("nophoto.png"), article_path(art) %>
           <% end %><br>
           <small><%= truncate(art.title, omision: "...", length: 50) %></small><br>
           <small><%= link_to "Lire la suite", art %></small>
