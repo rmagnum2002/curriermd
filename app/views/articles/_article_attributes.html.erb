@@ -1,5 +1,5 @@
 <small><%= l @article.published_at, :format => :long %> |
-  Autor:
+  Auteur:
   <%= raw @article.author_list.map { |l| link_to l, author_path(l) }.join(', ') %>
 </small><br />
 <% if @article.tag_list.present? %>
