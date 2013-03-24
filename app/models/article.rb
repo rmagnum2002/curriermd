@@ -8,9 +8,6 @@ class Article < ActiveRecord::Base
     where(" EXTRACT(YEAR FROM published_at) = ? ", year ) if year.present?
   }
 
-  scope :edition, lambda{|edition|
-    where(" EXTRACT(YEAR FROM edition_at) = ? ", year ) if edition.present?
-  }
   # translates :title, :content, :preview
   extend FriendlyId
   friendly_id :title, use: :slugged
