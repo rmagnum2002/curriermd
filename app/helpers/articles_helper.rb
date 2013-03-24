@@ -4,7 +4,7 @@ module ArticlesHelper
   end
 
   def latest_articles
-    Article.order('created_at desc').limit(3).offset(5)
+    Article.order('published_at desc').limit(3).offset(5)
   end
 
   def most_viewed_articles
@@ -12,6 +12,6 @@ module ArticlesHelper
   end
 
   def articles_by_years
-    Article.uniq.pluck("EXTRACT(YEAR FROM created_at)")
+    Article.uniq.pluck("EXTRACT(YEAR FROM published_at)")
   end
 end

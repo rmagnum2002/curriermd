@@ -1,11 +1,11 @@
 class Article < ActiveRecord::Base
   attr_accessible :author_id, :category_id, :content, :preview, :title, :author_list, :tag_tokens,
                   :tag_list, :avatar, :avatar_cache, :remove_avatar, :author_ids, :author_tokens, :tag_ids,
-                  :recomend, :sticky, :edition_id, :new_edition_name
+                  :recomend, :sticky, :edition_id, :new_edition_name, :published_at
   # acts_as_taggable
 
   scope :year, lambda{|year|
-    where(" EXTRACT(YEAR FROM created_at) = ? ", year ) if year.present?
+    where(" EXTRACT(YEAR FROM published_at) = ? ", year ) if year.present?
   }
 
   scope :edition, lambda{|edition|
@@ -84,10 +84,10 @@ class Article < ActiveRecord::Base
   mount_uploader :avatar, ArticleAvatarUploader
 
   def previous_article
-    self.class.first(:conditions => ["created_at < ?", created_at], :order => "created_at desc")
+    self.class.first(:conditions => ["published_at < ?", published_at], :order => "published_at desc")
   end
 
   def next_article
-    self.class.first(:conditions => ["created_at > ?", created_at], :order => "created_at asc")
+    self.class.first(:conditions => ["published_at > ?", published_at], :order => "published_at asc")
   end
 end

@@ -4,17 +4,17 @@ class ArticlesController < InheritedResources::Base
     @class_articles = true
     @search = Article.search(params[:search])
     if params[:search]
-      @articles = @search.order('created_at desc').paginate(:page => params[:page], :per_page => 5)
+      @articles = @search.order('published_at desc').paginate(:page => params[:page], :per_page => 5)
     elsif params[:tag]
-       @articles = Article.tagged_with(params[:tag]).order('created_at desc').paginate(:page => params[:page], :per_page => 5)
+       @articles = Article.tagged_with(params[:tag]).order('published_at desc').paginate(:page => params[:page], :per_page => 5)
     elsif params[:author]
-      @articles = Article.authored_with(params[:author]).order('created_at desc').paginate(:page => params[:page], :per_page => 5)
+      @articles = Article.authored_with(params[:author]).order('published_at desc').paginate(:page => params[:page], :per_page => 5)
     elsif params[:year]
-      @articles = Article.year(params[:year]).order('created_at desc').paginate(:page => params[:page], :per_page => 5)
+      @articles = Article.year(params[:year]).order('published_at desc').paginate(:page => params[:page], :per_page => 5)
     elsif params[:edition]
-      @articles = Article.in_edition(params[:edition]).order('created_at desc').paginate(:page => params[:page], :per_page => 5)
+      @articles = Article.in_edition(params[:edition]).order('published_at desc').paginate(:page => params[:page], :per_page => 5)
     else
-      @articles = Article.order('created_at desc').paginate(:page => params[:page], :per_page => 5)
+      @articles = Article.order('published_at desc').paginate(:page => params[:page], :per_page => 5)
     end
 
     respond_to do |format|
@@ -39,24 +39,24 @@ class ArticlesController < InheritedResources::Base
     redirect_to root_path, notice: "Sorry, the page you are looking for doesn't exists"
   end
 
-  def update
-    @art = Article.where(sticky: true).first
-    if @art.present?
-      @art.sticky = 0
-      @art.save
-    end
-    @article = Article.find(params[:id])
+  # def update
+  #   @art = Article.where(sticky: true).first
+  #   if @art.present?
+  #     @art.sticky = 0
+  #     @art.save
+  #   end
+  #   @article = Article.find(params[:id])
 
-    respond_to do |format|
-      if @article.update_attributes(params[:article])
-        format.html { redirect_to admin_article_path(@article), notice: 'Article was successfully updated.' }
-        format.json { head :ok }
-      else
-        format.html { render action: "edit" }
-        format.json { render json: @article.errors, status: :unprocessable_entity }
-      end
-    end
-  end
+  #   respond_to do |format|
+  #     if @article.update_attributes(params[:article])
+  #       format.html { redirect_to admin_article_path(@article), notice: 'Article was successfully updated.' }
+  #       format.json { head :ok }
+  #     else
+  #       format.html { render action: "edit" }
+  #       format.json { render json: @article.errors, status: :unprocessable_entity }
+  #     end
+  #   end
+  # end
 
   def new
     redirect_to root_path, notice: "Sorry, the page you are looking for doesn't exists"

@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130107084954) do
+ActiveRecord::Schema.define(:version => 20130323214344) do
 
   create_table "abouts", :force => true do |t|
     t.text     "details"
@@ -58,14 +58,15 @@ ActiveRecord::Schema.define(:version => 20130107084954) do
     t.text     "content"
     t.integer  "author_id"
     t.integer  "category_id"
-    t.datetime "created_at",                 :null => false
-    t.datetime "updated_at",                 :null => false
+    t.datetime "created_at",                  :null => false
+    t.datetime "updated_at",                  :null => false
     t.string   "avatar"
-    t.integer  "views",       :default => 0
+    t.integer  "views",        :default => 0
     t.integer  "recomend"
     t.integer  "sticky"
     t.string   "slug"
     t.integer  "edition_id"
+    t.datetime "published_at"
   end
 
   create_table "authors", :force => true do |t|
