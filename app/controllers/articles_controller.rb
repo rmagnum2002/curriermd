@@ -12,6 +12,8 @@ class ArticlesController < InheritedResources::Base
     elsif params[:year]
       @articles = Article.year(params[:year]).order('published_at desc').paginate(:page => params[:page], :per_page => 5)
     elsif params[:edition]
+      @articles = Article.where(edition_id: params[:edition]).order('published_at desc').paginate(:page => params[:page], :per_page => 5)
+    elsif params[:edition]
       @articles = Article.in_edition(params[:edition]).order('published_at desc').paginate(:page => params[:page], :per_page => 5)
     else
       @articles = Article.order('published_at desc').paginate(:page => params[:page], :per_page => 5)

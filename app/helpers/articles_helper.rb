@@ -14,4 +14,8 @@ module ArticlesHelper
   def articles_by_years
     Article.uniq.pluck("EXTRACT(YEAR FROM published_at)")
   end
+
+  def articles_by_edition
+    Edition.uniq
+  end
 end

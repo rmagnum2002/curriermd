@@ -1,5 +1,4 @@
 ActiveAdmin.register Edition do
-actions :all, :except => [:destroy, :new]
 
   index do
     selectable_column
