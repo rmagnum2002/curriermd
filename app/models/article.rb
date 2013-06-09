@@ -34,7 +34,7 @@ class Article < ActiveRecord::Base
   # end
 
   def self.in_edition(name)
-    Edition.where('name = ?', name).articles
+    Edition.find_by_name(name).articles
   end
 
   # methods to display authors and links to their articles
