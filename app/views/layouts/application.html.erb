@@ -85,7 +85,7 @@ financier de <a href="http://www.francophonie.org/" target ="_blank">l'OIF"</a>.
       <div class="span3">
         <!-- <div class=""><%#= raw(lang_links) %></div> -->
         <div class="">La dernière édition de notre journal <br>
-          <%= link_to Edition.last.name, articles_path(edition: Edition.last.name) %>
+          <%= link_to Edition.last.name, edition_path(Edition.last.name) %>
           articles <%= Edition.last.articles.count %>
         </div>
         <%= image_tag 'divider.gif', class: "article_divider" %>

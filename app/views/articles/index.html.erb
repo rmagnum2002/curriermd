@@ -16,7 +16,7 @@
       <b class="caret"></b></a>
     <ul id="menu2" class="dropdown-menu" role="menu" aria-labelledby="drop5">
       <% for edition in articles_by_edition do %>
-        <li><%= link_to edition.name, articles_path(edition: edition.name) %></li>
+        <li><%= link_to edition.name, edition_path(edition.name) %></li>
       <% end %>
     </ul>
   </span>
