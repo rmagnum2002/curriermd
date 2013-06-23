@@ -41,7 +41,7 @@ class WelcomeController < ApplicationController
   end
 
   def all_editions
-    @editions = Edition.order("year desc")
+    @editions = Edition.order("year desc").order("number desc")
     respond_to do |format|
       format.html {redirect_to :back}
       format.js
