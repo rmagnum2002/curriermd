@@ -29,7 +29,7 @@
         <%= f.collection_select :edition_id, Edition.find(:all), :id, :name, :prompt => "Choisissez une édition", :include_blank => true %>
         <br><br>
         <label>Date de publication</label>
-        <%= f.datetime_select :published_at %>
+        <%= f.datetime_select :published_at, :start_year => 2000 %>
       </div>
       <div class="span8">
         <div class="field">
