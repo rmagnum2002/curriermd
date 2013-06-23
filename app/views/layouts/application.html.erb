@@ -83,22 +83,31 @@ financier de <a href="http://www.francophonie.org/" target ="_blank">l'OIF"</a>.
         <%= image_tag 'divider.gif', class: "article_divider" %>
       </div>
       <div class="span3">
+        <div>
+          <b>Trier les articles par:</b>
+            <%= link_to 'editions', all_editions_path, remote: true %> ou
+            <%= link_to 'année', articles_by_years_path, remote: true %>
+        </div>
+        <div class="sort_articles"></div>
+        <%= image_tag 'divider.gif', class: "article_divider" %>
         <!-- <div class=""><%#= raw(lang_links) %></div> -->
         <div class="">La dernière édition de notre journal <br>
-          <%= link_to Edition.last.name, edition_path(Edition.last.name) %>
-          articles <%= Edition.last.articles.count %>
+          <%= link_to last_edition.name, edition_path(last_edition.name) %>
+          articles <%= last_edition.articles.count %>
         </div>
         <%= image_tag 'divider.gif', class: "article_divider" %>
-        <% if sticky_article.present? %>
-          <h5><%= sticky_article.title %></h5>
-          <span class="sticky pull-left">
-            <% if sticky_article.avatar.present? %>
+        <div class="sticky_container">
+          <% if sticky_article.present? %>
+            <h5><%= sticky_article.title %></h5>
+            <span class="sticky pull-left">
+              <% if sticky_article.avatar.present? %>
               <%= image_tag sticky_article.avatar.url(:thumb), size: "100x100" %>
-            <% end %>
-          </span>
-          <small><%= sanitize truncate(sticky_article.content, omision: "...", length: 1200), :tags => %w(h) %></small>
-          <small><%= link_to "lire la suite", article_path(sticky_article) %></small>
-        <% end %>
+              <% end %>
+            </span>
+            <small><%= sanitize truncate(sticky_article.content, omision: "...", length: 1200), :tags => %w(h) %></small>
+            <small><%= link_to "lire la suite", article_path(sticky_article) %></small>
+          <% end %>
+        </div>
         <%= image_tag 'divider.gif', class: "article_divider" %>
         <div class="tag_cloud">
           <h4>Étiquettes:</h4>

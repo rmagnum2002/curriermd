@@ -11,11 +11,11 @@ module ArticlesHelper
     Article.order('views desc').limit(3)
   end
 
-  def articles_by_years
-    Article.uniq.pluck("EXTRACT(YEAR FROM published_at)")
-  end
-
   def articles_by_edition
     Edition.uniq
+  end
+
+  def last_edition
+    edition = Edition.order("year desc").limit(1).first
   end
 end

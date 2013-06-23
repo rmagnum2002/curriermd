@@ -25,6 +25,8 @@ Particip::Application.routes.draw do
   match 'participate' => 'welcome#participate'
   match 'membres' => 'welcome#membres'
   match 'set_locale' => 'welcome#set_locale'
+  match 'all_editions' => 'welcome#all_editions'
+  match 'articles_by_years' => 'welcome#articles_by_years'
 
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase

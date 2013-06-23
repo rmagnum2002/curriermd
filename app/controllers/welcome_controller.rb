@@ -28,6 +28,7 @@ class WelcomeController < ApplicationController
     @about = About.first
   end
 
+
   def contact
     @class_contact = true
     @search = Article.search(params[:search])
@@ -37,6 +38,23 @@ class WelcomeController < ApplicationController
     @class_membres = true
     @search = Article.search(params[:search])
     @membre = Member.first
+  end
+
+  def all_editions
+    @editions = Edition.order("year desc")
+    respond_to do |format|
+      format.html {redirect_to :back}
+      format.js
+    end
+  end
+
+  def articles_by_years
+    @articles = Article.uniq.pluck("EXTRACT(YEAR FROM published_at)")
+
+    respond_to do |format|
+      format.html {redirect_to :back}
+      format.js
+    end
   end
 
   def feedback

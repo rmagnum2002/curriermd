@@ -1,0 +1,5 @@
+<ul class="nav nav-list">
+  <% for art in @articles do %>
+  <li><%= link_to art, articles_path(year: art) %></li>
+  <% end %>
+</ul>
