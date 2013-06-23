@@ -49,7 +49,7 @@ class WelcomeController < ApplicationController
   end
 
   def articles_by_years
-    @articles = Article.uniq.pluck("EXTRACT(YEAR FROM published_at)")
+    @articles = Article.order("published_at desc").uniq.pluck("EXTRACT(YEAR FROM published_at)")
 
     respond_to do |format|
       format.html {redirect_to :back}
