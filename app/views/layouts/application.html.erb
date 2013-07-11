@@ -91,11 +91,11 @@ financier de <a href="http://www.francophonie.org/" target ="_blank">l'OIF"</a>.
         <div class="sort_articles"></div>
         <%= image_tag 'divider.gif', class: "article_divider" %>
         <!-- <div class=""><%#= raw(lang_links) %></div> -->
-        <div class="">La dernière édition de notre journal <br>
-          <%= link_to last_edition.name, edition_path(last_edition.name) %>
-          articles <%= last_edition.articles.count %>
-        </div>
-        <%= image_tag 'divider.gif', class: "article_divider" %>
+        <!-- <div class="">La dernière édition de notre journal <br>
+          <%#= link_to last_edition.name, edition_path(last_edition.name) %>
+          articles <%#= last_edition.articles.count %>
+        </div> -->
+        <%#= image_tag 'divider.gif', class: "article_divider" %>
         <div class="sticky_container">
           <% if sticky_article.present? %>
             <h5><%= sticky_article.title %></h5>
