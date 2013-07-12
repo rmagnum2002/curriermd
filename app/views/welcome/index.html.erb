@@ -39,7 +39,7 @@
           <% else %>
             <%= link_to image_tag("nophoto.png"), article_path(art) %>
           <% end %><br>
-          <small><%= truncate(art.title, omision: "...", length: 50) %></small><br>
+          <small><b><%= truncate(art.title, omision: "...", length: 50) %></b></small><br>
           <small><%= link_to "Lire la suite", art %></small>
       </div>
     </li>
