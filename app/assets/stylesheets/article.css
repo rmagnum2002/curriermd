@@ -204,3 +204,19 @@ form .field label{font-size: 14px; font-weight: bold;}
 #prev_art:hover{ background-color:rgba(51, 51, 51, 0.75);}
 #prev_art:hover .arrow{border-right-color:rgba(51, 51, 51, 0.75);}
 #prev_art:hover strong {display:inline-block;  border-left:1px solid #CCC; }
+.justify{
+  text-align: justify;
+}
+.newspaper{
+  padding: 0 35px 0 15px;
+  -moz-column-count:2; /* Firefox */
+  -webkit-column-count:2; /* Safari and Chrome */
+  column-count:2;
+  -moz-column-gap:40px; /* Firefox */
+  -webkit-column-gap:40px; /* Safari and Chrome */
+  column-gap:40px;
+}
+.avatar{
+  margin: 0 5px 0 0;
+  float: left;
+}

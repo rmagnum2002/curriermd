@@ -18,7 +18,8 @@ class WelcomeController < ApplicationController
   def index
     @class_home = true
     @search = Article.search(params[:search])
-    @main_articles = Article.order('published_at desc').limit(5)
+    @last_edition_articles = Edition.last.articles.order('published_at desc').limit(3)
+    # @main_articles = Article.order('published_at desc').limit(5)
     @recomends = Article.where(recomend: true).order('published_at desc').limit(6)
   end
 

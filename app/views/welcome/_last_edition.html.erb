@@ -1,0 +1,21 @@
+<% if @last_edition_articles.any? %>
+  <h4>Notre dernière édition <%= Edition.last.name %>, <%= link_to "#{Edition.last.articles.count} articles", articles_path(edition: Edition.last.name) %>  dans cette édition.</h4>
+  <hr>
+  <% @last_edition_articles.each do |article| %>
+    <div class="title">
+      <h4><%= article.title %><small>  auteurs: <%= raw article.author_list.map { |l| link_to l, author_path(l) }.join(', ') %></small></h4>
+    </div>
+    <div class="newspaper justify">
+      <% if article.avatar.present? %>
+        <div class="avatar"><%= image_tag article.avatar.url(:thumb), size: "100x100" %></div>
+      <% end %>
+      <%= sanitize truncate(article.content, omision: "...", length: 1000), :tags => %w(h) %>  <%= link_to 'Continuer', article %>
+      <hr>
+      <h5><small>publié à <%= l article.published_at, :format => :long %></small></h5>
+      <h5><small>étiquettes: <%= raw article.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></small></h5>
+      <h5><small>édition: <%= link_to article.edition.name, articles_path(edition: article.edition.name) if article.edition.present? %></small></h5>
+    </div>
+    <hr>
+  <% end %>
+<% end %>
+<center><%= link_to "Tous les articles de édition #{Edition.last.name}", articles_path(edition: Edition.last.name) %></center>

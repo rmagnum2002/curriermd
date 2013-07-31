@@ -1,51 +1,14 @@
 <div class="row">
-  <div class="span6">
-  <% if @main_articles.present? %>
-    <div id="myCarousel" class="carousel slide">
-      <!-- Carousel items -->
-      <div class="carousel-inner">
-        <% @main_articles.each_with_index do |art, index| %>
-          <div class="item <% if index == 0 %>active<% end %>">
-            <% if art.avatar.present? %>
-              <%= image_tag art.avatar.url(:slide) if !nil %>
-            <% else %>
-              <%= image_tag "nophoto_slider.png" %>
-            <% end %>
-            <div class="carousel-caption">
-              <h4 class="sliderLink"><%= link_to (art.title), art if !nil %></h4>
-              <p>auteur: <%= raw art.author_list.map { |t| link_to t, author_path(t) }.join(', ') %></p>
-            </div>
-          </div>
-        <% end %>
-      </div>
-      <!-- Carousel nav -->
-      <a class="carousel-control left" href="#myCarousel" data-slide="prev">&lsaquo;</a>
-      <a class="carousel-control right" href="#myCarousel" data-slide="next">&rsaquo;</a>
-    </div>
-  <% end %>
+  <div class="span7">
+    <%#= render 'slider' %>
+    <%= render 'last_edition' %>
   </div>
 </div>
 <div class="page-header"></div>
 <h4>Articles recommandé</h4>
 <div class="row">
   <% if @recomends.present? %>
-  <div class="span6">
-  <ul class="thumbnails">
-    <% for art in @recomends %>
-    <li class="span2">
-      <div class="thumbnail">
-          <% if art.avatar.present? %>
-            <%= link_to image_tag(art.avatar.url(:thumb)), article_path(art) %>
-          <% else %>
-            <%= link_to image_tag("nophoto.png"), article_path(art) %>
-          <% end %><br>
-          <small><b><%= link_to truncate(art.title, omision: "...", length: 50), art %></b></small><br>
-          <!-- <small><%#= link_to "Lire la suite", art %></small> -->
-      </div>
-    </li>
-    <% end %>
-  </ul>
-  </div>
+    <%= render 'recommended' %>
   <% else %>
     <h5>Il n'y a pas encore d'articles recommandés</h5>
   <% end %>
