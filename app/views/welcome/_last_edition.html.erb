@@ -18,4 +18,4 @@
     <hr>
   <% end %>
 <% end %>
-<center><%= link_to "Tous les articles de édition #{Edition.last.name}", articles_path(edition: Edition.last.name) %></center>
+<center><%= link_to "Tous les articles de édition #{Edition.last.name}", articles_path(edition: Edition.last.name) if Edition.last.articles.count > 3 %></center>
