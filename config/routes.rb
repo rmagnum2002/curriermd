@@ -21,7 +21,7 @@ Particip::Application.routes.draw do
   # Keep in mind you can assign values other than :controller and :action
 
   match 'contact' => 'welcome#contact'
-  match 'about' => 'welcome#about'
+  match 'a_propos_de_nous' => 'welcome#about'
   match 'participate' => 'welcome#participate'
   match 'membres' => 'welcome#membres'
   match 'set_locale' => 'welcome#set_locale'
