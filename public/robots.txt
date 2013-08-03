@@ -1,5 +1,8 @@
-# See http://www.robotstxt.org/wc/norobots.html for documentation on how to use the robots.txt file
-#
-# To ban all spiders from the entire site uncomment the next two lines:
-# User-Agent: *
-# Disallow: /
+User-Agent: *
+Disallow:
+Allow: /articles
+Allow: /membres
+Allow: /a_propos_de_nous
+Allow: /contact
+
+Sitemap: http://courrier.md/sitemap.xml.gz
