@@ -15,13 +15,15 @@ SitemapGenerator::Sitemap.create do
   #
   # Examples:
   #
-  # Add '/articles'
-  #
-  #   add articles_path, :priority => 0.7, :changefreq => 'daily'
+  # add '/articles'
+  add articles_path, priority: 0.10, changefreq: 'monthly'
+  add a_propos_de_nous_path, priority: 0.9, changefreq: 'yearly'
+  add contact_path, priority: 0.8, changefreq: 'yearly'
+  add membres_path, priority: 0.7, changefreq: 'yearly'
   #
   # Add all articles:
   #
-  #   Article.find_each do |article|
-  #     add article_path(article), :lastmod => article.updated_at
-  #   end
+  Article.find_each do |article|
+    add article_path(article), lastmod: article.updated_at, priority: 0.6, changefreq: 'monthly'
+  end
 end
