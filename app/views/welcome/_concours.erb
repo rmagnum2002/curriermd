@@ -1,0 +1,12 @@
+<h4>Concours</h4>
+<div class="title">
+  <h4><%= @concours.title %></h4>
+</div>
+<div class="newspaper justify">
+  <% if @concours.avatar.present? %>
+  <div class="avatar"><%= image_tag @concours.avatar.url(:thumb), size: "100x100" %></div>
+  <% end %>
+  <%= sanitize truncate(@concours.content, omision: "...", length: 2500), :tags => %w(h) %>  <%= link_to 'Continuer', @concours %>
+</div>
+<br>
+<hr>
