@@ -70,7 +70,11 @@ financier de <a href="http://www.francophonie.org/" target ="_blank">l'OIF"</a>.
           <%#= link_to last_edition.name, edition_path(last_edition.name) %>
           articles <%#= last_edition.articles.count %>
         </div> -->
-        <%#= image_tag 'divider.gif', class: "article_divider" %>
+        <% if Article.contest.any? %>
+          <h4>Concours:</h4>
+          <%= link_to Article.contest.last.title, show_contest_path(Article.contest.last) %>
+          <%= image_tag 'divider.gif', class: "article_divider" %>
+        <% end %>
         <div class="sticky_container">
           <% if sticky_article.present? %>
             <h5><%= sticky_article.title %></h5>

@@ -1,13 +1,15 @@
 class Article < ActiveRecord::Base
   attr_accessible :author_id, :category_id, :content, :preview, :title, :author_list, :tag_tokens,
                   :tag_list, :avatar, :avatar_cache, :remove_avatar, :author_ids, :author_tokens, :tag_ids,
-                  :recomend, :sticky, :edition_id, :new_edition_name, :published_at
+                  :recomend, :sticky, :edition_id, :new_edition_name, :published_at, :is_contest
   # acts_as_taggable
 
   scope :year, lambda{|year|
     where(" EXTRACT(YEAR FROM published_at) = ? ", year ) if year.present?
   }
 
+  scope :contest, where(is_contest: true)
+  scope :not_contest, where(is_contest: false)
   # translates :title, :content, :preview
   extend FriendlyId
   friendly_id :title, use: :slugged

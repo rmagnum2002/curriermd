@@ -27,6 +27,10 @@ class ApplicationController < ActionController::Base
     language
   end
 
+  def load_search_bar
+    @search = Article.search(params[:search])
+  end
+
 private
 
   def set_admin_locale

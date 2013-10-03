@@ -17,10 +17,10 @@ class WelcomeController < ApplicationController
 
   def index
     @class_home = true
-    @search = Article.search(params[:search])
+    @search = Article.not_contest.search(params[:search])
     @last_edition_articles = Edition.last.articles.order('published_at desc').limit(3)
     # @main_articles = Article.order('published_at desc').limit(5)
-    @recomends = Article.where(recomend: true).order('published_at desc').limit(6)
+    @recomends = Article.not_contest.where(recomend: true).order('published_at desc').limit(6)
   end
 
   def about
@@ -50,7 +50,7 @@ class WelcomeController < ApplicationController
   end
 
   def articles_by_years
-    @articles = Article.order("published_at desc").uniq.pluck("EXTRACT(YEAR FROM published_at)")
+    @articles = Article.not_contest.order("published_at desc").uniq.pluck("EXTRACT(YEAR FROM published_at)")
 
     respond_to do |format|
       format.html {redirect_to :back}

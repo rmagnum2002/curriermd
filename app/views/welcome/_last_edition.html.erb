@@ -1,7 +1,7 @@
 <% if @last_edition_articles.any? %>
-  <h4>Notre dernière édition <%= Edition.last.name %>, <%= link_to "#{Edition.last.articles.count} articles", articles_path(edition: Edition.last.name) %>  dans cette édition.</h4>
+  <h4>Notre dernière édition <%= Edition.last.name %>, <%= link_to "#{Edition.last.articles.not_contest.count} articles", articles_path(edition: Edition.last.name) %>  dans cette édition.</h4>
   <hr>
-  <% @last_edition_articles.each do |article| %>
+  <% @last_edition_articles.not_contest.each do |article| %>
     <div class="title">
       <h4><%= article.title %><small>  auteurs: <%= raw article.author_list.map { |l| link_to l, author_path(l) }.join(', ') %></small></h4>
     </div>
@@ -18,4 +18,4 @@
     <hr>
   <% end %>
 <% end %>
-<center><%= link_to "Tous les articles de édition #{Edition.last.name}", articles_path(edition: Edition.last.name) if Edition.last.articles.count > 3 %></center>
+<center><%= link_to "Tous les articles de édition #{Edition.last.name}", articles_path(edition: Edition.last.name) if Edition.last.articles.not_contest.count > 3 %></center>

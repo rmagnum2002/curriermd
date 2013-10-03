@@ -11,7 +11,7 @@
 #
 # It's strongly recommended to check this file into your version control system.
 
-ActiveRecord::Schema.define(:version => 20130623113112) do
+ActiveRecord::Schema.define(:version => 20131003110756) do
 
   create_table "abouts", :force => true do |t|
     t.text     "details"
@@ -58,8 +58,8 @@ ActiveRecord::Schema.define(:version => 20130623113112) do
     t.text     "content"
     t.integer  "author_id"
     t.integer  "category_id"
-    t.datetime "created_at",                  :null => false
-    t.datetime "updated_at",                  :null => false
+    t.datetime "created_at",                      :null => false
+    t.datetime "updated_at",                      :null => false
     t.string   "avatar"
     t.integer  "views",        :default => 0
     t.integer  "recomend"
@@ -67,6 +67,7 @@ ActiveRecord::Schema.define(:version => 20130623113112) do
     t.string   "slug"
     t.integer  "edition_id"
     t.datetime "published_at"
+    t.boolean  "is_contest",   :default => false
   end
 
   create_table "authors", :force => true do |t|

@@ -13,6 +13,7 @@ Particip::Application.routes.draw do
   get 'tags/:tag', to: 'articles#index', as: :tag
   get 'authors/:author', to: 'articles#index', as: :author
   get 'editions/:edition', to: 'articles#index', as: :edition
+  get 'concours/:id', to: 'articles#show', as: :show_contest
   # The priority is based upon order of creation:
   # first created -> highest priority.
 

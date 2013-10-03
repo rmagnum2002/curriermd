@@ -1,20 +1,20 @@
 class ArticlesController < InheritedResources::Base
+  before_filter :load_search_bar
 
   def index
-    @class_articles = true
-    @search = Article.search(params[:search])
     if params[:search]
       @articles = @search.order('published_at desc').paginate(:page => params[:page], :per_page => 5)
     elsif params[:tag]
-       @articles = Article.tagged_with(params[:tag]).order('published_at desc').paginate(:page => params[:page], :per_page => 5)
+      @articles = Article.tagged_with(params[:tag]).order('published_at desc').paginate(:page => params[:page], :per_page => 5)
     elsif params[:author]
       @articles = Article.authored_with(params[:author]).order('published_at desc').paginate(:page => params[:page], :per_page => 5)
     elsif params[:year]
-      @articles = Article.year(params[:year]).order('published_at desc').paginate(:page => params[:page], :per_page => 5)
+      @articles = Article.not_contest.year(params[:year]).order('published_at desc').paginate(:page => params[:page], :per_page => 5)
     elsif params[:edition]
-      @articles = Article.in_edition(params[:edition]).order('published_at desc').paginate(:page => params[:page], :per_page => 5)
+      @articles = Article.not_contest.in_edition(params[:edition]).order('published_at desc').paginate(:page => params[:page], :per_page => 5)
     else
-      @articles = Article.order('published_at desc').paginate(:page => params[:page], :per_page => 5)
+      @class_articles = true
+      @articles = Article.not_contest.order('published_at desc').paginate(:page => params[:page], :per_page => 5)
     end
 
     respond_to do |format|
@@ -24,7 +24,6 @@ class ArticlesController < InheritedResources::Base
   end
 
   def show
-    @search = Article.search(params[:search])
     @article = Article.find(params[:id])
     @article.increment!(:views, 1)
     @related_articles = Article.tagged_with(@article.tag_list).limit(4)

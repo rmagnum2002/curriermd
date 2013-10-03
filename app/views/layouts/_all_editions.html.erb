@@ -1,5 +1,5 @@
 <ul class="nav nav-list">
   <% for edition in @editions %>
-    <li><%= link_to "#{edition.name} - #{edition.articles.count} articles", edition_path(edition.name) %></li>
+    <li><%= link_to "#{edition.name} - #{edition.articles.not_contest.count} articles", edition_path(edition.name) %></li>
   <% end %>
 </ul>
