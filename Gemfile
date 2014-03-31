@@ -33,7 +33,7 @@ gem 'sitemap_generator'
 gem 'will_paginate', '~> 3.0'
 gem 'will_paginate-bootstrap'
 gem 'acts-as-taggable-on'
-gem "rmagick"
+# gem "rmagick"
 gem "carrierwave"
 
 gem "ckeditor", "3.7.3"
