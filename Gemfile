@@ -55,3 +55,8 @@ gem 'bcrypt-ruby', '~> 3.0.0'
 
 # To use debugger
 # gem 'debugger'
+
+gem 'capistrano', group: :development
+gem 'capistrano-rvm' #, '~> 0.0.3'
+gem 'capistrano-bundler'
+gem 'capistrano-rails'
