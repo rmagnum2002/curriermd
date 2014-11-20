@@ -18,7 +18,7 @@ class WelcomeController < ApplicationController
   def index
     @class_home = true
     @search = Article.not_contest.search(params[:search])
-    @last_edition_articles = Edition.last.articles.order('published_at desc').limit(3)
+    @last_edition_articles = Edition.order('year desc').order('number desc').first.articles.order('published_at desc').limit(3)
     # @main_articles = Article.order('published_at desc').limit(5)
     @recomends = Article.not_contest.where(recomend: true).order('published_at desc').limit(6)
     @concours = Article.contest.last
