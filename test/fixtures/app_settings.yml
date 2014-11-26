@@ -1,0 +1,9 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/Fixtures.html
+
+one:
+  display_contest: false
+  display_recommended_articles: false
+
+two:
+  display_contest: false
+  display_recommended_articles: false

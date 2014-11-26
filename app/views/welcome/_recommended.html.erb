@@ -3,12 +3,12 @@
     <% for art in @recomends %>
       <li>
         <div class="span2">
-            <% if art.avatar.present? %>
-              <%= link_to image_tag(art.avatar.url(:thumb), size: "100x100"), article_path(art) %>
-            <% else %>
-              <%= link_to (image_tag("nophoto.png", size: "100x100")), article_path(art) %>
-            <% end %><br>
-            <small><b><%= link_to truncate(art.title, omision: "...", length: 50), art %></b></small><br>
+          <% if art.avatar.present? %>
+            <%= link_to image_tag(art.avatar.url(:thumb), size: "100x100"), article_path(art) %>
+          <% else %>
+            <%= link_to (image_tag("nophoto.png", size: "100x100")), article_path(art) %>
+          <% end %><br>
+          <small><b><%= link_to truncate(art.title, omision: "...", length: 50), art %></b></small><br>
         </div>
       </li>
     <% end %>

@@ -12,9 +12,11 @@
         <%= link_to (image_tag article.avatar.url(:thumb)), article %>
       </div>
       <% end %>
-      <div class="<%= article.avatar.present? ? 'span4' : 'span6' %>">
-        <%= sanitize truncate(article.content, omision: "...", length: 700), :tags => %w(h) %><br />
-        <h6><%= link_to 'Lire la suite', article %></h6>
+      <div class="<%= article.avatar.present? ? 'span4' : 'span6' %>" style="text-align: justify;">
+        <%#= sanitize truncate(article.content, omision: "...", length: 700), :tags => %w(h) %>
+        <%= (ActionView::Base.full_sanitizer.sanitize(article.content).truncate(700, omission: '...')).html_safe %>
+        <br />
+        <h6 style="text-align:right;"><%= link_to 'Lire la suite', article %></h6>
       </div>
       <div class="span4"></div>
     </div>

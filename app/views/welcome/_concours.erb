@@ -1,4 +1,3 @@
-<h4>Concours <small style="color:red;">enregistrer jusqu'à 5 novembre!</small></h4>
 <div class="title">
   <h4><%= @concours.title %></h4>
 </div>
@@ -6,7 +5,9 @@
   <% if @concours.avatar.present? %>
   <div class="avatar"><%= image_tag @concours.avatar.url(:thumb), size: "100x100" %></div>
   <% end %>
-  <%= sanitize truncate(@concours.content, omision: "...", length: 2500), :tags => %w(h) %>  <%= link_to 'Continuer', @concours %>
+  <%#= sanitize truncate(@concours.content, omision: "...", length: 2500), :tags => %w(h) %>
+  <%= (ActionView::Base.full_sanitizer.sanitize(@concours.content).truncate(1200, omission: '...')).html_safe %>
+  <div style="text-align:right;"><%= link_to 'Continuer', @concours %></div>
 </div>
 <br>
 <hr>

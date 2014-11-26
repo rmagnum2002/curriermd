@@ -3,6 +3,12 @@ class ApplicationController < ActionController::Base
 
   around_filter :catch_not_found
   before_filter :set_locale_filter
+  before_filter :load_settings
+
+
+  def load_settings
+    @settings = AppSetting.first_or_create
+  end
 
   def set_locale_filter
     if cookies[:lang] && LOCALES.keys.include?(cookies[:lang])

@@ -1,7 +1,7 @@
 <% title "Courrier de Moldavie - page d'accueil" %>
 <div class="row">
   <div class="span7">
-    <%#= render 'concours' %>
+    <%= render 'concours' if @settings.display_contest %>
   </div>
 </div>
 <div class="row">
@@ -9,6 +9,7 @@
     <%= render 'last_edition' %>
   </div>
 </div>
+<% if @settings.display_recommended_articles %>
 <div class="page-header"></div>
 <h4>Articles recommandé</h4>
 <div class="row">
@@ -18,3 +19,4 @@
     <h5>Il n'y a pas encore d'articles recommandés</h5>
   <% end %>
 </div>
+<% end %>

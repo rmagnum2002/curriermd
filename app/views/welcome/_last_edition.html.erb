@@ -9,7 +9,9 @@
       <% if article.avatar.present? %>
         <div class="avatar"><%= image_tag article.avatar.url(:thumb), size: "100x100" %></div>
       <% end %>
-      <%= sanitize truncate(article.content, omision: "...", length: 1000), :tags => %w(h) %>  <%= link_to 'Continuer', article %>
+      <%#= sanitize truncate(article.content, omision: "...", length: 1000), :tags => %w(h) %>
+      <%= (ActionView::Base.full_sanitizer.sanitize(article.content).truncate(1200, omission: '...')).html_safe %>
+      <div style="text-align:right;"><%= link_to 'Continuer', article %></div>
       <hr>
       <h5><small>publié à <%= l article.published_at, :format => :long %></small></h5>
       <h5><small>étiquettes: <%= raw article.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></small></h5>
