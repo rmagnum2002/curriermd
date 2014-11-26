@@ -9,7 +9,7 @@
 
   <meta property="og:title" content="<%= yield(:pagetitle) %>"/>
   <meta property="og:image" content="http://courrier.md/<%= asset_path 'logo.png' %>"/>
-  <meta property="og:url" content="http://courrier.md"/>
+  <meta property="og:url" content="<%= request.original_url %>"/>
   <meta property="og:description" content="Courrier de Moldavie, Bulletin de la section moldave de l’Union Internationale de la Presse Francophone, presse Francophone en Moldavie."/>
 
   <!--[if lt IE 9]>
