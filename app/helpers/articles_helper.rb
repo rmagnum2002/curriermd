@@ -18,4 +18,12 @@ module ArticlesHelper
   def last_edition
     edition = Edition.order("year desc").limit(1).first
   end
+
+  def og_image
+    if @article.present? && @article.avatar.present?
+      @article.avatar.url
+    else
+    "http://courrier.md/#{asset_path 'logo.png'}"
+    end
+  end
 end
