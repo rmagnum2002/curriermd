@@ -1,0 +1,38 @@
+<div class="slider-wrapper">
+  <div class="flexslider">
+    <ul class="slides">
+      <% @last_edition_articles.each do |article| %>
+      <li>
+        <a href="#" data-type="image">
+        <%= link_to article, data: {type: 'image'} do %>
+          <% if article.avatar.present? %>
+            <%= image_tag article.avatar.url(:slide) if !nil %>
+          <% else %>
+            <%= image_tag "nophoto_slider.png" %>
+          <% end %>
+        <% end %>
+        <div class="flex-caption">
+          <h1><a href="#"><%= article.title %></a></h1>
+          <p>Donec faucibus dictum ipsum vel laoreet. Sed convallis quam ut elit condimentum quis laoreet tortor iplacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam non consectetur leo. Phasellus insap tempus ipsum. Donec metus dui, fermentuvolutpat, commodo et libero.</p>
+        </div>
+      </li>
+      <% end %>
+    </ul>
+  </div>
+
+  <div id="slider-item-0" class="slider-post-info">
+    <span class="date">21 Dec 12:15 AM</span>
+    <span class="comments"><a href="#">1</a></span>
+    <span class="more-link"><a href="#">Read More...</a></span>
+  </div>
+  <div id="slider-item-1" class="slider-post-info">
+    <span class="date">21 Mar 03:15 PM</span>
+    <span class="comments"><a href="#">2</a></span>
+    <span class="more-link"><a href="#">Read More...</a></span>
+  </div>
+  <div id="slider-item-2" class="slider-post-info">
+    <span class="date">30 Jan 03:15 PM</span>
+    <span class="comments"><a href="#">3</a></span>
+    <span class="more-link"><a href="#">Read More...</a></span>
+  </div>
+</div>

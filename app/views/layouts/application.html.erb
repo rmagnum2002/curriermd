@@ -50,36 +50,17 @@
 
             <div id="popular-tab">
               <ul>
+                <% @recomends.each do |art| %>
                 <li>
-                  <a href="#"><img alt="" src="upload/popular-1.jpg"></a>
-                  <h3><a href="#">Dictum ipsum vel laoreet. Sed convallis quam ut elit</a></h3>
+                  <% if art.avatar.present? %>
+                    <%= link_to image_tag(art.avatar.url(:thumb), size: '184x142'), art %>
+                  <% else %>
+                    <%= link_to image_tag("nophoto_slider.png", size: '184x142'), art %>
+                  <% end %>
+                  <h3><a href="#"><%= art.title %></a></h3>
                   <span class="data-post">March 25, 2012</span>
                 </li>
-                <li>
-                  <a href="#"><img alt="" src="upload/popular-2.jpg"></a>
-                  <h3><a href="#">Dictum ipsum vel laoreet. Sed convallis quam ut elit</a></h3>
-                  <span class="data-post">March 22, 2012</span>
-                </li>
-                <li>
-                  <a href="#"><img alt="" src="upload/popular-3.jpg"></a>
-                  <h3><a href="#">Dictum ipsum vel laoreet. Sed convallis quam ut elit</a></h3>
-                  <span class="data-post">March 05, 2012</span>
-                </li>
-                <li>
-                  <a href="#"><img alt="" src="upload/popular-4.jpg"></a>
-                  <h3><a href="#">Dictum ipsum vel laoreet. Sed convallis quam ut elit</a></h3>
-                  <span class="data-post">March 05, 2012</span>
-                </li>
-                <li>
-                  <a href="#"><img alt="" src="upload/popular-5.jpg"></a>
-                  <h3><a href="#">Dictum ipsum vel laoreet. Sed convallis quam ut elit</a></h3>
-                  <span class="data-post">March 05, 2012</span>
-                </li>
-                <li>
-                  <a href="#"><img alt="" src="upload/popular-6.jpg"></a>
-                  <h3><a href="#">Dictum ipsum vel laoreet. Sed convallis quam ut elit</a></h3>
-                  <span class="data-post">March 05, 2012</span>
-                </li>
+                <% end %>
               </ul>
             </div>
 
@@ -157,16 +138,16 @@
         <!-- End Popular, Recent and Comments -->
 
         <!-- Video Widget -->
-        <li class="masonry">
+<!--         <li class="masonry">
           <h3 class="widget-title">Video widget</h3>
           <div class="widget-container video-widget">
             <iframe src="http://player.vimeo.com/video/7449107?title=0&amp;byline=0&amp;portrait=0" width="284" height="213" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
           </div>
-        </li>
+        </li> -->
         <!-- End Video Widget -->
 
         <!-- Advertisement widget -->
-        <li class="masonry">
+<!--         <li class="masonry">
           <h3 class="widget-title">Advertisement widget</h3>
           <div class="widget-container ads-widget">
             <a href="#"><img alt="" src="upload/ads-small-0.jpg"></a>
@@ -174,18 +155,18 @@
             <a href="#"><img alt="" src="upload/ads-small-2.jpg"></a>
             <a href="#"><img alt="" src="upload/ads-small-3.jpg"></a>
           </div>
-        </li>
+        </li> -->
         <!-- End Advertisement widget -->
 
         <!-- Social Networks -->
         <li class="masonry">
           <h3 class="widget-title">Social Networks</h3>
           <div class="widget-container social-widget">
-            <a href="#"><img alt="" src="img/facebook.png"></a>
-            <a href="#"><img alt="" src="img/rss.png"></a>
-            <a href="#"><img alt="" src="img/youtube.png"></a>
-            <a href="#"><img alt="" src="img/twitter.png"></a>
-            <a href="#"><img alt="" src="img/flickr.png"></a>
+            <%= link_to image_tag('facebook.png'), '#' %>
+            <%= link_to image_tag('rss.png'), '#' %>
+            <%= link_to image_tag('youtube.png'), '#' %>
+            <%= link_to image_tag('twitter.png'), '#' %>
+            <%= link_to image_tag('flickr.png'), '#' %>
           </div>
         </li>
         <!-- End Social Networks -->
@@ -222,19 +203,14 @@
 
         <!-- Tags -->
         <li class="masonry">
-          <h3 class="widget-title">Tags</h3>
+          <h3 class="widget-title">Étiquettes</h3>
           <div class="widget-container tags-widget">
-            <a href="http://nextwpthemes.com/themes/nextwpmagazine/tag/africa/" class="tag-link-17" title="8 topics" style="font-size: 18.1111111111pt;">Africa</a>
-            <a href="http://nextwpthemes.com/themes/nextwpmagazine/tag/apple/" class="tag-link-23" title="2 topics" style="font-size: 10.8pt;">Apple</a>
-            <a href="http://nextwpthemes.com/themes/nextwpmagazine/tag/australia/" class="tag-link-48" title="1 topic" style="font-size: 8pt;">Australia</a>
-            <a href="http://nextwpthemes.com/themes/nextwpmagazine/tag/basketball/" class="tag-link-26" title="2 topics" style="font-size: 10.8pt;">Basketball</a>
-            <a href="http://nextwpthemes.com/themes/nextwpmagazine/tag/biking/" class="tag-link-47" title="2 topics" style="font-size: 10.8pt;">Biking</a>
-            <a href="http://nextwpthemes.com/themes/nextwpmagazine/tag/california/" class="tag-link-24" title="10 topics" style="font-size: 19.5111111111pt;">California</a>
-            <a href="http://nextwpthemes.com/themes/nextwpmagazine/tag/celebrities/" class="tag-link-35" title="8 topics" style="font-size: 18.1111111111pt;">Celebrities</a>
-            <a href="http://nextwpthemes.com/themes/nextwpmagazine/tag/chicago/" class="tag-link-41" title="1 topic" style="font-size: 8pt;">Chicago</a>
-            <a href="http://nextwpthemes.com/themes/nextwpmagazine/tag/education/" class="tag-link-51" title="1 topic" style="font-size: 8pt;">education</a>
-            <a href="http://nextwpthemes.com/themes/nextwpmagazine/tag/europe/" class="tag-link-53" title="1 topic" style="font-size: 8pt;">Europe</a>
-            <a href="http://nextwpthemes.com/themes/nextwpmagazine/tag/florida/" class="tag-link-39" title="4 topics" style="font-size: 14.2222222222pt;">Florida</a>
+            <% Tag.all.each do |tag| %>
+               <%= link_to tag.name, tag_path(tag.name),
+                    class: 'tag-link-17',
+                    title: 'Étiquettes',
+                    style: 'font-size: 18.1111111111pt;' %>
+            <% end %>
           </div>
         </li>
         <!-- End Tags -->

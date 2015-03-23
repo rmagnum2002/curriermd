@@ -22,6 +22,8 @@ class WelcomeController < ApplicationController
     # @main_articles = Article.order('published_at desc').limit(5)
     @recomends = Article.not_contest.where(recomend: true).order('published_at desc').limit(6)
     @concours = Article.contest.last
+    @social_articles = Article.tagged_with('Social').order('published_at desc').limit(6)
+    @editorial_articles = Article.tagged_with('editorial').order('published_at desc').limit(6)
   end
 
   def about
