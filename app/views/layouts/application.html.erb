@@ -22,7 +22,279 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
 </head>
 <body>
-  <div class="container site">
+  <!-- Header -->
+  <%= render 'layouts/header' %>
+  <!-- End Header -->
+
+  <!-- Sub Menu -->
+  <%= render 'layouts/submenu' %>
+  <!-- End Sub Menu -->
+
+
+  <div id="container">
+    <!-- Content -->
+    <%= yield %>
+    <!-- End Content -->
+
+    <!-- Sidebar -->
+    <div id="sidebar">
+      <ul>
+        <!-- Popular, Recent and Comments -->
+        <li class="masonry">
+          <div class="widget-container tabs-widget">
+            <ul class="tab-links">
+              <li class="active"><a href="#popular-tab">Popular</a></li>
+              <li><a href="#recent-tab">Recent</a></li>
+              <li><a href="#comments-tab">Comments</a></li>
+            </ul>
+
+            <div id="popular-tab">
+              <ul>
+                <li>
+                  <a href="#"><img alt="" src="upload/popular-1.jpg"></a>
+                  <h3><a href="#">Dictum ipsum vel laoreet. Sed convallis quam ut elit</a></h3>
+                  <span class="data-post">March 25, 2012</span>
+                </li>
+                <li>
+                  <a href="#"><img alt="" src="upload/popular-2.jpg"></a>
+                  <h3><a href="#">Dictum ipsum vel laoreet. Sed convallis quam ut elit</a></h3>
+                  <span class="data-post">March 22, 2012</span>
+                </li>
+                <li>
+                  <a href="#"><img alt="" src="upload/popular-3.jpg"></a>
+                  <h3><a href="#">Dictum ipsum vel laoreet. Sed convallis quam ut elit</a></h3>
+                  <span class="data-post">March 05, 2012</span>
+                </li>
+                <li>
+                  <a href="#"><img alt="" src="upload/popular-4.jpg"></a>
+                  <h3><a href="#">Dictum ipsum vel laoreet. Sed convallis quam ut elit</a></h3>
+                  <span class="data-post">March 05, 2012</span>
+                </li>
+                <li>
+                  <a href="#"><img alt="" src="upload/popular-5.jpg"></a>
+                  <h3><a href="#">Dictum ipsum vel laoreet. Sed convallis quam ut elit</a></h3>
+                  <span class="data-post">March 05, 2012</span>
+                </li>
+                <li>
+                  <a href="#"><img alt="" src="upload/popular-6.jpg"></a>
+                  <h3><a href="#">Dictum ipsum vel laoreet. Sed convallis quam ut elit</a></h3>
+                  <span class="data-post">March 05, 2012</span>
+                </li>
+              </ul>
+            </div>
+
+            <div id="recent-tab">
+              <ul>
+                <li>
+                  <a href="#"><img alt="" src="upload/recent-1.jpg"></a>
+                  <h3><a href="#">Donec faucibus dictum ipsum</a></h3>
+                  <span class="data-post">March 25, 2012</span>
+                </li>
+                <li>
+                  <a href="#"><img alt="" src="upload/recent-2.jpg"></a>
+                  <h3><a href="#">Donec faucibus dictum ipsum</a></h3>
+                  <span class="data-post">March 22, 2012</span>
+                </li>
+                <li>
+                  <a href="#"><img alt="" src="upload/recent-3.jpg"></a>
+                  <h3><a href="#">Donec faucibus dictum ipsum</a></h3>
+                  <span class="data-post">March 05, 2012</span>
+                </li>
+                <li>
+                  <a href="#"><img alt="" src="upload/recent-4.jpg"></a>
+                  <h3><a href="#">Donec faucibus dictum ipsum</a></h3>
+                  <span class="data-post">March 05, 2012</span>
+                </li>
+                <li>
+                  <a href="#"><img alt="" src="upload/recent-5.jpg"></a>
+                  <h3><a href="#">Donec faucibus dictum ipsum</a></h3>
+                  <span class="data-post">March 05, 2012</span>
+                </li>
+                <li>
+                  <a href="#"><img alt="" src="upload/recent-6.jpg"></a>
+                  <h3><a href="#">Donec faucibus dictum ipsum</a></h3>
+                  <span class="data-post">March 05, 2012</span>
+                </li>
+              </ul>
+            </div>
+
+            <div id="comments-tab">
+              <ul>
+                <li>
+                  <a href="#"><img alt="" src="upload/popular-3.jpg"></a>
+                  <h3><a href="#">admin says:</a></h3>
+                  <span class="author-comment">Nice theme, indeed :)</span>
+                </li>
+                <li>
+                  <a href="#"><img alt="" src="upload/img-small.jpg"></a>
+                  <h3><a href="#">faton says:</a></h3>
+                  <span class="author-comment">very nice post!</span>
+                </li>
+                <li>
+                  <a href="#"><img alt="" src="upload/recent-1.jpg"></a>
+                  <h3><a href="#">sami says:</a></h3>
+                  <span class="author-comment">Nice theme I’m gonna use it on my next site. I loved the layout and ...</span>
+                </li>
+                <li>
+                  <a href="#"><img alt="" src="upload/recent-4.jpg"></a>
+                  <h3><a href="#">sami says:</a></h3>
+                  <span class="author-comment">Nice theme I’m gonna use it on my next site. I loved the layout and ...</span>
+                </li>
+                <li>
+                  <a href="#"><img alt="" src="upload/popular-1.jpg"></a>
+                  <h3><a href="#">sami says:</a></h3>
+                  <span class="author-comment">Nice theme I’m gonna use it on my next site. I loved the layout and ...</span>
+                </li>
+                <li>
+                  <a href="#"><img alt="" src="upload/popular-2.jpg"></a>
+                  <h3><a href="#">sami says:</a></h3>
+                  <span class="author-comment">Nice theme I’m gonna use it on my next site. I loved the layout and ...</span>
+                </li>
+              </ul>
+            </div>
+          </div>
+        </li>
+        <!-- End Popular, Recent and Comments -->
+
+        <!-- Video Widget -->
+        <li class="masonry">
+          <h3 class="widget-title">Video widget</h3>
+          <div class="widget-container video-widget">
+            <iframe src="http://player.vimeo.com/video/7449107?title=0&amp;byline=0&amp;portrait=0" width="284" height="213" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
+          </div>
+        </li>
+        <!-- End Video Widget -->
+
+        <!-- Advertisement widget -->
+        <li class="masonry">
+          <h3 class="widget-title">Advertisement widget</h3>
+          <div class="widget-container ads-widget">
+            <a href="#"><img alt="" src="upload/ads-small-0.jpg"></a>
+            <a href="#"><img alt="" src="upload/ads-small-1.jpg"></a>
+            <a href="#"><img alt="" src="upload/ads-small-2.jpg"></a>
+            <a href="#"><img alt="" src="upload/ads-small-3.jpg"></a>
+          </div>
+        </li>
+        <!-- End Advertisement widget -->
+
+        <!-- Social Networks -->
+        <li class="masonry">
+          <h3 class="widget-title">Social Networks</h3>
+          <div class="widget-container social-widget">
+            <a href="#"><img alt="" src="img/facebook.png"></a>
+            <a href="#"><img alt="" src="img/rss.png"></a>
+            <a href="#"><img alt="" src="img/youtube.png"></a>
+            <a href="#"><img alt="" src="img/twitter.png"></a>
+            <a href="#"><img alt="" src="img/flickr.png"></a>
+          </div>
+        </li>
+        <!-- End Social Networks -->
+
+        <!-- Subscribe via email -->
+        <li class="masonry">
+          <h3 class="widget-title">Subscribe via email</h3>
+          <div class="widget-container subscribe-widget">
+            <form>
+              <label for="email">Enter your email address</label>
+              <input name="email" id="email" type="text" placeholder="" value="">
+              <input type="submit" value="Subscribe">
+            </form>
+          </div>
+        </li>
+        <!-- End Subscribe via email -->
+
+        <!-- Archives -->
+        <li class="masonry">
+          <h3 class="widget-title">Archives</h3>
+          <div class="widget-container archives-widget">
+            <ul>
+              <li><a href="#">April</a></li>
+              <li><a href="#">March 2012</a></li>
+              <li><a href="#">February 2012</a></li>
+              <li><a href="#">January 2012</a></li>
+              <li><a href="#">December 2011</a></li>
+              <li><a href="#">November 2011</a></li>
+              <li><a href="#">October 2011</a></li>
+            </ul>
+          </div>
+        </li>
+        <!-- End Archives -->
+
+        <!-- Tags -->
+        <li class="masonry">
+          <h3 class="widget-title">Tags</h3>
+          <div class="widget-container tags-widget">
+            <a href="http://nextwpthemes.com/themes/nextwpmagazine/tag/africa/" class="tag-link-17" title="8 topics" style="font-size: 18.1111111111pt;">Africa</a>
+            <a href="http://nextwpthemes.com/themes/nextwpmagazine/tag/apple/" class="tag-link-23" title="2 topics" style="font-size: 10.8pt;">Apple</a>
+            <a href="http://nextwpthemes.com/themes/nextwpmagazine/tag/australia/" class="tag-link-48" title="1 topic" style="font-size: 8pt;">Australia</a>
+            <a href="http://nextwpthemes.com/themes/nextwpmagazine/tag/basketball/" class="tag-link-26" title="2 topics" style="font-size: 10.8pt;">Basketball</a>
+            <a href="http://nextwpthemes.com/themes/nextwpmagazine/tag/biking/" class="tag-link-47" title="2 topics" style="font-size: 10.8pt;">Biking</a>
+            <a href="http://nextwpthemes.com/themes/nextwpmagazine/tag/california/" class="tag-link-24" title="10 topics" style="font-size: 19.5111111111pt;">California</a>
+            <a href="http://nextwpthemes.com/themes/nextwpmagazine/tag/celebrities/" class="tag-link-35" title="8 topics" style="font-size: 18.1111111111pt;">Celebrities</a>
+            <a href="http://nextwpthemes.com/themes/nextwpmagazine/tag/chicago/" class="tag-link-41" title="1 topic" style="font-size: 8pt;">Chicago</a>
+            <a href="http://nextwpthemes.com/themes/nextwpmagazine/tag/education/" class="tag-link-51" title="1 topic" style="font-size: 8pt;">education</a>
+            <a href="http://nextwpthemes.com/themes/nextwpmagazine/tag/europe/" class="tag-link-53" title="1 topic" style="font-size: 8pt;">Europe</a>
+            <a href="http://nextwpthemes.com/themes/nextwpmagazine/tag/florida/" class="tag-link-39" title="4 topics" style="font-size: 14.2222222222pt;">Florida</a>
+          </div>
+        </li>
+        <!-- End Tags -->
+      </ul>
+    </div>
+    <!-- End Sidebar -->
+
+    <!-- Footer -->
+    <div id="footer">
+      <div id="top-button">
+        <a href="#top" title="Back To Top">Top ↑</a>
+      </div>
+
+      <ul>
+        <li>
+          <h3 class="widget-title">Text widget</h3>
+          <div class="widget-container">
+            <p>Donec faucibus dictum ipsum vel laoreet. Sed convallis quam ut elit condimentum quis laoreet tortor iplacinia. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Nam non consectetur leo. Phasellus insap tempus ipsum. Donec metus dui, fermentum blandit rutrum volutpat, commodo et libero.</p>
+          </div>
+        </li>
+        <li>
+          <h3 class="widget-title">Photos on Flickr</h3>
+          <div class="widget-container flickr-widget">
+            <a href="#"><img alt="" src="upload/flickr-1.jpg"></a>
+            <a href="#"><img alt="" src="upload/flickr-2.jpg"></a>
+            <a href="#"><img alt="" src="upload/flickr-3.jpg"></a>
+            <a href="#"><img alt="" src="upload/flickr-4.jpg"></a>
+            <a href="#"><img alt="" src="upload/flickr-5.jpg"></a>
+            <a href="#"><img alt="" src="upload/flickr-6.jpg"></a>
+          </div>
+        </li>
+        <li>
+          <h3 class="widget-title">Latest Tweets</h3>
+          <div class="widget-container twitter-widget">
+            <ul>
+              <li>
+                <p><a href="#">about 815 days ago</a> we were checking out 55 Spectacular Login Form Designs: <a href="#">http://bit.ly/8b0wO4</a></p>
+              </li>
+              <li>
+                <p><a href="#">about 815 days ago</a> we were checking out 20 Beautiful Website Design Tutorials <a href="#">http://bit.ly/8b0wO4</a></p>
+              </li>
+            </ul>
+          </div>
+        </li>
+      </ul>
+    </div>
+    <!-- End Footer -->
+
+    <!-- Copyright-->
+    <div id="copyright">
+      &copy; 2011 Powered By <a href="http://www.nextwpthemes.com">NextWPThemes</a>
+    </div>
+    <!-- Copyright-->
+
+    <div class="space-container"></div>
+  </div>
+
+
+
+<!--   <div class="container site">
     <div class="page-header">
       <div class="span3 muted pull-right">"Avec l'appui
 financier de <a href="http://www.francophonie.org/" target ="_blank">l'OIF"</a>.</div>
@@ -42,7 +314,7 @@ financier de <a href="http://www.francophonie.org/" target ="_blank">l'OIF"</a>.
       </span>
     </div>
     <%#= render 'layouts/navbar1' %>
-    <%= render 'layouts/navbar' %>
+    <%#= render 'layouts/navbar' %>
 
     <div class="row">
       <div class="span9">
@@ -142,7 +414,7 @@ financier de <a href="http://www.francophonie.org/" target ="_blank">l'OIF"</a>.
         </ul>
       </div>
     </div>
-  </div>
+  </div> -->
 <script type="text/javascript">
 
   var _gaq = _gaq || [];

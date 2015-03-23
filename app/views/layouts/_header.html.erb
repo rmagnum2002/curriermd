@@ -1,0 +1,63 @@
+<div id="header-container" class="clearfix">
+  <div id="header">
+    <div id="logo">
+      <a href="/"><%= image_tag 'logo.png', size: "350x100" %></a>
+    </div>
+
+    <div id="main-menu">
+      <div id="main-menu-left-nav">
+        <a href="#">left</a>
+      </div>
+
+      <div id="main-menu-right-nav">
+        <a href="#">right</a>
+      </div>
+
+      <div id="sf-menu-container">
+        <ul class="sf-menu">
+          <li class=<%= "active" if @class_home %>>
+            <%= link_to (t "menu.home"), root_path %>
+          </li>
+          <li class=<%= "active" if @class_about %>>
+            <%= link_to (t "menu.about"), a_propos_de_nous_path %>
+          </li>
+          <li class=<%= "active" if @class_articles %>>
+            <%= link_to (t "menu.articles"), articles_path %>
+          </li>
+          <li class=<%= "active" if @class_membres %>>
+            <%= link_to (t "menu.membres"), membres_path %>
+          </li>
+          <li class=<%= "active" if @class_contact %>>
+            <%= link_to (t "menu.contacts"), contact_path %>
+          </li>
+<!--    <li>
+          <a href="categories.html">Categories</a>
+          <ul class="sub-menu">
+            <li><a href="#">Bussines</a></li>
+            <li><a href="#">News</a></li>
+            <li><a href="#">Science</a></li>
+            <li><a href="#">Health</a></li>
+            <li><a href="#">Technology</a></li>
+            <li><a href="#">Travel</a></li>
+            <li><a href="#">Gamming</a></li>
+          </ul>
+        </li> -->
+      </ul>
+    </div>
+
+    <!-- Search Form -->
+    <%= form_for @search, :url => articles_path do |f| %>
+    <div id="search-bar">
+      <%= f.text_field :title_or_content_contains,
+      class: "span3",
+        placeholder: "Recherche dans les articles" %>
+        <%= f.submit "", class: "btn btn-inverse" %>
+      </div>
+      <% end %>
+      <!-- End Search Form -->
+    </div>
+  </div>
+</div>
+
+
+
