@@ -20,3 +20,5 @@ Capfile
 /public/system/
 /public/uploads/
 .rvmrc
+.ruby-gemset
+.ruby-version
