@@ -1,5 +1,6 @@
 class ArticlesController < InheritedResources::Base
   before_filter :load_search_bar
+  before_filter :load_common_sets, only: [:index, :show]
 
   def index
     if params[:search]
@@ -34,34 +35,15 @@ class ArticlesController < InheritedResources::Base
     end
   end
 
-  def edit
-    redirect_to root_path, notice: "Sorry, the page you are looking for doesn't exists"
-  end
-
-  # def update
-  #   @art = Article.where(sticky: true).first
-  #   if @art.present?
-  #     @art.sticky = 0
-  #     @art.save
-  #   end
-  #   @article = Article.find(params[:id])
-
-  #   respond_to do |format|
-  #     if @article.update_attributes(params[:article])
-  #       format.html { redirect_to admin_article_path(@article), notice: 'Article was successfully updated.' }
-  #       format.json { head :ok }
-  #     else
-  #       format.html { render action: "edit" }
-  #       format.json { render json: @article.errors, status: :unprocessable_entity }
-  #     end
-  #   end
+  # def edit
+  #   redirect_to root_path, notice: "Sorry, the page you are looking for doesn't exists"
   # end
 
-  def new
-    redirect_to root_path, notice: "Sorry, the page you are looking for doesn't exists"
-  end
+  # def new
+  #   redirect_to root_path, notice: "Sorry, the page you are looking for doesn't exists"
+  # end
 
-  def destroy
-    redirect_to root_path, notice: "Sorry, the page you are looking for doesn't exists"
-  end
+  # def destroy
+  #   redirect_to root_path, notice: "Sorry, the page you are looking for doesn't exists"
+  # end
 end

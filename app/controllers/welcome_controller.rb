@@ -1,6 +1,7 @@
 class WelcomeController < ApplicationController
+  before_filter :load_common_sets, only: [:index, :membres, :about, :contact]
 
-    def set_locale
+  def set_locale
     request_language = request.env['HTTP_ACCEPT_LANGUAGE']
     request_language = request_language.nil? ? nil : request_language[/[^,;]+/]
 
@@ -18,12 +19,11 @@ class WelcomeController < ApplicationController
   def index
     @class_home = true
     @search = Article.not_contest.search(params[:search])
-    @last_edition_articles = Edition.order('year desc').order('number desc').first.articles.order('published_at desc').limit(3)
     # @main_articles = Article.order('published_at desc').limit(5)
-    @recomends = Article.not_contest.where(recomend: true).order('published_at desc').limit(6)
     @concours = Article.contest.last
-    @social_articles = Article.tagged_with('Social').order('published_at desc').limit(6)
-    @editorial_articles = Article.tagged_with('editorial').order('published_at desc').limit(6)
+    @social_articles = Article.tagged_with('Social').order('published_at desc').limit(9)
+    @editorial_articles = Article.tagged_with('editorial').order('published_at desc').limit(9)
+    @francophonie_articles = Article.tagged_with('Francophonie').order('published_at desc').limit(9)
   end
 
   def about

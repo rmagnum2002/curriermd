@@ -1,35 +1,38 @@
 <% title 'Courrier de Moldavie- tous les articles' %>
-<div class="span6">
+<div id="content">
+  <div class="page-container singlepost">
   <% @articles.each do |article| %>
-    <%= image_tag 'divider.gif', class: "article_divider" %>
+
     <h4><%= link_to article.title, article %></h4>
-    <h6>author:
-      <%= raw article.author_list.map { |t| link_to t, author_path(t) }.join(', ') %>
+    <%= image_tag 'divider.gif', class: "article_divider" %>
+    <h6>
+      author:
+      <%= raw article.author_list
+        .map { |t| link_to t, author_path(t) }
+        .join(', ') %>
     </h6>
-    <div class="row">
       <% if article.avatar.present? %>
-      <div class="span2">
         <%= link_to (image_tag article.avatar.url(:thumb)), article %>
-      </div>
       <% end %>
-      <div class="<%= article.avatar.present? ? 'span4' : 'span6' %>" style="text-align: justify;">
-        <%#= sanitize truncate(article.content, omision: "...", length: 700), :tags => %w(h) %>
+      <div style="text-align: justify;">
         <%= (ActionView::Base.full_sanitizer.sanitize(article.content).truncate(700, omission: '...')).html_safe %>
         <br />
         <h6 style="text-align:right;"><%= link_to 'Lire la suite', article %></h6>
       </div>
-      <div class="span4"></div>
-    </div>
     <h6>
-      Étiquettes: <%= raw article.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
+      Étiquettes:
+      <%= raw article.tag_list
+        .map { |t| link_to t, tag_path(t) }
+        .join(', ') %>
     </h6>
 <!--     <div><small><strong>views: <%#= article.views %></strong></small></div> -->
     <span class="pull-right"><small><%= l article.published_at, :format => :long %></small></span>
     <span class=""><small>Edition: <%= link_to article.edition.name, articles_path(edition: article.edition.name) if article.edition.present? %></small></span>
-
+  <br><br><br>
   <% end %>
-  <%= image_tag 'divider.gif', class: "article_divider" %>
+
   <%= will_paginate @articles %>
+  </div>
 </div>
 <%#= link_to 'New Article', new_article_path %>
 

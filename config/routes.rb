@@ -1,5 +1,5 @@
 Particip::Application.routes.draw do
-  resources :articles
+  resources :articles, only: [:index, :show]
   # resources :authors
   mount Ckeditor::Engine => "/ckeditor"
 

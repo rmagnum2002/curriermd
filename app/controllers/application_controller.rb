@@ -25,6 +25,15 @@ class ApplicationController < ActionController::Base
     true
   end
 
+  def load_common_sets
+    articles = Article.not_contest.order('published_at desc')
+    last_articles = articles.first(5)
+    @last_article = last_articles.shift
+    @last_articles = last_articles
+    @recomends = articles.where(recomend: true).first(6)
+    @editions = @editions = Edition.order("year desc").order("number desc")
+  end
+
   helper_method :current_language
 
   def current_language

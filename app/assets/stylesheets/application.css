@@ -14,3 +14,7 @@
  *= require chosen
   *= require token-input-facebook
  */
+
+#content li:hover {
+  background: #E4E4E4;
+}

@@ -7,35 +7,21 @@
       $(".group2").colorbox({rel:'group2', transition:"fade"});
     });
 </script>
-<div class="row">
-
-  <div class="span6">
-    <h2><%= @article.title %></h2>
-    <%= render 'article_attributes' %>
-  </div>
-
-  <% if @article.avatar.present? %>
-  <div class="span6">
-    <div class="thumbnail">
+<div id="content">
+  <div class="page-container singlepost">
+    <% if @article.avatar.present? %>
+    <div class="single-image">
       <%= image_tag @article.avatar.url(:slide), class: "img-polaroid" %>
     </div>
-  </div>
-  <% end %>
-  <div class="span6">
-    <%= render 'addthis_links' %>
-    <div class="page-header"></div>
-  </div>
-  <div class="span6">
-    <%= render 'next_prev_links' %>
+    <% end %>
+    <h1 class="title-post"><%= @article.title %></h1>
+    <%= render 'article_attributes' %>
     <%= raw @article.content %>
-    <%= link_to 'Retour', articles_path %>
+    <%= render 'disquss' %>
   </div>
-  <% if @related_articles.nil? %>
-  <div class="span6">
-    <div class="page-header"></div>
-    <%= render 'related_articles' %>
-  </div>
-  <% end %>
-  <%= render 'disquss' %>
+  <!-- <div class="page-container"> -->
+  <%# if !@related_articles.nil? %>
+    <%#= render 'related_articles' %>
+  <%# end %>
+  <!-- </div> -->
 </div>
-

@@ -16,7 +16,6 @@
     <script src="http://html5shim.googlecode.com/svn/trunk/html5.js" type="text/javascript"></script>
   <![endif]-->
   <%= stylesheet_link_tag    "application", :media => "all" %>
-  <%= javascript_include_tag "application" %>
   <!-- <link href='http://fonts.googleapis.com/css?family=News+Cycle:400,700' rel='stylesheet' type='text/css'> -->
   <%= csrf_meta_tags %>
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -43,14 +42,29 @@
         <li class="masonry">
           <div class="widget-container tabs-widget">
             <ul class="tab-links">
-              <li class="active"><a href="#popular-tab">Popular</a></li>
-              <li><a href="#recent-tab">Recent</a></li>
-              <li><a href="#comments-tab">Comments</a></li>
+              <li class="active"><a href="#popular-tab">Recommandé</a></li>
+              <li><a href="#recent-tab">Récent</a></li>
             </ul>
 
             <div id="popular-tab">
               <ul>
                 <% @recomends.each do |art| %>
+                <li>
+                  <% if art.avatar.present? %>
+                    <%= link_to image_tag(art.avatar.url(:thumb), size: '184x142'), art %>
+                  <% else %>
+                    <%= link_to image_tag("nophoto_slider.png", size: '184x142'), art %>
+                  <% end %>
+                  <h3><%= link_to art.title, art %></h3>
+                  <span class="data-post"><%= l art.published_at, format: :long %></span>
+                </li>
+                <% end %>
+              </ul>
+            </div>
+
+            <div id="recent-tab">
+              <ul>
+                <% @last_articles.each do |art| %>
                 <li>
                   <% if art.avatar.present? %>
                     <%= link_to image_tag(art.avatar.url(:thumb), size: '184x142'), art %>
@@ -63,139 +77,31 @@
                 <% end %>
               </ul>
             </div>
-
-            <div id="recent-tab">
-              <ul>
-                <li>
-                  <a href="#"><img alt="" src="upload/recent-1.jpg"></a>
-                  <h3><a href="#">Donec faucibus dictum ipsum</a></h3>
-                  <span class="data-post">March 25, 2012</span>
-                </li>
-                <li>
-                  <a href="#"><img alt="" src="upload/recent-2.jpg"></a>
-                  <h3><a href="#">Donec faucibus dictum ipsum</a></h3>
-                  <span class="data-post">March 22, 2012</span>
-                </li>
-                <li>
-                  <a href="#"><img alt="" src="upload/recent-3.jpg"></a>
-                  <h3><a href="#">Donec faucibus dictum ipsum</a></h3>
-                  <span class="data-post">March 05, 2012</span>
-                </li>
-                <li>
-                  <a href="#"><img alt="" src="upload/recent-4.jpg"></a>
-                  <h3><a href="#">Donec faucibus dictum ipsum</a></h3>
-                  <span class="data-post">March 05, 2012</span>
-                </li>
-                <li>
-                  <a href="#"><img alt="" src="upload/recent-5.jpg"></a>
-                  <h3><a href="#">Donec faucibus dictum ipsum</a></h3>
-                  <span class="data-post">March 05, 2012</span>
-                </li>
-                <li>
-                  <a href="#"><img alt="" src="upload/recent-6.jpg"></a>
-                  <h3><a href="#">Donec faucibus dictum ipsum</a></h3>
-                  <span class="data-post">March 05, 2012</span>
-                </li>
-              </ul>
-            </div>
-
-            <div id="comments-tab">
-              <ul>
-                <li>
-                  <a href="#"><img alt="" src="upload/popular-3.jpg"></a>
-                  <h3><a href="#">admin says:</a></h3>
-                  <span class="author-comment">Nice theme, indeed :)</span>
-                </li>
-                <li>
-                  <a href="#"><img alt="" src="upload/img-small.jpg"></a>
-                  <h3><a href="#">faton says:</a></h3>
-                  <span class="author-comment">very nice post!</span>
-                </li>
-                <li>
-                  <a href="#"><img alt="" src="upload/recent-1.jpg"></a>
-                  <h3><a href="#">sami says:</a></h3>
-                  <span class="author-comment">Nice theme I’m gonna use it on my next site. I loved the layout and ...</span>
-                </li>
-                <li>
-                  <a href="#"><img alt="" src="upload/recent-4.jpg"></a>
-                  <h3><a href="#">sami says:</a></h3>
-                  <span class="author-comment">Nice theme I’m gonna use it on my next site. I loved the layout and ...</span>
-                </li>
-                <li>
-                  <a href="#"><img alt="" src="upload/popular-1.jpg"></a>
-                  <h3><a href="#">sami says:</a></h3>
-                  <span class="author-comment">Nice theme I’m gonna use it on my next site. I loved the layout and ...</span>
-                </li>
-                <li>
-                  <a href="#"><img alt="" src="upload/popular-2.jpg"></a>
-                  <h3><a href="#">sami says:</a></h3>
-                  <span class="author-comment">Nice theme I’m gonna use it on my next site. I loved the layout and ...</span>
-                </li>
-              </ul>
-            </div>
           </div>
         </li>
         <!-- End Popular, Recent and Comments -->
 
-        <!-- Video Widget -->
-<!--         <li class="masonry">
-          <h3 class="widget-title">Video widget</h3>
-          <div class="widget-container video-widget">
-            <iframe src="http://player.vimeo.com/video/7449107?title=0&amp;byline=0&amp;portrait=0" width="284" height="213" frameborder="0" webkitAllowFullScreen mozallowfullscreen allowFullScreen></iframe>
-          </div>
-        </li> -->
-        <!-- End Video Widget -->
-
-        <!-- Advertisement widget -->
-<!--         <li class="masonry">
-          <h3 class="widget-title">Advertisement widget</h3>
-          <div class="widget-container ads-widget">
-            <a href="#"><img alt="" src="upload/ads-small-0.jpg"></a>
-            <a href="#"><img alt="" src="upload/ads-small-1.jpg"></a>
-            <a href="#"><img alt="" src="upload/ads-small-2.jpg"></a>
-            <a href="#"><img alt="" src="upload/ads-small-3.jpg"></a>
-          </div>
-        </li> -->
-        <!-- End Advertisement widget -->
-
         <!-- Social Networks -->
         <li class="masonry">
-          <h3 class="widget-title">Social Networks</h3>
+          <h3 class="widget-title">RÉSEAUX SOCIAUX</h3>
           <div class="widget-container social-widget">
-            <%= link_to image_tag('facebook.png'), '#' %>
-            <%= link_to image_tag('rss.png'), '#' %>
-            <%= link_to image_tag('youtube.png'), '#' %>
-            <%= link_to image_tag('twitter.png'), '#' %>
-            <%= link_to image_tag('flickr.png'), '#' %>
+            <%= link_to image_tag('facebook.png'), 'https://www.facebook.com/CourrierDeMoldavie', target: 'blank' %>
+            <%#= link_to image_tag('rss.png'), '#' %>
+            <%#= link_to image_tag('youtube.png'), '#' %>
+            <%#= link_to image_tag('twitter.png'), '#' %>
+            <%#= link_to image_tag('flickr.png'), '#' %>
           </div>
         </li>
         <!-- End Social Networks -->
 
-        <!-- Subscribe via email -->
-        <li class="masonry">
-          <h3 class="widget-title">Subscribe via email</h3>
-          <div class="widget-container subscribe-widget">
-            <form>
-              <label for="email">Enter your email address</label>
-              <input name="email" id="email" type="text" placeholder="" value="">
-              <input type="submit" value="Subscribe">
-            </form>
-          </div>
-        </li>
-        <!-- End Subscribe via email -->
-
         <!-- Archives -->
         <li class="masonry">
-          <h3 class="widget-title">Archives</h3>
+          <h3 class="widget-title">Editions</h3>
           <div class="widget-container archives-widget">
             <ul>
-              <li><a href="#">April</a></li>
-              <li><a href="#">March 2012</a></li>
-              <li><a href="#">February 2012</a></li>
-              <li><a href="#">January 2012</a></li>
-              <li><a href="#">December 2011</a></li>
-              <li><a href="#">November 2011</a></li>
-              <li><a href="#">October 2011</a></li>
+              <% for edition in @editions %>
+                <li><%= link_to "#{edition.name} - #{edition.articles.not_contest.count} articles", edition_path(edition.name) %></li>
+              <% end %>
             </ul>
           </div>
         </li>
@@ -267,142 +173,25 @@
 
     <div class="space-container"></div>
   </div>
+  <%= javascript_include_tag "application" %>
+  <script type="text/javascript" src="js/jquery.min.js"></script>
+  <script type="text/javascript" src="js/jquery.superfish.js"></script>
+  <script type="text/javascript" src="js/jquery.flexslider.js"></script>
+  <script type="text/javascript" src="js/jquery.jcarousel.min.js"></script>
+  <script type="text/javascript" src="js/jquery.fancybox.js"></script>
+  <script type="text/javascript" src="js/jquery.masonry.min.js"></script>
+  <script type="text/javascript" src="js/script.js"></script>
+  <script type="text/javascript">
 
+    var _gaq = _gaq || [];
+    _gaq.push(['_setAccount', 'UA-22384683-3']);
+    _gaq.push(['_trackPageview']);
 
-
-<!--   <div class="container site">
-    <div class="page-header">
-      <div class="span3 muted pull-right">"Avec l'appui
-financier de <a href="http://www.francophonie.org/" target ="_blank">l'OIF"</a>.</div>
-      <!-- <div class="logotitle">Courier de Moldavie</div> -->
-      <div id="logo">
-        <div><%= image_tag 'logo.png', size: "400x70" %></div>
-        <h5 id="sublogo">Bulletin de la section moldave de l’Union Internationale de la Presse Francophone
-        </h5>
-      </div>
-    </div>
-    <div class="row">
-      <span class="pull-left" style="margin-left:30px;">
-        <small><div class="date"><%= l Date.today, :format => :long %></div></small>
-      </span>
-      <span class="pull-right">
-        <small><div class="date">www.courrier.md</div></small>
-      </span>
-    </div>
-    <%#= render 'layouts/navbar1' %>
-    <%#= render 'layouts/navbar' %>
-
-    <div class="row">
-      <div class="span9">
-        <% flash.each do |name, msg| %>
-          <div class="alert alert-<%= name == :notice ? "success" : "error" %>">
-            <a class="close" data-dismiss="alert">×</a>
-            <%= msg %>
-          </div>
-        <% end %>
-      </div>
-      <div class="span6 articles">
-        <%= yield %>
-        <%= image_tag 'divider.gif', class: "article_divider" %>
-        <div class="tag_cloud">
-          <h5>Voyez articles par:</h5>
-          <% author_cloud Article.author_counts, %w[s m l] do |author, css_class| %>
-            <%= link_to author.name, author_path(author.name), class: css_class %>
-          <% end %>
-        </div>
-        <%= image_tag 'divider.gif', class: "article_divider" %>
-      </div>
-      <div class="span3">
-        <div>
-          <b>Trier les articles par:</b>
-            <%= link_to 'editions', all_editions_path, remote: true %> ou
-            <%= link_to 'année', articles_by_years_path, remote: true %>
-        </div>
-        <div class="sort_articles"></div>
-        <%= image_tag 'divider.gif', class: "article_divider" %>
-        <!-- <div class=""><%#= raw(lang_links) %></div> -->
-        <!-- <div class="">La dernière édition de notre journal <br>
-          <%#= link_to last_edition.name, edition_path(last_edition.name) %>
-          articles <%#= last_edition.articles.count %>
-        </div> -->
-        <%# if Article.contest.any? %>
-          <!--<h4>Concours:</h4> -->
-          <%#= link_to Article.contest.last.title, show_contest_path(Article.contest.last) %>
-          <%#= image_tag 'divider.gif', class: "article_divider" %>
-        <%# end %>
-        <div class="sticky_container">
-          <% if sticky_article.present? %>
-            <h5><%= sticky_article.title %></h5>
-            <span class="sticky pull-left">
-              <% if sticky_article.avatar.present? %>
-              <%= image_tag sticky_article.avatar.url(:thumb), size: "100x100" %>
-              <% end %>
-            </span>
-            <p class="justify"><%= sanitize truncate(sticky_article.content, omision: "...", length: 1200), :tags => %w(h) %></p>
-            <small><%= link_to "lire la suite", article_path(sticky_article) %></small>
-          <% end %>
-        </div>
-        <%= image_tag 'divider.gif', class: "article_divider" %>
-        <div class="tag_cloud">
-          <h4>Étiquettes:</h4>
-          <% tag_cloud Article.tag_counts, %w[s m l] do |tag, css_class| %>
-            <%= link_to tag.name, tag_path(tag.name), class: css_class %>
-          <% end %>
-        </div>
-        <%= image_tag 'divider.gif', class: "article_divider" %>
-        <h4>Les plus vues</h4>
-        <ul>
-          <% for article in most_viewed_articles %>
-          <li>
-            <small><%= link_to article.title, article %></small><br>
-            <small>Clics: <%= article.views %></small>
-          </li>
-          <% end %>
-        </ul>
-        <%= image_tag 'divider.gif', class: "article_divider" %>
-      </div>
-    </div>
-    <div class="page-header"></div>
-     <div class="span6">
-      <div class="span">
-        <ul class="unstyled">
-          <li><%= link_to (t "menu.home"), root_path %></li>
-        </ul>
-      </div>
-      <div class="span">
-        <ul class="unstyled">
-          <li><%= link_to (t "menu.about"), a_propos_de_nous_path %></li>
-        </ul>
-      </div>
-      <div class="span">
-        <ul class="unstyled">
-          <li><%= link_to (t "menu.articles"), articles_path %></li>
-        </ul>
-      </div>
-      <div class="span">
-        <ul class="unstyled">
-          <li><%= link_to (t "menu.membres"), membres_path %></li>
-        </ul>
-      </div>
-      <div class="span">
-        <ul class="unstyled">
-          <li><%= link_to (t "menu.contacts"), contact_path %></li>
-        </ul>
-      </div>
-    </div>
-  </div> -->
-<script type="text/javascript">
-
-  var _gaq = _gaq || [];
-  _gaq.push(['_setAccount', 'UA-22384683-3']);
-  _gaq.push(['_trackPageview']);
-
-  (function() {
-    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
-    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
-    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
-  })();
-
-</script>
+    (function() {
+      var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+      ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+      var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+    })();
+  </script>
 </body>
 </html>

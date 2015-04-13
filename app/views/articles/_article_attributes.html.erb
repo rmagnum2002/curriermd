@@ -1,7 +1,13 @@
-<small><%= l @article.published_at, :format => :long %> |
+<p class="date"><%= l @article.published_at, :format => :long %></p>
+<p>
+<% if @article.tag_list.present? %>
+  <small>
+    Étiquettes:
+    <%= raw @article.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %>
+  </small><br />
+<% end %>
+<small>
   Auteur:
   <%= raw @article.author_list.map { |l| link_to l, author_path(l) }.join(', ') %>
 </small><br />
-<% if @article.tag_list.present? %>
-  <small>Étiquettes: <%= raw @article.tag_list.map { |t| link_to t, tag_path(t) }.join(', ') %></small><br />
-<% end %>
+</p>

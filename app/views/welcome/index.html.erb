@@ -7,45 +7,52 @@
   <!-- Category Posts -->
   <div class="post-container">
     <div class="left">
-      <h2><a href="#">Politics</a></h2>
+      <h2></h2>
       <div class="post-item">
-        <a href="#"><img alt="" src="upload/politics.jpg"></a>
-        <h3><a href="#">Aecenas mattis, tortor ut posuere aliquam</a></h3>
-        <p>Donec faucibus dictum ipsum vel laoreet Convallis quam ut elit condimentum quis laoreet tortor iplacinia. Lorem ipsum dolor sit amet.</p>
+        <% if @last_article.avatar.present? %>
+          <%= link_to image_tag(@last_article.avatar.url(:thumb), size: '184x142'), @last_article %>
+        <% else %>
+          <%= link_to image_tag("nophoto_slider.png", size: '184x142'), @last_article %>
+        <% end %>
+        <h3><%= link_to @last_article.title, @last_article %></h3>
+        <p>
+          <%= (ActionView::Base.full_sanitizer
+            .sanitize(@last_article.content)
+            .truncate(200, omission: '...'))
+            .html_safe %>
+        </p>
         <div class="post-item-footer">
-          <a class="comments" href="#">13</a>
-          <a class="more-link" href="#">READ MORE</a>
+          <%= link_to 'Lire la suite', @last_article, class: 'more-link' %>
         </div>
       </div>
     </div>
 
     <div class="right">
-      <h2 data-value="Politics">Other Post</h2>
+      <!-- <h2 data-value="Politics">Other Post</h2> -->
       <ul>
+        <% @last_articles.each do |art| %>
         <li>
-          <a href="#"><img alt="" src="upload/small-post-0.jpg"></a>
-          <h3><a href="#">Adipiscing elit. Nam non consectetur leo. Phasellus</a></h3>
-          <span class="data-post">March 25, 2012</span>
+          <% if art.avatar.present? %>
+            <%= link_to image_tag(art.avatar.url(:thumb), size: '184x142'), art %>
+          <% else %>
+            <%= link_to image_tag("nophoto_slider.png", size: '184x142'), art %>
+          <% end %>
+          <h3><%= link_to art.title, @last_article %></a></h3>
+          <span class="data-post"><%= art.published_at.strftime('%B %d, %Y') %></span>
         </li>
-        <li>
-          <a href="#"><img alt="" src="upload/small-post-1.jpg"></a>
-          <h3><a href="#">Adipiscing elit. Nam non consectetur leo. Phasellus</a></h3>
-          <span class="data-post">March 25, 2012</span>
-        </li>
-        <li>
-          <a href="#"><img alt="" src="upload/small-post-2.jpg"></a>
-          <h3><a href="#">Adipiscing elit. Nam non consectetur leo. Phasellus</a></h3>
-          <span class="data-post">March 25, 2012</span>
-        </li>
-        <li>
-          <a href="#"><img alt="" src="upload/small-post-3.jpg"></a>
-          <h3><a href="#">Adipiscing elit. Nam non consectetur leo. Phasellus</a></h3>
-          <span class="data-post">March 25, 2012</span>
-        </li>
+        <% end %>
       </ul>
     </div>
   </div>
   <!-- End Category Posts -->
+
+  <!-- Ads -->
+  <div class="post-container ads-post-full">
+    <%= link_to image_tag('ads-post.jpg'),
+      'http://www.presse-francophone.org/',
+      target: :blank %>
+  </div>
+  <!-- End Ads -->
 
   <!-- jCarousel Post -->
   <div class="carousel-post-container">
@@ -63,7 +70,7 @@
           <p><%= (ActionView::Base.full_sanitizer.sanitize(art.content).truncate(200, omission: '...')).html_safe %></p>
           <div class="post-item-footer">
             <!-- <a class="comments" href="#">13</a> -->
-            <a class="more-link" href="#">READ MORE</a>
+            <%= link_to 'LIRE LA SUITE', art, class: 'more-link' %>
           </div>
         </li>
         <% end %>
@@ -86,7 +93,29 @@
           <p><%= (ActionView::Base.full_sanitizer.sanitize(art.content).truncate(200, omission: '...')).html_safe %></p>
           <div class="post-item-footer">
             <!-- <a class="comments" href="#">13</a> -->
-            <a class="more-link" href="#">READ MORE</a>
+            <%= link_to 'LIRE LA SUITE', art, class: 'more-link' %>
+          </div>
+        </li>
+        <% end %>
+      </ul>
+    </div>
+  </div>
+  <div class="carousel-post-container">
+    <div class="post-container scroll-post">
+      <h2>Francophonie</h2>
+      <ul class="carousel-post">
+        <% @francophonie_articles.each do |art| %>
+        <li class="post-item">
+          <% if art.avatar.present? %>
+            <%= link_to image_tag(art.avatar.url(:thumb), size: '184x142'), art %>
+          <% else %>
+            <%= link_to image_tag("nophoto_slider.png", size: '184x142'), art %>
+          <% end %>
+          <h3><%= link_to art.title, art %></h3>
+          <p><%= (ActionView::Base.full_sanitizer.sanitize(art.content).truncate(200, omission: '...')).html_safe %></p>
+          <div class="post-item-footer">
+            <!-- <a class="comments" href="#">13</a> -->
+            <%= link_to 'LIRE LA SUITE', art, class: 'more-link' %>
           </div>
         </li>
         <% end %>
@@ -94,94 +123,7 @@
     </div>
   </div>
   <!-- End jCarousel Post -->
-
-  <!-- Gallery Corousel-->
-<!--   <div class="post-container scroll-post">
-    <h2>Gallery</h2>
-    <ul class="gallery-images">
-      <li><a href="upload/gallery-image-big-0.jpg"><img alt="" src="upload/gallery-image-0.jpg"></a></li>
-      <li><a href="upload/gallery-image-big-1.jpg"><img alt="" src="upload/gallery-image-1.jpg"></a></li>
-      <li><a href="upload/gallery-image-big-2.jpg"><img alt="" src="upload/gallery-image-2.jpg"></a></li>
-      <li><a href="upload/gallery-image-big-3.jpg"><img alt="" src="upload/gallery-image-3.jpg"></a></li>
-      <li><a href="upload/gallery-image-big-0.jpg"><img alt="" src="upload/gallery-image-0.jpg"></a></li>
-      <li><a href="upload/gallery-image-big1.jpg"><img alt="" src="upload/gallery-image-1.jpg"></a></li>
-      <li><a href="upload/gallery-image-big-3.jpg"><img alt="" src="upload/gallery-image-3.jpg"></a></li>
-    </ul>
-  </div> -->
-  <!-- End Gallery Corousel-->
-
-  <!-- Ads -->
-  <div class="post-container ads-post-full">
-    <img alt="" src="upload/ads-post.jpg">
-    <%= image_tag 'ads-post.jpg' %>
-  </div>
-  <!-- End Ads -->
-
-  <!-- Category Posts -->
-  <div class="post-container">
-    <div class="left">
-      <h2><a href="#">Politics</a></h2>
-      <div class="post-item">
-        <a href="#"><img alt="" src="upload/politics.jpg"></a>
-        <h3><a href="#">Aecenas mattis, tortor ut posuere aliquam</a></h3>
-        <p>Donec faucibus dictum ipsum vel laoreet Convallis quam ut elit condimentum quis laoreet tortor iplacinia. Lorem ipsum dolor sit amet.</p>
-        <div class="post-item-footer">
-          <a class="comments" href="#">13</a>
-          <a class="more-link" href="#">READ MORE</a>
-        </div>
-      </div>
-    </div>
-
-    <div class="right">
-      <h2 data-value="Politics">Other Post</h2>
-      <ul>
-        <li>
-          <a href="#"><img alt="" src="upload/small-post-0.jpg"></a>
-          <h3><a href="#">Adipiscing elit. Nam non consectetur leo. Phasellus</a></h3>
-          <span class="data-post">March 25, 2012</span>
-        </li>
-        <li>
-          <a href="#"><img alt="" src="upload/small-post-1.jpg"></a>
-          <h3><a href="#">Adipiscing elit. Nam non consectetur leo. Phasellus</a></h3>
-          <span class="data-post">March 25, 2012</span>
-        </li>
-        <li>
-          <a href="#"><img alt="" src="upload/small-post-2.jpg"></a>
-          <h3><a href="#">Adipiscing elit. Nam non consectetur leo. Phasellus</a></h3>
-          <span class="data-post">March 25, 2012</span>
-        </li>
-        <li>
-          <a href="#"><img alt="" src="upload/small-post-3.jpg"></a>
-          <h3><a href="#">Adipiscing elit. Nam non consectetur leo. Phasellus</a></h3>
-          <span class="data-post">March 25, 2012</span>
-        </li>
-      </ul>
-    </div>
-  </div>
-  <!-- End Category Posts -->
-
-  <!-- Ads -->
-  <div class="post-container ads-post">
-    <div class="left-ads">
-      <img alt="" src="upload/ads-middle.jpg">
-    </div>
-    <div class="right-ads">
-      <img alt="" src="upload/ads-middle.jpg">
-    </div>
-  </div>
-  <!-- End Ads -->
-
 </div>
-
-
-  <script type="text/javascript" src="js/jquery.min.js"></script>
-  <script type="text/javascript" src="js/jquery.superfish.js"></script>
-  <script type="text/javascript" src="js/jquery.flexslider.js"></script>
-  <script type="text/javascript" src="js/jquery.jcarousel.min.js"></script>
-  <script type="text/javascript" src="js/jquery.fancybox.js"></script>
-  <script type="text/javascript" src="js/jquery.masonry.min.js"></script>
-  <script type="text/javascript" src="js/script.js"></script>
-
 
 <div class="row">
   <div class="span7">

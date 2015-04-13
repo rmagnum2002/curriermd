@@ -1,6 +1,6 @@
 <% title "Courrier de Moldavie - contact" %>
 
-<div class="span6">
+<div id="content">
   <address>
     <strong>Section moldave de l'UPF</strong><br>
       USM, str. Mateevici, 60,<br>
@@ -11,29 +11,17 @@
   </address>
   <div class="page-header"></div>
   <p class="infoNote">Tous les champs marqués d'une <span class="req">*</span> sont obligatoires. Nous nous engageons à ne jamais vendre ou autrement abuser de votre information.</p>
-  <%= form_for :feedback, url: url_for(action: 'feedback') do |f| %>
-  <ol>
-    <li>
-      <label for="name">Nome <span class="req">*</span></label>
+  <div class="contact-form">
+    <%= form_for :feedback, url: url_for(action: 'feedback') do |f| %>
+    <form>
       <%= f.text_field :name, class:'span5', placeholder: "Votre nom complet" %>
-    </li>
-    <li>
-      <label for="name">Email <span class="req">*</span></label>
       <%= f.email_field :email, class:'span5', placeholder: "Votre e-mail" %>
-    </li>
-    <li>
-      <label for="name">Phone <span class="req">*</span></label>
       <%= f.phone_field :phone, class:'span5', placeholder: "Votre téléphone" %>
-    </li>
-    <li>
-      <label for="name">Message <span class="req">*</span></label>
       <%= f.text_area :message, class:'span5', placeholder: "Votre message", rows: "5" %>
-    </li>
-  </ol>
-  <div class="blankSeparator"></div>
-  <div class="btnLeft">
-    <%= f.submit "Envoyer un message", :type => 'submit', :class => 'btn btn-inverse' %>
+    </form>
+    <div class="blankSeparator"></div>
+      <%= f.submit "Envoyer un message", :type => 'submit', :class => 'btn btn-inverse' %>
+    <br />
+    <% end %>
   </div>
-  <br />
-  <% end %>
 </div>

@@ -60,5 +60,6 @@ module Particip
     config.assets.version = '1.0'
 
     config.i18n.fallbacks = true
+    config.assets.paths << Rails.root.join("app", "assets", "fonts")
   end
 end
