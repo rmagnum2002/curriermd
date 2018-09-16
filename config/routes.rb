@@ -1,15 +1,13 @@
-Particip::Application.routes.draw do
+Rails.application.routes.draw do
+  devise_for :admin_users, ActiveAdmin::Devise.config
+  ActiveAdmin.routes(self)
+  # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :articles
   # resources :authors
-  mount Ckeditor::Engine => "/ckeditor"
+  mount Ckeditor::Engine => '/ckeditor'
 
   # get "welcome/contact"
-
-  ActiveAdmin.routes(self)
-
-  devise_for :admin_users, ActiveAdmin::Devise.config
-
-  get "welcome/index"
+  get 'welcome/index'
   get 'tags/:tag', to: 'articles#index', as: :tag
   get 'authors/:author', to: 'articles#index', as: :author
   get 'editions/:edition', to: 'articles#index', as: :edition
@@ -21,13 +19,13 @@ Particip::Application.routes.draw do
   #   match 'products/:id' => 'catalog#view'
   # Keep in mind you can assign values other than :controller and :action
 
-  match 'contact' => 'welcome#contact'
-  match 'a_propos_de_nous' => 'welcome#about'
-  match 'participate' => 'welcome#participate'
-  match 'membres' => 'welcome#membres'
-  match 'set_locale' => 'welcome#set_locale'
-  match 'all_editions' => 'welcome#all_editions'
-  match 'articles_by_years' => 'welcome#articles_by_years'
+  get 'contact', to: 'welcome#contact'
+  get 'a_propos_de_nous', to: 'welcome#about'
+  get 'participate', to: 'welcome#participate'
+  get 'membres', to: 'welcome#membres'
+  get 'set_locale', to: 'welcome#set_locale'
+  get 'all_editions', to: 'welcome#all_editions'
+  get 'articles_by_years', to: 'welcome#articles_by_years'
 
   # Sample of named route:
   #   match 'products/:id/purchase' => 'catalog#purchase', :as => :purchase
@@ -71,11 +69,11 @@ Particip::Application.routes.draw do
 
   # You can have the root of your site routed with "root"
   # just remember to delete public/index.html.
-  root :to => 'welcome#index'
+  root to: 'welcome#index'
 
   # See how all your routes lay out with "rake routes"
 
   # This is a legacy wild controller route that's not recommended for RESTful applications.
   # Note: This route will make all actions in every controller accessible via GET requests.
-  match ':controller(/:action(/:id))(.:format)'
+  # match ':controller(/:action(/:id))(.:format)'
 end

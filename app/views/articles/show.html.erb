@@ -30,11 +30,11 @@
     <%= raw @article.content %>
     <%= link_to 'Retour', articles_path %>
   </div>
-  <% if @related_articles.nil? %>
-  <div class="span6">
-    <div class="page-header"></div>
-    <%= render 'related_articles' %>
-  </div>
+  <% unless @related_articles %>
+    <div class="span6">
+      <div class="page-header"></div>
+      <%= render 'related_articles' %>
+    </div>
   <% end %>
   <%= render 'disquss' %>
 </div>

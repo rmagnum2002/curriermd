@@ -1,15 +1,12 @@
 class Article < ActiveRecord::Base
-  attr_accessible :author_id, :category_id, :content, :preview, :title, :author_list, :tag_tokens,
-                  :tag_list, :avatar, :avatar_cache, :remove_avatar, :author_ids, :author_tokens, :tag_ids,
-                  :recomend, :sticky, :edition_id, :new_edition_name, :published_at, :is_contest
   # acts_as_taggable
 
   scope :year, lambda{|year|
     where(" EXTRACT(YEAR FROM published_at) = ? ", year ) if year.present?
   }
 
-  scope :contest, where(is_contest: true)
-  scope :not_contest, where(is_contest: false)
+  scope :contest, -> { where(is_contest: true) }
+  scope :not_contest, -> { where(is_contest: false) }
   # translates :title, :content, :preview
   extend FriendlyId
   friendly_id :title, use: :slugged
@@ -59,7 +56,6 @@ class Article < ActiveRecord::Base
   #
   # end methods to have displayed authors and links to their articles
 
-
   # methods to display tags and links to their articles
   #
   def tag_tokens=(tokens)
@@ -71,11 +67,11 @@ class Article < ActiveRecord::Base
   end
 
   def tag_list
-    tags.map(&:name) #.join(", ")
+    tags.map(&:name) # .join(", ")
   end
 
   def self.tag_counts
-    Tag.select("tags.*, count(taggings.tag_id) as count").joins(:taggings).group("taggings.tag_id")
+    Tag.select("tags.*, count(taggings.tag_id) as count").joins(:taggings).group('taggings.tag_id')
   end
   #
   # end methods to have displayed authors and links to their articles
@@ -83,10 +79,10 @@ class Article < ActiveRecord::Base
   mount_uploader :avatar, ArticleAvatarUploader
 
   def previous_article
-    self.class.first(:conditions => ["published_at < ?", published_at], :order => "published_at desc")
+    Article.where('published_at < ?', published_at).order('published_at desc').first
   end
 
   def next_article
-    self.class.first(:conditions => ["published_at > ?", published_at], :order => "published_at asc")
+    Article.where('published_at > ?', published_at).order('published_at asc').first
   end
 end

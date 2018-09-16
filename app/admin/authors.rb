@@ -13,7 +13,7 @@ ActiveAdmin.register Author do
     column "Cree a la date", sortable: :created_at do |author|
       l author.created_at, format: :long
     end
-    default_actions
+    actions
   end
 
   show do |ad|

@@ -1,9 +1,9 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  around_filter :catch_not_found
-  before_filter :set_locale_filter
-  before_filter :load_settings
+  around_action :catch_not_found
+  before_action :set_locale_filter
+  before_action :load_settings
 
 
   def load_settings

@@ -1,5 +1,5 @@
 class ArticlesController < InheritedResources::Base
-  before_filter :load_search_bar
+  before_action :load_search_bar
 
   def index
     if params[:search]
@@ -24,7 +24,7 @@ class ArticlesController < InheritedResources::Base
   end
 
   def show
-    @article = Article.find(params[:id])
+    @article = Article.friendly.find(params[:id])
     @article.increment!(:views, 1)
     @related_articles = Article.tagged_with(@article.tag_list).limit(4)
 
