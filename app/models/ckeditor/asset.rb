@@ -1,9 +1,7 @@
 class Ckeditor::Asset < ActiveRecord::Base
-  include ActiveRecord
   include Ckeditor::Orm::ActiveRecord::AssetBase
-  include Ckeditor::Backend::CarrierWave
 
-  delegate :url, :current_path, :size, :content_type, :filename, :to => :data
+  delegate :url, :current_path, :content_type, :size, :file_name, to: :data
 
-  validates_presence_of :data
+  validates :data, presence: true
 end
