@@ -1,0 +1,208 @@
+/ <% title "Courrier de Moldavie - page d'accueil" %>
+/ <div class="row">
+/   <div class="span7">
+/     <%= render 'concours' if @settings.display_contest %>
+/   </div>
+/ </div>
+/ <div class="row">
+/   <div class="span7">
+/     <%= render 'last_edition' %>
+/   </div>
+/ </div>
+/ <% if @settings.display_recommended_articles %>
+/ <div class="page-header"></div>
+/ <h4>Articles recommandé</h4>
+/ <div class="row">
+/   <% if @recomends.present? %>
+/     <%= render 'recommended' %>
+/   <% else %>
+/     <h5>Il n'y a pas encore d'articles recommandés</h5>
+/   <% end %>
+/ </div>
+/ <% end %>
+
+
+section.has-sidebar.u-padding-t-50
+  .container
+    .row data-sticky_parent=""
+      .col-xl-3.sidebar.sidebar--left.d-none.d-xl-block
+        .widget.widget--transparent-box.single-cat-thum-left
+          .widget__title.has-ajax-load
+            h4 Popular News
+            / .ajax-load-btns.ajax-load-btns--alt
+            /   button.prev
+            /     i.fa.fa-angle-right
+            /   button.next
+            /     i.fa.fa-angle-left
+          ul.posts-wrap
+            - Article.order('published_at desc').joins(:authors).where('authors.name = ? AND is_contest = ?', 'La rédaction', false).first(5).map do |article|
+              li
+                figure
+                  a href="single-post-tokyo.html"
+                    / img alt="" src="img/thumb/p60-70x98.jpg" /
+                    = image_tag article.avatar.url(:thumb), size: "70x98" if article.avatar.url
+                .post-content
+                  .post-meta
+                    time datetime=("2018-02-14 20:00")
+                      i.fa.fa-clock-o
+                      = l article.published_at.to_date, :format => :long
+                  h5.post-title
+                    = link_to article.title, article
+      .col-lg-8.col-xl-6.content-wrapper.u-sm-down-margin-b-40
+        .posts-has-top-thumb data-sticky_column=""
+          - @last_edition_articles.not_contest.each do |article|
+            article.post-item
+              figure
+                - if article.avatar.present?
+                  = link_to article
+                    = image_tag article.avatar.url(:slide), size: "570x280"
+              .post-content
+                .post-meta
+                  .item
+                    time datetime=("2018-02-14 20:00")
+                      i.fa.fa-clock-o
+                      = l article.published_at.to_date, :format => :long
+                  .item
+                    i.fa.fa-folder-open
+                    ul.p-cat
+                      - article.tag_list.first(1).map do |t|
+                        li
+                          = link_to t, tag_path(t)
+                  / .item
+                  /   a href="#"
+                  /     i.fa.fa-comments
+                  /     | 6 comments
+                h3.post-title
+                  / a href="single-post-tokyo.html"
+                  = link_to article.title, article
+                p.post-excerpt
+                  = (ActionView::Base.full_sanitizer.sanitize(article.content).truncate(200, omission: '...')).html_safe
+          / article.post-item
+          /   .post-content
+          /     .post-meta
+          /       .item
+          /         time datetime=("2018-02-14 20:00")
+          /           i.fa.fa-clock-o
+          /           | Sept. 20, 2018
+          /       .item
+          /         i.fa.fa-folder-open
+          /         ul.p-cat
+          /           li
+          /             a href="#"  World
+          /       .item
+          /         a href="#"
+          /           i.fa.fa-comments
+          /           | 6 comments
+          /     h3.post-title
+          /       a href="single-post-tokyo.html"  Revealed: The cities with the highest quality of life in the world
+          /     p.post-excerpt Indonesian police have arrested a man over the murder of an elderly Japanese couple whose bodies were found burned beyond recognition on the holiday island of Bali.
+          / article.post-item
+          /   .post-content
+          /     .post-meta
+          /       .item
+          /         time datetime=("2018-02-14 20:00")
+          /           i.fa.fa-clock-o
+          /           | Sept. 20, 2018
+          /       .item
+          /         i.fa.fa-folder-open
+          /         ul.p-cat
+          /           li
+          /             a href="#"  World
+          /       .item
+          /         a href="#"
+          /           i.fa.fa-comments
+          /           | 6 comments
+          /     h3.post-title
+          /       a href="single-post-tokyo.html"  British student killed after falling from high-rise building in Tokyo
+          /     p.post-excerpt Indonesian police have arrested a man over the murder of an elderly Japanese couple whose bodies were found burned beyond recognition on the holiday island of Bali.
+          / article.post-item
+          /   .post-content
+          /     .post-meta
+          /       .item
+          /         time datetime=("2018-02-14 20:00")
+          /           i.fa.fa-clock-o
+          /           | Sept. 20, 2018
+          /       .item
+          /         i.fa.fa-folder-open
+          /         ul.p-cat
+          /           li
+          /             a href="#"  World
+          /       .item
+          /         a href="#"
+          /           i.fa.fa-comments
+          /           | 6 comments
+          /     h3.post-title
+          /       a href="single-post-tokyo.html"  6 iconic foods you have to try on your travels - and where to eat them
+          /     p.post-excerpt Indonesian police have arrested a man over the murder of an elderly Japanese couple whose bodies were found burned beyond recognition on the holiday island of Bali.
+      .col-xl-3.col-lg-4.sidebar.sidebar--right.d-none.d-lg-block
+        .sidebar__inner data-sticky_column=""
+          .widget.widget--transparent-box.img-banner
+            figure
+              a href="#"
+                img alt="" src="img/banner-270x220.jpg" /
+          .widget.widget--transparent-box.single-cat-thum-top
+            .widget__title.has-ajax-load
+              h4 Popular News
+              / .ajax-load-btns.ajax-load-btns--alt
+              /   button.prev
+              /     i.fa.fa-angle-right
+              /   button.next
+              /     i.fa.fa-angle-left
+            ul.posts-wrap
+              li
+                figure
+                  a href="single-post-tokyo.html"
+                    img alt="" src="img/thumb/p70-270x150.jpg" /
+                .post-content
+                  .post-meta
+                    time datetime=("2018-02-14 20:00")
+                      i.fa.fa-clock-o
+                      | Sept. 20, 2018
+                    .categories
+                      i.fa.fa-folder-open
+                      ul
+                        li
+                          a href="#"  Tech
+                  h4.post-title
+                    a href="single-post-tokyo.html"
+                      | Apple's version of Venmoes
+                      | won't be available until later
+                      | this year
+              li
+                figure
+                  a href="single-post-tokyo.html"
+                    img alt="" src="img/thumb/p71-270x150.jpg" /
+                .post-content
+                  .post-meta
+                    time datetime=("2018-02-14 20:00")
+                      i.fa.fa-clock-o
+                      | Sept. 20, 2018
+                    .categories
+                      i.fa.fa-folder-open
+                      ul
+                        li
+                          a href="#"  Tech
+                  h4.post-title
+                    a href="single-post-tokyo.html"
+                      | Apple's version of Venmoes
+                      | won't be available until later
+                      | this year
+              li
+                figure
+                  a href="single-post-tokyo.html"
+                    img alt="" src="img/thumb/p72-270x150.jpg" /
+                .post-content
+                  .post-meta
+                    time datetime=("2018-02-14 20:00")
+                      i.fa.fa-clock-o
+                      | Sept. 20, 2018
+                    .categories
+                      i.fa.fa-folder-open
+                      ul
+                        li
+                          a href="#"  Tech
+                  h4.post-title
+                    a href="single-post-tokyo.html"
+                      | Apple's version of Venmoes
+                      | won't be available until later
+                      | this year

@@ -1,0 +1,41 @@
+<% title "Courrier de Moldavie - #{@article.title}" %>
+<style>
+  .group2 a {text-decoration:none;}
+</style>
+<script>
+      $(document).ready(function(){
+      $(".group2").colorbox({rel:'group2', transition:"fade"});
+    });
+</script>
+<div class="row">
+
+  <div class="span6">
+    <h2><%= @article.title %></h2>
+    <%= render 'article_attributes' %>
+  </div>
+
+  <% if @article.avatar.present? %>
+  <div class="span6">
+    <div class="thumbnail">
+      <%= image_tag @article.avatar.url(:slide), class: "img-polaroid" %>
+    </div>
+  </div>
+  <% end %>
+  <div class="span6">
+    <%= render 'addthis_links' %>
+    <div class="page-header"></div>
+  </div>
+  <div class="span6">
+    <%= render 'next_prev_links' %>
+    <%= raw @article.content %>
+    <%= link_to 'Retour', articles_path %>
+  </div>
+  <% unless @related_articles %>
+    <div class="span6">
+      <div class="page-header"></div>
+      <%= render 'related_articles' %>
+    </div>
+  <% end %>
+  <%= render 'disquss' %>
+</div>
+

@@ -20,7 +20,7 @@ ActiveAdmin.register Article do
     column "Sticky", :sortable => :created_at do |article|
       Article::STICKY[article.sticky]
     end
-    default_actions
+    actions
   end
 
   show do
@@ -32,20 +32,23 @@ ActiveAdmin.register Article do
     render "form"
   end
 
-  # controller do
-  #   def update
-  #     @article = Article.find(params[:id])
-  #     @sticky = Article.where(sticky: true)
+  controller do
+    #   def update
+    #     @article = Article.find(params[:id])
+    #     @sticky = Article.where(sticky: true)
 
-  #     respond_to do |format|
-  #       if @article.update_attributes(params[:article])
-  #         format.html { redirect_to admin_article_path, notice: 'Article was successfully updated.' }
-  #         format.json { head :ok }
-  #       else
-  #         format.html { render action: "edit" }
-  #         format.json { render json: @article.errors, status: :unprocessable_entity }
-  #       end
-  #     end
-  #   end
-  # end
+    #     respond_to do |format|
+    #       if @article.update_attributes(params[:article])
+    #         format.html { redirect_to admin_article_path, notice: 'Article was successfully updated.' }
+    #         format.json { head :ok }
+    #       else
+    #         format.html { render action: "edit" }
+    #         format.json { render json: @article.errors, status: :unprocessable_entity }
+    #       end
+    #     end
+    #   end
+    def find_resource
+      scoped_collection.friendly.find(params[:id])
+    end
+  end
 end

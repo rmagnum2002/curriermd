@@ -14,7 +14,7 @@ ActiveAdmin.register Edition do
     column "Cree a la date", sortable: :created_at do |edition|
       l edition.created_at, format: :long
     end
-    default_actions
+    actions
   end
 
   show do |ad|

@@ -1,4 +1,4 @@
-class CreateTaggings < ActiveRecord::Migration
+class CreateTaggings < ActiveRecord::Migration[5.2]
   def change
     create_table :taggings do |t|
       t.belongs_to :tag
@@ -6,7 +6,5 @@ class CreateTaggings < ActiveRecord::Migration
 
       t.timestamps
     end
-    add_index :taggings, :tag_id
-    add_index :taggings, :article_id
   end
 end

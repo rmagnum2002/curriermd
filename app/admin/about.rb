@@ -5,7 +5,7 @@ actions :all, :except => [:destroy, :new]
     column "Details" do |about|
       raw about.details
     end
-    default_actions
+    actions
   end
 
   form do |f|

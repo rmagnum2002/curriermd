@@ -1,4 +1,4 @@
-class CreateAuthorships < ActiveRecord::Migration
+class CreateAuthorships < ActiveRecord::Migration[5.2]
 def change
     create_table :authorships do |t|
       t.belongs_to :article
@@ -6,7 +6,5 @@ def change
 
       t.timestamps
     end
-    add_index :authorships, :article_id
-    add_index :authorships, :author_id
   end
 end

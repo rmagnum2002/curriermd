@@ -26,7 +26,7 @@
       </div>
       <div class="field">
         <label>Appartient à l'édition</label>
-        <%= f.collection_select :edition_id, Edition.find(:all), :id, :name, :prompt => "Choisissez une édition", :include_blank => true %>
+        <%= f.collection_select :edition_id, Edition.all, :id, :name, :prompt => "Choisissez une édition", :include_blank => true %>
         <br><br>
         <label>Date de publication</label>
         <%= f.datetime_select :published_at, :start_year => 2000 %>

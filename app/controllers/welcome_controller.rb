@@ -1,6 +1,6 @@
 class WelcomeController < ApplicationController
 
-    def set_locale
+  def set_locale
     request_language = request.env['HTTP_ACCEPT_LANGUAGE']
     request_language = request_language.nil? ? nil : request_language[/[^,;]+/]
 
@@ -18,7 +18,7 @@ class WelcomeController < ApplicationController
   def index
     @class_home = true
     @search = Article.not_contest.search(params[:search])
-    @last_edition_articles = Edition.order('year desc').order('number desc').first.articles.order('published_at desc').limit(3)
+    @last_edition_articles = Edition.order('year desc').order('number desc').first.articles.order('published_at desc')
     # @main_articles = Article.order('published_at desc').limit(5)
     @recomends = Article.not_contest.where(recomend: true).order('published_at desc').limit(6)
     @concours = Article.contest.last
@@ -61,15 +61,13 @@ class WelcomeController < ApplicationController
 
   def feedback
     @feedback = Feedback.new
-    if request.post?
-      @feedback = Feedback.new params[:feedback]
-      if @feedback.save
-        UserMailer.feedback(@feedback).deliver
-        redirect_to contact_path, :notice => "Feedback sent. Thank you!"
-      else
-        redirect_to contact_path, :notice => "Feedback not sent."
-      end
+    return unless request.post?
+    @feedback = Feedback.new params[:feedback]
+    if @feedback.save
+      UserMailer.feedback(@feedback).deliver
+      redirect_to contact_path, notice: 'Feedback sent. Thank you!'
+    else
+      redirect_to contact_path, notice: 'Feedback not sent.'
     end
   end
-
 end

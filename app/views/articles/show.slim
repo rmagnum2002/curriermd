@@ -1,0 +1,399 @@
+section.has-sidebar.u-padding-t-50.u-padding-b-80
+  .container
+    .row data-sticky_parent=""
+      .col-lg-8.content-wrapper
+        div data-sticky_column=""
+          .m-post-content.m-post-content--tok
+            .post-top
+              .breadcrumbs.u-margin-b-10
+                span
+                  a href="#"  Home
+                span.separetor -
+                span
+                  a href="#"  World News
+                span.separetor -
+                span.current
+                  = @article.title
+              h1.post-title
+                = @article.title
+              .post-meta
+                .item
+                  time datetime=("2018-02-14 20:00")
+                    i.fa.fa-clock-o
+                    | January 24, 2017 8:40AM MST
+                .item
+                  ul.categories
+                    li
+                      i.fa.fa-folder-open
+                      a href="#"  World News
+            .entry-content
+              p
+                / img.u-radius-3.img-block alt="" src="img/thumb/p116-710x350.jpg" /
+                = image_tag @article.avatar.url(:slide), class: 'u-radius-3 img-block' if @article.avatar.url
+              = raw @article.content
+            / .post-share-alt.u-margin-t-40
+            /   h6 Share :
+            /   .share-links.social--color
+            /     a.social__facebook href="#"
+            /       i.fa.fa-facebook aria-hidden="true"
+            /     a.social__google-plus href="#"
+            /       i.fa.fa-google-plus aria-hidden="true"
+            /     a.social__twitter href="#"
+            /       i.fa.fa-twitter aria-hidden="true"
+            .post-tags-alt.u-margin-t-40
+              h6 Tags :
+              .tags-wrap
+                  - @article.tag_list.map do |t|
+                    = link_to tag_path(t) do
+                      = t
+
+          .posts-box3.has-cat.has-load-more.u-margin-t-40
+            / .posts-box3__top.no-pad
+            /   h4.posts-box3__top__title.font-weight-normal
+            /     span 25 Comments Yet
+            / .comments-box.no-pad
+            /   ol.comment-list
+            /     li.comment.parent
+            /       article.comment-body
+            /         .author-pic
+            /           img alt="" src="img/auth/a2-70x70.png" /
+            /         .comment-content
+            /           div
+            /             h4.author-name.font-weight-normal
+            /               a href="#"  Tyler Fernandez
+            /             p
+            /               | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            /               | tempores in Cididunts the labore et dolore magna aliqua. Ut enim ad minimveniam, quis nostrud of exercitation ullamco laboris.
+            /           .comment-meta
+            /             .item
+            /               time datetime=("2018-02-14 20:00")
+            /                 i.fa.fa-clock-o
+            /                 | January 24, 2017 8:40AM MST
+            /             .item
+            /               a href="#"
+            /                 i.fa.fa-reply
+            /                 | Reply
+            /       ol.children
+            /         li.comment.parent
+            /           article.comment-body
+            /             .author-pic
+            /               img alt="" src="img/auth/a3-70x70.png" /
+            /             .comment-content
+            /               div
+            /                 h4.author-name.font-weight-normal
+            /                   a href="#"  Tyler Fernandez
+            /                 p
+            /                   | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            /                   | tempores in Cididunts the labore et dolore magna aliqua. Ut enim ad minimveniam, quis nostrud of exercitation ullamco laboris.
+            /               .comment-meta
+            /                 .item
+            /                   time datetime=("2018-02-14 20:00")
+            /                     i.fa.fa-clock-o
+            /                     | January 24, 2017 8:40AM MST
+            /                 .item
+            /                   a href="#"
+            /                     i.fa.fa-reply
+            /                     | Reply
+            /     li.comment.parent
+            /       article.comment-body
+            /         .author-pic
+            /           img alt="" src="img/auth/a4-70x70.png" /
+            /         .comment-content
+            /           div
+            /             h4.author-name.font-weight-normal
+            /               a href="#"  Tyler Fernandez
+            /             p
+            /               | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            /               | tempores in Cididunts the labore et dolore magna aliqua. Ut enim ad minimveniam, quis nostrud of exercitation ullamco laboris.
+            /           .comment-meta
+            /             .item
+            /               time datetime=("2018-02-14 20:00")
+            /                 i.fa.fa-clock-o
+            /                 | January 24, 2017 8:40AM MST
+            /             .item
+            /               a href="#"
+            /                 i.fa.fa-reply
+            /                 | Reply
+            /       ol.children
+            /         li.comment.parent
+            /           article.comment-body
+            /             .author-pic
+            /               img alt="" src="img/auth/a5-70x70.png" /
+            /             .comment-content
+            /               div
+            /                 h4.author-name.font-weight-normal
+            /                   a href="#"  Tyler Fernandez
+            /                 p
+            /                   | Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
+            /                   | tempores in Cididunts the labore et dolore magna aliqua. Ut enim ad minimveniam, quis nostrud of exercitation ullamco laboris.
+            /               .comment-meta
+            /                 .item
+            /                   time datetime=("2018-02-14 20:00")
+            /                     i.fa.fa-clock-o
+            /                     | January 24, 2017 8:40AM MST
+            /                 .item
+            /                   a href="#"
+            /                     i.fa.fa-reply
+            /                     | Reply
+          /! //.posts-box
+          .posts-box3.u-padding-t-60
+            .posts-box3__top
+              h4
+                span Articles connexe
+            .posts-list.has-post-block
+              - for article in @related_articles
+                article.post-item
+                  figure
+                    a href="single-post-tokyo.html"
+                      / img alt="" src="img/thumb/p89-370x200.jpg" /
+                      = image_tag article.avatar.url(:thumb), size: "370x200" if article.avatar.url
+                  .post-content
+                    .post-meta
+                      a.post-auth href="#"
+                        i.fa.fa-user
+                        | Puffintheme
+                      time datetime=("2018-02-14 20:00")
+                        i.fa.fa-clock-o
+                        = l article.published_at.to_date, :format => :long
+                    h4.post-title
+                      a href="single-post-tokyo.html"
+                        | Ex-Australian PM headbutted amid
+                        | heated gay marriage campaign
+                    p.post-excerpt
+                      | Indonesian police have arrested man over the murder of an elderly Japanese couple whos on the holiday island of Bali.
+            /! //.posts-list
+      .col-lg-4.sidebar.sidebar--right.u-md-down-margin-t-40
+        .sidebar__inner data-sticky_column=""
+          .widget.widget--transparent-box.categories-collapse
+            .widget__title
+              h4 Categories
+            ul.collapsing-cats
+              li
+                a.has-child.collapsed aria-expanded="false" data-toggle="collapse" href="#cat-colps-1"
+                  i.fa.fa-angle-right
+                  | Life Style
+                  span.count 69
+                ul#cat-colps-1.collapse aria-expanded="false"
+                  li
+                    a href="#"  Inspiration
+                  li
+                    a href="#"  Travel
+                  li
+                    a href="#"  Photography
+                  li
+                    a href="#"  Feature Post
+              li
+                a.collapsed.has-child aria-expanded="true" data-toggle="collapse" href="#cat-colps-2"
+                  i.fa.fa-angle-right
+                  | World
+                  span.count 52
+                ul#cat-colps-2.collapse aria-expanded="true"
+                  li
+                    a href="#"  Fashion
+              li
+                a href="#"
+                  i.fa.fa-angle-right
+                  | Travel
+                  span.count 28
+              li
+                a href="#"
+                  i.fa.fa-angle-right
+                  | Foods
+                  span.count 19
+              li
+                a href="#"
+                  i.fa.fa-angle-right
+                  | Creative
+                  span.count 23
+              li
+                a href="#"
+                  i.fa.fa-angle-right
+                  | Sports
+                  span.count 45
+              li
+                a href="#"
+                  i.fa.fa-angle-right
+                  | Racing
+                  span.count 87
+              li
+                a href="#"
+                  i.fa.fa-angle-right
+                  | Football
+                  span.count 06
+          .widget.widget--transparent-box.newsletter-three
+            .newsletter-box
+              h4 Email Alerts
+              p Your email address will not be this published. Required fields are News Today.
+              form action="#"
+                input placeholder=("Email address") type="email" /
+                button
+                  i.fa.fa-paper-plane
+          .widget.widget--transparent-box
+            .widget__title
+              h4 Social Media
+            .social-connect
+              ul.social--redius.social--color
+                li
+                  a.social__facebook href="#"
+                    i.fa.fa-facebook
+                li
+                  a.social__twitter href="#"
+                    i.fa.fa-twitter
+                li
+                  a.social__google-plus href="#"
+                    i.fa.fa-google-plus
+                li
+                  a.social__linkedin href="#"
+                    i.fa.fa-linkedin
+                li
+                  a.social__twitter href="#"
+                    i.fa.fa-twitter
+                li
+                  a.social__linkedin href="#"
+                    i.fa.fa-linkedin
+                li
+                  a.social__instagram href="#"
+                    i.fa.fa-instagram
+                li
+                  a.social__google-plus href="#"
+                    i.fa.fa-google-plus
+                li
+                  a.social__linkedin href="#"
+                    i.fa.fa-linkedin
+                li
+                  a.social__twitter href="#"
+                    i.fa.fa-twitter
+                li
+                  a.social__google-plus href="#"
+                    i.fa.fa-google-plus
+                li
+                  a.social__instagram href="#"
+                    i.fa.fa-instagram
+          .widget.widget--transparent-box.img-banner
+            figure
+              a href="#"
+                img alt="" src="img/banner-370x335.jpg" /
+
+
+section.full-width.link-widgets.u-padding-t-80.u-padding-b-80
+  .container
+    .widgets-inner
+      .c-col
+        .widget.widget--transparent-box
+          .widget__title
+            h4 Current Issues
+          ul.link-lists
+            li
+              a href="#"  Technology
+            li
+              a href="#"  Entertainment
+            li
+              a href="#"  Business
+            li
+              a href="#"  Economy
+            li
+              a href="#"  Politics
+            li
+              a href="#"  Science
+            li
+              a href="#"  Society
+            li
+              a href="#"  Sports
+            li
+              a href="#"  Society
+            li
+              a href="#"  Travel
+      .c-col
+        .widget.widget--transparent-box
+          .widget__title
+            h4 Culture
+          ul.link-lists
+            li
+              a href="#"  Community
+            li
+              a href="#"  History
+            li
+              a href="#"  Okinawa Series
+            li
+              a href="#"  Ryukyu History
+        .widget.widget--transparent-box
+          .widget__title
+            h4 Culture
+          ul.link-lists
+            li
+              a href="#"  Community
+            li
+              a href="#"  History
+            li
+              a href="#"  Okinawa Series
+            li
+              a href="#"  Ryukyu History
+      .c-col
+        .widget.widget--transparent-box
+          .widget__title
+            h4 Life System
+          ul.link-lists
+            li
+              a href="#"  Cooking Recipe
+            li
+              a href="#"  Health & Beauty
+            li
+              a href="#"  Education
+            li
+              a href="#"  Business
+            li
+              a href="#"  Family
+            li
+              a href="#"  Gourmet
+            li
+              a href="#"  Living
+            li
+              a href="#"  Shopping
+            li
+              a href="#"  Society
+            li
+              a href="#"  House Keeping
+      .c-col
+        .widget.widget--transparent-box
+          .widget__title
+            h4 Informations
+          ul.link-lists
+            li
+              a href="#"  Community
+            li
+              a href="#"  History
+            li
+              a href="#"  Okinawa Series
+            li
+              a href="#"  Ryukyu History
+        .widget.widget--transparent-box
+          .widget__title
+            h4 Entertainment
+          ul.link-lists
+            li
+              a href="#"  Community
+            li
+              a href="#"  History
+            li
+              a href="#"  Okinawa Series
+            li
+              a href="#"  Ryukyu History
+      .c-col
+        .widget.widget--transparent-box
+          .widget__title
+            h4 Opinion
+          ul.link-lists
+            li
+              a href="#"  Family
+            li
+              a href="#"  Gourmet
+            li
+              a href="#"  Health & Beauty
+            li
+              a href="#"  Living
+            li
+              a href="#"  Shopping
+            li
+              a href="#"  Society
+            li
+              a href="#"  History

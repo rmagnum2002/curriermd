@@ -1,9 +1,9 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  around_filter :catch_not_found
-  before_filter :set_locale_filter
-  before_filter :load_settings
+  around_action :catch_not_found
+  before_action :set_locale_filter
+  before_action :load_settings
 
 
   def load_settings
@@ -15,10 +15,10 @@ class ApplicationController < ActionController::Base
       @locale = cookies[:lang]
     end
 
-    @locale ||= "ro"
+    @locale ||= 'fr'
 
     if cookies[:lang] != @locale
-      cookies[:lang] = {:value => @locale, :expires => 1.year.from_now}
+      cookies[:lang] = { value: @locale, expires: 1.year.from_now }
     end
 
     I18n.locale = LOCALES[@locale]
