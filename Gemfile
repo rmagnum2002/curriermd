@@ -42,6 +42,8 @@ gem 'devise'
 gem 'friendly_id', '~> 5.2.0'
 gem 'mini_magick'
 gem 'will_paginate', '~> 3.0'
+gem 'jquery-rails'
+gem 'slim'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false

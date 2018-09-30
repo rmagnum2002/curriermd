@@ -15,10 +15,10 @@ class ApplicationController < ActionController::Base
       @locale = cookies[:lang]
     end
 
-    @locale ||= "ro"
+    @locale ||= 'fr'
 
     if cookies[:lang] != @locale
-      cookies[:lang] = {:value => @locale, :expires => 1.year.from_now}
+      cookies[:lang] = { value: @locale, expires: 1.year.from_now }
     end
 
     I18n.locale = LOCALES[@locale]

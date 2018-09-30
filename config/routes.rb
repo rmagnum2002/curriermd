@@ -20,7 +20,7 @@ Rails.application.routes.draw do
   # Keep in mind you can assign values other than :controller and :action
 
   get 'contact', to: 'welcome#contact'
-  get 'a_propos_de_nous', to: 'welcome#about'
+  get 'a_propos_de_nous', to: 'welcome#about', as: :about
   get 'participate', to: 'welcome#participate'
   get 'membres', to: 'welcome#membres'
   get 'set_locale', to: 'welcome#set_locale'

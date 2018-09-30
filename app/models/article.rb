@@ -1,5 +1,6 @@
 class Article < ActiveRecord::Base
   # acts_as_taggable
+  mount_uploader :avatar, ArticleAvatarUploader
 
   scope :year, lambda{|year|
     where(" EXTRACT(YEAR FROM published_at) = ? ", year ) if year.present?
@@ -75,8 +76,6 @@ class Article < ActiveRecord::Base
   end
   #
   # end methods to have displayed authors and links to their articles
-
-  mount_uploader :avatar, ArticleAvatarUploader
 
   def previous_article
     Article.where('published_at < ?', published_at).order('published_at desc').first
