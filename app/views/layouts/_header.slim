@@ -7,25 +7,25 @@ header.header.header--style-one
             li
               i.fa.fa-calendar
               = l Date.today, format: :long
-        /     li.d-none.d-xl-block.d-lg-block
-        /       i.fa.fa-clock-o
-        /       | 12 : 25 : 26 PM
-        / .col-4.col-sm-6
-        /   ul.header__status__items.header__status__items--right
-        /     li.header__status__social.d-none.d-xl-block.d-lg-block
-        /       a href="#"
-        /         i.fa.fa-facebook
-        /       a href="#"
-        /         i.fa.fa-twitter
-        /       a href="#"
-        /         i.fa.fa-google-plus
-        /       a href="#"
-        /         i.fa.fa-linkedin
-        /     li.header__status__login.cursor-pointer data-target="#usermodal" data-toggle="modal"
-        /       i.fa.fa-lock aria-hidden="true"
-        /       | Login
-      /! //.row
-  /! //.header__status
+            / li.d-none.d-xl-block.d-lg-block
+            /   i.fa.fa-clock-o
+            /   | 12 : 25 : 26 PM
+        .col-4.col-sm-6
+          ul.header__status__items.header__status__items--right
+            li.header__status__social.d-none.d-xl-block.d-lg-block
+              a href="https://www.facebook.com/CourrierDeMoldavie" target='blank'
+                i.fa.fa-facebook
+              / a href="#"
+              /   i.fa.fa-twitter
+              / a href="#"
+              /   i.fa.fa-google-plus
+              / a href="#"
+              /   i.fa.fa-linkedin
+            / li.header__status__login.cursor-pointer data-target="#usermodal" data-toggle="modal"
+            /   i.fa.fa-lock aria-hidden="true"
+            /   | Login
+  /     ! //.row
+  / ! //.header__status
   .header__logo.has-banner.u-padding-tb-20
     .container
       .row.u-flex--item-center
@@ -35,7 +35,7 @@ header.header.header--style-one
         .col-md-9.d-none.d-md-block
           .header__banner
             a href="#"
-              img alt="" src="img/banner-870x70.jpg" /
+              / img alt="" src="img/banner-870x70.jpg" /
   .main-nav
     .container
       .dark-bg
@@ -43,95 +43,73 @@ header.header.header--style-one
           .col-md-11.col-6
             nav.header__nav.text-left.has-bg.d-none.d-lg-block
               ul
-                / li.has-dropdown.active
-                /   a href="#"  Home
-                /   ul.menu-dropdown
-                /     li.active
-                /       a href="home-new-york.html"  New York
-                /     li
-                /       a href="home-vancouver.html"  Vancouver
-                /     li
-                /       a href="home-tokyo.html"  Tokyo
-                / li.menu-item-has-mega-menu.has-mega-menu.parent__megaMenu.pos-left
-                /   a href="#"  Sports
-                /   .mega-menu
-                /     /! Nav tabs
-                /     ul.mega-menu__nav
-                /       li.active
-                /         a href="#"  Football
-                /       li
-                /         a href="#"  Cricket
-                /       li
-                /         a href="#"  Basketball
-                /       li
-                /         a href="#"  Board sports
-                /     /! Tab panes
-                /     .megam-menu__content
-                /       .megam-menu__content__inner
-                /         article.post-item
-                /           .post-item__inner
-                /             figure
-                /               a href="#"
-                /                 img alt="" src="img/thumb/p6-350x200.jpg" /
-                /             .post-content
-                /               h6.post-title
-                /                 a href="#"
-                /                   | The easiest way to own
-                /                   | the Bohemyan Look
-                /               .post-meta
-                /                 time datetime=("2018-02-14 20:00")
-                /                   i.fa.fa-clock-o
-                /                   | Sept. 20, 2018
-                /         article.post-item
-                /           .post-item__inner
-                /             figure
-                /               a href="#"
-                /                 img alt="" src="img/thumb/p118-350x200.jpg" /
-                /             .post-content
-                /               h6.post-title
-                /                 a href="#"
-                /                   | Jaguar Type on Display
-                /                   | at the LA Auto Show
-                /               .post-meta
-                /                 time datetime=("2018-02-14 20:00")
-                /                   i.fa.fa-clock-o
-                /                   | Sept. 20, 2018
-                /         article.post-item
-                /           .post-item__inner
-                /             figure
-                /               a href="#"
-                /                 img alt="" src="img/thumb/p119-350x200.jpg" /
-                /             .post-content
-                /               h6.post-title
-                /                 a href="#"
-                /                   | Mutual Fund Mark Down
-                /                   | UberInvestments
-                /               .post-meta
-                /                 time datetime=("2018-02-14 20:00")
-                /                   i.fa.fa-clock-o
-                /                   | Sept. 20, 2018
-                /   /! //Mega Menu end
                 li
-                  = link_to 'Accueil', root_path
+                  = link_to (t "menu.home"), root_path
                 li
-                  = link_to 'À propos de nous', about_path
+                  = link_to (t "menu.about"), about_path
                 li
-                  a href="#"  Opinion
+                  = link_to (t "menu.articles"), articles_path
                 li
-                  a href="contact.html"  Technology
+                  = link_to (t "menu.contacts"), contact_path
             button#JS-openButton.cursor-pointer.header__menubar.header__menubar-light.d-lg-none.d-xl-none
-              i.ico-bar
+              i.fa.fa-bars
           .col-md-1.col-6
-            / .header__search
-            /   button.header__search__btn.JS-search-trigger
-            /     i.fa.fa-search
-            / /! header search area
-            / .header__search__form
-            /   .header__search__inner
-            /     button.close-btn.JS-form-close
-            /       i.ico-close
-            /     form.header__search__form-wrapper action="#"
-            /       button.search-action
-            /         span.ico-search
-            /       input.search-input placeholder=("Search here") type="text" /
-            /! // header search area end
+            .header__search
+              button.header__search__btn.JS-search-trigger
+                i.fa.fa-search
+            /! header search area
+            .header__search__form
+              .header__search__inner
+                button.close-btn.JS-form-close
+                  i.fa.fa-times
+                form.header__search__form-wrapper action="#"
+                  button.search-action
+                    span.ico-search
+                  input.search-input placeholder=("Search here") type="text" /
+            / ! // header search area end
+
+/! Mobile menu area start
+.mobile-menu-area
+  .btn-wrap
+    button#JS-closeButton
+      i.fa.fa-times
+  .search-form
+    form action="#"
+      input placeholder=("Search Here") type="text" /
+      button
+        i.ico-search
+  nav.mobile-menu
+    ul
+      / li.active
+      li
+        = link_to (t "menu.home"), root_path, class: 'no-child'
+      li
+        = link_to (t "menu.about"), about_path, class: 'no-child'
+      li
+        = link_to (t "menu.articles"), articles_path, class: 'no-child'
+      li
+        = link_to (t "menu.contacts"), contact_path, class: 'no-child'
+      / li
+      /   a.collapsed.has-child aria-expanded="true" data-toggle="collapse" href="#cat-col-4"  News
+      /   ul#cat-col-4.collapse aria-expanded="true"
+      /     li
+      /       a href="single-post-nyork.html"  Single News (New York)
+      /     li
+      /       a href="single-post-vancouver.html"  Single News (Vancouver)
+      /     li
+      /       a href="single-post-tokyo.html"  Single News (Tokyo)
+  .social-links
+    ul
+      li
+        a href="#"
+          span.ion-social-facebook
+      li
+        a href="#"
+          span.ion-social-twitter
+      li
+        a href="#"
+          span.ion-social-googleplus
+      li
+        a href="#"
+          span.ion-social-tumblr
+/! // Mobile menu area end

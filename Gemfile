@@ -33,8 +33,8 @@ gem 'jbuilder', '~> 2.5'
 # Use Capistrano for deployment
 # gem 'capistrano-rails', group: :development
 
+gem 'acts-as-taggable-on'
 gem 'activeadmin'
-gem 'bootstrap', '~> 4.1.3'
 gem 'carrierwave'
 gem 'mini_magick'
 gem 'ckeditor', '4.2.4'
@@ -44,6 +44,8 @@ gem 'mini_magick'
 gem 'will_paginate', '~> 3.0'
 gem 'jquery-rails'
 gem 'slim'
+gem 'font-awesome-rails'
+gem 'owlcarousel-rails'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false

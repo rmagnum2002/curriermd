@@ -1,0 +1,15 @@
+.widget.widget--transparent-box.single-cat-thum-left
+  .widget__title.has-ajax-load
+    h4 La rédaction
+  ul.posts-wrap
+    - Article.order('published_at desc').joins(:authors).where('authors.name = ? AND is_contest = ?', 'La rédaction', false).first(5).each do |article|
+      li
+        figure
+          = link_to image_tag(article.avatar.url(:thumb), size: "70x98"), article if article.avatar.url
+        .post-content
+          .post-meta
+            time datetime=("2018-02-14 20:00")
+              i.fa.fa-clock-o
+              = l article.published_at.to_date, :format => :long
+          h5.post-title
+            = link_to article.title, article

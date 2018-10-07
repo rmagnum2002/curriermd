@@ -12,9 +12,15 @@
 //
 //= require rails-ujs
 //= require activestorage
-//= require turbolinks
 //= require jquery3
-//= require popper
-//= require bootstrap-sprockets
+//= require popper.min
+//= require bootstrap
+//= require bootstrap.bundle
+//= require owl.carousel
 //= require ckeditor/init
+//= require flexmenu
+//= require jquery.sticky-kit
+//= require jquery.nicescroll
+//= require jquery.magnific-popup.min
+//= require newstoday
 //= require_tree .

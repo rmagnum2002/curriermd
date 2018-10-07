@@ -156,244 +156,142 @@ section.has-sidebar.u-padding-t-50.u-padding-b-80
                         i.fa.fa-clock-o
                         = l article.published_at.to_date, :format => :long
                     h4.post-title
-                      a href="single-post-tokyo.html"
-                        | Ex-Australian PM headbutted amid
-                        | heated gay marriage campaign
+                      = link_to article.title, article
                     p.post-excerpt
-                      | Indonesian police have arrested man over the murder of an elderly Japanese couple whos on the holiday island of Bali.
+                      = (ActionView::Base.full_sanitizer.sanitize(article.content).truncate(100, omission: '...')).html_safe
             /! //.posts-list
       .col-lg-4.sidebar.sidebar--right.u-md-down-margin-t-40
         .sidebar__inner data-sticky_column=""
           .widget.widget--transparent-box.categories-collapse
             .widget__title
-              h4 Categories
+              h4 Étiquettes
             ul.collapsing-cats
-              li
-                a.has-child.collapsed aria-expanded="false" data-toggle="collapse" href="#cat-colps-1"
-                  i.fa.fa-angle-right
-                  | Life Style
-                  span.count 69
-                ul#cat-colps-1.collapse aria-expanded="false"
-                  li
-                    a href="#"  Inspiration
-                  li
-                    a href="#"  Travel
-                  li
-                    a href="#"  Photography
-                  li
-                    a href="#"  Feature Post
-              li
-                a.collapsed.has-child aria-expanded="true" data-toggle="collapse" href="#cat-colps-2"
-                  i.fa.fa-angle-right
-                  | World
-                  span.count 52
-                ul#cat-colps-2.collapse aria-expanded="true"
-                  li
-                    a href="#"  Fashion
-              li
-                a href="#"
-                  i.fa.fa-angle-right
-                  | Travel
-                  span.count 28
-              li
-                a href="#"
-                  i.fa.fa-angle-right
-                  | Foods
-                  span.count 19
-              li
-                a href="#"
-                  i.fa.fa-angle-right
-                  | Creative
-                  span.count 23
-              li
-                a href="#"
-                  i.fa.fa-angle-right
-                  | Sports
-                  span.count 45
-              li
-                a href="#"
-                  i.fa.fa-angle-right
-                  | Racing
-                  span.count 87
-              li
-                a href="#"
-                  i.fa.fa-angle-right
-                  | Football
-                  span.count 06
-          .widget.widget--transparent-box.newsletter-three
-            .newsletter-box
-              h4 Email Alerts
-              p Your email address will not be this published. Required fields are News Today.
-              form action="#"
-                input placeholder=("Email address") type="email" /
-                button
-                  i.fa.fa-paper-plane
-          .widget.widget--transparent-box
-            .widget__title
-              h4 Social Media
-            .social-connect
-              ul.social--redius.social--color
-                li
-                  a.social__facebook href="#"
-                    i.fa.fa-facebook
-                li
-                  a.social__twitter href="#"
-                    i.fa.fa-twitter
-                li
-                  a.social__google-plus href="#"
-                    i.fa.fa-google-plus
-                li
-                  a.social__linkedin href="#"
-                    i.fa.fa-linkedin
-                li
-                  a.social__twitter href="#"
-                    i.fa.fa-twitter
-                li
-                  a.social__linkedin href="#"
-                    i.fa.fa-linkedin
-                li
-                  a.social__instagram href="#"
-                    i.fa.fa-instagram
-                li
-                  a.social__google-plus href="#"
-                    i.fa.fa-google-plus
-                li
-                  a.social__linkedin href="#"
-                    i.fa.fa-linkedin
-                li
-                  a.social__twitter href="#"
-                    i.fa.fa-twitter
-                li
-                  a.social__google-plus href="#"
-                    i.fa.fa-google-plus
-                li
-                  a.social__instagram href="#"
-                    i.fa.fa-instagram
+              = render 'shared/categories'
           .widget.widget--transparent-box.img-banner
             figure
               a href="#"
                 img alt="" src="img/banner-370x335.jpg" /
 
 
-section.full-width.link-widgets.u-padding-t-80.u-padding-b-80
-  .container
-    .widgets-inner
-      .c-col
-        .widget.widget--transparent-box
-          .widget__title
-            h4 Current Issues
-          ul.link-lists
-            li
-              a href="#"  Technology
-            li
-              a href="#"  Entertainment
-            li
-              a href="#"  Business
-            li
-              a href="#"  Economy
-            li
-              a href="#"  Politics
-            li
-              a href="#"  Science
-            li
-              a href="#"  Society
-            li
-              a href="#"  Sports
-            li
-              a href="#"  Society
-            li
-              a href="#"  Travel
-      .c-col
-        .widget.widget--transparent-box
-          .widget__title
-            h4 Culture
-          ul.link-lists
-            li
-              a href="#"  Community
-            li
-              a href="#"  History
-            li
-              a href="#"  Okinawa Series
-            li
-              a href="#"  Ryukyu History
-        .widget.widget--transparent-box
-          .widget__title
-            h4 Culture
-          ul.link-lists
-            li
-              a href="#"  Community
-            li
-              a href="#"  History
-            li
-              a href="#"  Okinawa Series
-            li
-              a href="#"  Ryukyu History
-      .c-col
-        .widget.widget--transparent-box
-          .widget__title
-            h4 Life System
-          ul.link-lists
-            li
-              a href="#"  Cooking Recipe
-            li
-              a href="#"  Health & Beauty
-            li
-              a href="#"  Education
-            li
-              a href="#"  Business
-            li
-              a href="#"  Family
-            li
-              a href="#"  Gourmet
-            li
-              a href="#"  Living
-            li
-              a href="#"  Shopping
-            li
-              a href="#"  Society
-            li
-              a href="#"  House Keeping
-      .c-col
-        .widget.widget--transparent-box
-          .widget__title
-            h4 Informations
-          ul.link-lists
-            li
-              a href="#"  Community
-            li
-              a href="#"  History
-            li
-              a href="#"  Okinawa Series
-            li
-              a href="#"  Ryukyu History
-        .widget.widget--transparent-box
-          .widget__title
-            h4 Entertainment
-          ul.link-lists
-            li
-              a href="#"  Community
-            li
-              a href="#"  History
-            li
-              a href="#"  Okinawa Series
-            li
-              a href="#"  Ryukyu History
-      .c-col
-        .widget.widget--transparent-box
-          .widget__title
-            h4 Opinion
-          ul.link-lists
-            li
-              a href="#"  Family
-            li
-              a href="#"  Gourmet
-            li
-              a href="#"  Health & Beauty
-            li
-              a href="#"  Living
-            li
-              a href="#"  Shopping
-            li
-              a href="#"  Society
-            li
-              a href="#"  History
+/ section.full-width.link-widgets.u-padding-t-80.u-padding-b-80
+/   .container
+/     .widgets-inner
+/       .c-col
+/         .widget.widget--transparent-box
+/           .widget__title
+/             h4 Current Issues
+/           ul.link-lists
+/             li
+/               a href="#"  Technology
+/             li
+/               a href="#"  Entertainment
+/             li
+/               a href="#"  Business
+/             li
+/               a href="#"  Economy
+/             li
+/               a href="#"  Politics
+/             li
+/               a href="#"  Science
+/             li
+/               a href="#"  Society
+/             li
+/               a href="#"  Sports
+/             li
+/               a href="#"  Society
+/             li
+/               a href="#"  Travel
+/       .c-col
+/         .widget.widget--transparent-box
+/           .widget__title
+/             h4 Culture
+/           ul.link-lists
+/             li
+/               a href="#"  Community
+/             li
+/               a href="#"  History
+/             li
+/               a href="#"  Okinawa Series
+/             li
+/               a href="#"  Ryukyu History
+/         .widget.widget--transparent-box
+/           .widget__title
+/             h4 Culture
+/           ul.link-lists
+/             li
+/               a href="#"  Community
+/             li
+/               a href="#"  History
+/             li
+/               a href="#"  Okinawa Series
+/             li
+/               a href="#"  Ryukyu History
+/       .c-col
+/         .widget.widget--transparent-box
+/           .widget__title
+/             h4 Life System
+/           ul.link-lists
+/             li
+/               a href="#"  Cooking Recipe
+/             li
+/               a href="#"  Health & Beauty
+/             li
+/               a href="#"  Education
+/             li
+/               a href="#"  Business
+/             li
+/               a href="#"  Family
+/             li
+/               a href="#"  Gourmet
+/             li
+/               a href="#"  Living
+/             li
+/               a href="#"  Shopping
+/             li
+/               a href="#"  Society
+/             li
+/               a href="#"  House Keeping
+/       .c-col
+/         .widget.widget--transparent-box
+/           .widget__title
+/             h4 Informations
+/           ul.link-lists
+/             li
+/               a href="#"  Community
+/             li
+/               a href="#"  History
+/             li
+/               a href="#"  Okinawa Series
+/             li
+/               a href="#"  Ryukyu History
+/         .widget.widget--transparent-box
+/           .widget__title
+/             h4 Entertainment
+/           ul.link-lists
+/             li
+/               a href="#"  Community
+/             li
+/               a href="#"  History
+/             li
+/               a href="#"  Okinawa Series
+/             li
+/               a href="#"  Ryukyu History
+/       .c-col
+/         .widget.widget--transparent-box
+/           .widget__title
+/             h4 Opinion
+/           ul.link-lists
+/             li
+/               a href="#"  Family
+/             li
+/               a href="#"  Gourmet
+/             li
+/               a href="#"  Health & Beauty
+/             li
+/               a href="#"  Living
+/             li
+/               a href="#"  Shopping
+/             li
+/               a href="#"  Society
+/             li
+/               a href="#"  History

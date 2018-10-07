@@ -1,0 +1,31 @@
+        .sidebar__inner data-sticky_column=""
+          / .widget.widget--transparent-box.img-banner
+          /   figure
+          /     a href="#"
+          /       / img alt="" src="img/banner-270x220.jpg" /
+          .widget.widget--transparent-box.single-cat-thum-top
+            .widget__title.has-ajax-load
+              h4 Recommandé
+              / .ajax-load-btns.ajax-load-btns--alt
+              /   button.prev
+              /     i.fa.fa-angle-right
+              /   button.next
+              /     i.fa.fa-angle-left
+            ul.posts-wrap
+              - Article.where(recomend: true).each do |article|
+                li
+                  figure
+                    = link_to image_tag(article.avatar.url(:thumb), size: "270x150"), article if article.avatar.url
+                  .post-content
+                    .post-meta
+                      time
+                        i.fa.fa-clock-o
+                        = l article.published_at.to_date, format: :long
+                      .categories
+                        i.fa.fa-folder-open
+                        ul
+                          - article.tag_list.first(1).map do |t|
+                            li
+                              = link_to t, tag_path(t)
+                    h4.post-title
+                      = link_to article.title, article

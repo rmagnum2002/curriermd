@@ -1,0 +1,6 @@
+- Tag.where(is_category: true).each do |tag|
+  li
+    = link_to tag_path(tag.name) do
+      i.fa.fa-angle-right
+      = tag.name
+      span.count = tag.taggings.size

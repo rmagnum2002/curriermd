@@ -1,31 +1,30 @@
 footer.footer
   .footer__widgets.style-3
     .container
+      hr
       .row
         .col-xl-5.col-md-3.u-sm-down-margin-b-40
           .widget.about
-            .site-logo
-              a href="#"
-                img alt="" src="img/logo-3.png" /
+            / .site-logo
+            /   = link_to image_tag('logo.png'), root_path
             ul.a-block
               li
-                h6 Address :
+                h6 Adresse :
                 p
-                  span Tokyo Newspaper Ltd.
-                  span 524 Yates St Victoria,
-                  span BC V8W 1K8, Tokyo.
+                  span Section moldave de l'UPF
+                  span USM, str. Mateevici, 60,
+                  span MD-2009
+                  span Chisinau, Moldova
               li
-                h6 Mobile :
+                h6 Téléphone :
                 p
-                  span (901) 756-4983
-                  span (973) 694-4195
+                  span = link_to '+373 690 50758', 'tel:+37369050758'
               li
                 h6 Email Address :
                 p
-                  span support@tokyo.com
-                  span info@tokyo.com
+                  span = mail_to 'sgrossu@gmail.com'
           .widget.text.copy-right
-            p © Copyright of Tokyo Newspaper 2005-2018
+            p © Copyright of courrier.md
         .col-xl-3.col-md-4.u-sm-down-margin-b-40
           / .widget.gallery
           /   .widget__title

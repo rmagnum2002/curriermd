@@ -1,10 +1,4 @@
-/ <% title "Courrier de Moldavie - à propos de nous" %>
-/ <div class="span6">
-/   <% if @about.present? %>
-/     <%= raw @about.details  %>
-/   <% end %>
-/ </div>
-- @article = Article.last
+- title 'Courrier de Moldavie - à propos de nous'
 
 section.has-sidebar.u-padding-t-50.u-padding-b-80
   .container
@@ -25,129 +19,129 @@ section.has-sidebar.u-padding-t-50.u-padding-b-80
             /       i.fa.fa-google-plus aria-hidden="true"
             /     a.social__twitter href="#"
             /       i.fa.fa-twitter aria-hidden="true"
-            .post-tags-alt.u-margin-t-40
-              h6 Tags :
-              .tags-wrap
-                a.cat-world href="#"
-                  i.fa.fa-tag aria-hidden="true"
-                  | World News
-                a.cat-local href="#"
-                  i.fa.fa-tag aria-hidden="true"
-                  | Local News
+            / .post-tags-alt.u-margin-t-40
+            /   h6 Tags :
+            /   .tags-wrap
+            /     a.cat-world href="#"
+            /       i.fa.fa-tag aria-hidden="true"
+            /       | World News
+            /     a.cat-local href="#"
+            /       i.fa.fa-tag aria-hidden="true"
+            /       | Local News
 
-          .posts-box3.u-padding-t-60
-            .posts-box3__top
-              h4
-                span International News
-            .posts-list.has-post-block
-              article.post-item
-                figure
-                  a href="single-post-tokyo.html"
-                    img alt="" src="img/thumb/p89-370x200.jpg" /
-                .post-content
-                  .post-meta
-                    a.post-auth href="#"
-                      i.fa.fa-user
-                      | Puffintheme
-                    time datetime=("2018-02-14 20:00")
-                      i.fa.fa-clock-o
-                      | Sept. 20, 2018
-                  h4.post-title
-                    a href="single-post-tokyo.html"
-                      | Ex-Australian PM headbutted amid
-                      | heated gay marriage campaign
-                  p.post-excerpt
-                    | Indonesian police have arrested man over the murder of an elderly Japanese couple whos on the holiday island of Bali.
-              article.post-item
-                figure
-                  a href="single-post-tokyo.html"
-                    img alt="" src="img/thumb/p90-370x200.jpg" /
-                .post-content
-                  .post-meta
-                    a.post-auth href="#"
-                      i.fa.fa-user
-                      | Puffintheme
-                    time datetime=("2018-02-14 20:00")
-                      i.fa.fa-clock-o
-                      | Sept. 20, 2018
-                  h4.post-title
-                    a href="single-post-tokyo.html"
-                      | Brazil army deploys in Rio slum as drug
-                      | related violence worsens
-                  p.post-excerpt
-                    | Indonesian police have arrested man over the murder of an elderly Japanese couple whos on the holiday island of Bali.
-              article.post-item
-                figure
-                  a href="single-post-tokyo.html"
-                    img alt="" src="img/thumb/p91-370x200.jpg" /
-                .post-content
-                  .post-meta
-                    a.post-auth href="#"
-                      i.fa.fa-user
-                      | Puffintheme
-                    time datetime=("2018-02-14 20:00")
-                      i.fa.fa-clock-o
-                      | Sept. 20, 2018
-                  h4.post-title
-                    a href="single-post-tokyo.html"
-                      | 'Lady Beast' fights for girl gamers in
-                      | Tokyo in Japan
-                  p.post-excerpt
-                    | Indonesian police have arrested man over the murder of an elderly Japanese couple whos on the holiday island of Bali.
-              article.post-item
-                figure
-                  a href="single-post-tokyo.html"
-                    img alt="" src="img/thumb/p92-370x200.jpg" /
-                .post-content
-                  .post-meta
-                    a.post-auth href="#"
-                      i.fa.fa-user
-                      | Puffintheme
-                    time datetime=("2018-02-14 20:00")
-                      i.fa.fa-clock-o
-                      | Sept. 20, 2018
-                  h4.post-title
-                    a href="single-post-tokyo.html"
-                      | People and Technology to DSL Camera
-                      | to LED Screen
-                  p.post-excerpt
-                    | Indonesian police have arrested man over the murder of an elderly Japanese couple whos on the holiday island of Bali.
-              article.post-item
-                figure
-                  a href="single-post-tokyo.html"
-                    img alt="" src="img/thumb/p93-370x200.jpg" /
-                .post-content
-                  .post-meta
-                    a.post-auth href="#"
-                      i.fa.fa-user
-                      | Puffintheme
-                    time datetime=("2018-02-14 20:00")
-                      i.fa.fa-clock-o
-                      | Sept. 20, 2018
-                  h4.post-title
-                    a href="single-post-tokyo.html"
-                      | Ex-Australian PM headbutted amid
-                      | heated gay marriage campaign
-                  p.post-excerpt
-                    | Indonesian police have arrested man over the murder of an elderly Japanese couple whos on the holiday island of Bali.
-              article.post-item
-                figure
-                  a href="single-post-tokyo.html"
-                    img alt="" src="img/thumb/p88-370x200.jpg" /
-                .post-content
-                  .post-meta
-                    a.post-auth href="#"
-                      i.fa.fa-user
-                      | Puffintheme
-                    time datetime=("2018-02-14 20:00")
-                      i.fa.fa-clock-o
-                      | Sept. 20, 2018
-                  h4.post-title
-                    a href="single-post-tokyo.html"
-                      | McCain torpedos Republican effort to
-                      | repeal Obamacare
-                  p.post-excerpt
-                    | Indonesian police have arrested man over the murder of an elderly Japanese couple whos on the holiday island of Bali.
+          / .posts-box3.u-padding-t-60
+          /   .posts-box3__top
+          /     h4
+          /       span International News
+          /   .posts-list.has-post-block
+          /     article.post-item
+          /       figure
+          /         a href="single-post-tokyo.html"
+          /           img alt="" src="img/thumb/p89-370x200.jpg" /
+          /       .post-content
+          /         .post-meta
+          /           a.post-auth href="#"
+          /             i.fa.fa-user
+          /             | Puffintheme
+          /           time datetime=("2018-02-14 20:00")
+          /             i.fa.fa-clock-o
+          /             | Sept. 20, 2018
+          /         h4.post-title
+          /           a href="single-post-tokyo.html"
+          /             | Ex-Australian PM headbutted amid
+          /             | heated gay marriage campaign
+          /         p.post-excerpt
+          /           | Indonesian police have arrested man over the murder of an elderly Japanese couple whos on the holiday island of Bali.
+          /     article.post-item
+          /       figure
+          /         a href="single-post-tokyo.html"
+          /           img alt="" src="img/thumb/p90-370x200.jpg" /
+          /       .post-content
+          /         .post-meta
+          /           a.post-auth href="#"
+          /             i.fa.fa-user
+          /             | Puffintheme
+          /           time datetime=("2018-02-14 20:00")
+          /             i.fa.fa-clock-o
+          /             | Sept. 20, 2018
+          /         h4.post-title
+          /           a href="single-post-tokyo.html"
+          /             | Brazil army deploys in Rio slum as drug
+          /             | related violence worsens
+          /         p.post-excerpt
+          /           | Indonesian police have arrested man over the murder of an elderly Japanese couple whos on the holiday island of Bali.
+          /     article.post-item
+          /       figure
+          /         a href="single-post-tokyo.html"
+          /           img alt="" src="img/thumb/p91-370x200.jpg" /
+          /       .post-content
+          /         .post-meta
+          /           a.post-auth href="#"
+          /             i.fa.fa-user
+          /             | Puffintheme
+          /           time datetime=("2018-02-14 20:00")
+          /             i.fa.fa-clock-o
+          /             | Sept. 20, 2018
+          /         h4.post-title
+          /           a href="single-post-tokyo.html"
+          /             | 'Lady Beast' fights for girl gamers in
+          /             | Tokyo in Japan
+          /         p.post-excerpt
+          /           | Indonesian police have arrested man over the murder of an elderly Japanese couple whos on the holiday island of Bali.
+          /     article.post-item
+          /       figure
+          /         a href="single-post-tokyo.html"
+          /           img alt="" src="img/thumb/p92-370x200.jpg" /
+          /       .post-content
+          /         .post-meta
+          /           a.post-auth href="#"
+          /             i.fa.fa-user
+          /             | Puffintheme
+          /           time datetime=("2018-02-14 20:00")
+          /             i.fa.fa-clock-o
+          /             | Sept. 20, 2018
+          /         h4.post-title
+          /           a href="single-post-tokyo.html"
+          /             | People and Technology to DSL Camera
+          /             | to LED Screen
+          /         p.post-excerpt
+          /           | Indonesian police have arrested man over the murder of an elderly Japanese couple whos on the holiday island of Bali.
+          /     article.post-item
+          /       figure
+          /         a href="single-post-tokyo.html"
+          /           img alt="" src="img/thumb/p93-370x200.jpg" /
+          /       .post-content
+          /         .post-meta
+          /           a.post-auth href="#"
+          /             i.fa.fa-user
+          /             | Puffintheme
+          /           time datetime=("2018-02-14 20:00")
+          /             i.fa.fa-clock-o
+          /             | Sept. 20, 2018
+          /         h4.post-title
+          /           a href="single-post-tokyo.html"
+          /             | Ex-Australian PM headbutted amid
+          /             | heated gay marriage campaign
+          /         p.post-excerpt
+          /           | Indonesian police have arrested man over the murder of an elderly Japanese couple whos on the holiday island of Bali.
+          /     article.post-item
+          /       figure
+          /         a href="single-post-tokyo.html"
+          /           img alt="" src="img/thumb/p88-370x200.jpg" /
+          /       .post-content
+          /         .post-meta
+          /           a.post-auth href="#"
+          /             i.fa.fa-user
+          /             | Puffintheme
+          /           time datetime=("2018-02-14 20:00")
+          /             i.fa.fa-clock-o
+          /             | Sept. 20, 2018
+          /         h4.post-title
+          /           a href="single-post-tokyo.html"
+          /             | McCain torpedos Republican effort to
+          /             | repeal Obamacare
+          /         p.post-excerpt
+          /           | Indonesian police have arrested man over the murder of an elderly Japanese couple whos on the holiday island of Bali.
             /! //.posts-list
       .col-lg-4.sidebar.sidebar--right.u-md-down-margin-t-40
         .sidebar__inner data-sticky_column=""
@@ -260,127 +254,3 @@ section.has-sidebar.u-padding-t-50.u-padding-b-80
             figure
               a href="#"
                 img alt="" src="img/banner-370x335.jpg" /
-
-
-section.full-width.link-widgets.u-padding-t-80.u-padding-b-80
-  .container
-    .widgets-inner
-      .c-col
-        .widget.widget--transparent-box
-          .widget__title
-            h4 Current Issues
-          ul.link-lists
-            li
-              a href="#"  Technology
-            li
-              a href="#"  Entertainment
-            li
-              a href="#"  Business
-            li
-              a href="#"  Economy
-            li
-              a href="#"  Politics
-            li
-              a href="#"  Science
-            li
-              a href="#"  Society
-            li
-              a href="#"  Sports
-            li
-              a href="#"  Society
-            li
-              a href="#"  Travel
-      .c-col
-        .widget.widget--transparent-box
-          .widget__title
-            h4 Culture
-          ul.link-lists
-            li
-              a href="#"  Community
-            li
-              a href="#"  History
-            li
-              a href="#"  Okinawa Series
-            li
-              a href="#"  Ryukyu History
-        .widget.widget--transparent-box
-          .widget__title
-            h4 Culture
-          ul.link-lists
-            li
-              a href="#"  Community
-            li
-              a href="#"  History
-            li
-              a href="#"  Okinawa Series
-            li
-              a href="#"  Ryukyu History
-      .c-col
-        .widget.widget--transparent-box
-          .widget__title
-            h4 Life System
-          ul.link-lists
-            li
-              a href="#"  Cooking Recipe
-            li
-              a href="#"  Health & Beauty
-            li
-              a href="#"  Education
-            li
-              a href="#"  Business
-            li
-              a href="#"  Family
-            li
-              a href="#"  Gourmet
-            li
-              a href="#"  Living
-            li
-              a href="#"  Shopping
-            li
-              a href="#"  Society
-            li
-              a href="#"  House Keeping
-      .c-col
-        .widget.widget--transparent-box
-          .widget__title
-            h4 Informations
-          ul.link-lists
-            li
-              a href="#"  Community
-            li
-              a href="#"  History
-            li
-              a href="#"  Okinawa Series
-            li
-              a href="#"  Ryukyu History
-        .widget.widget--transparent-box
-          .widget__title
-            h4 Entertainment
-          ul.link-lists
-            li
-              a href="#"  Community
-            li
-              a href="#"  History
-            li
-              a href="#"  Okinawa Series
-            li
-              a href="#"  Ryukyu History
-      .c-col
-        .widget.widget--transparent-box
-          .widget__title
-            h4 Opinion
-          ul.link-lists
-            li
-              a href="#"  Family
-            li
-              a href="#"  Gourmet
-            li
-              a href="#"  Health & Beauty
-            li
-              a href="#"  Living
-            li
-              a href="#"  Shopping
-            li
-              a href="#"  Society
-            li
-              a href="#"  History

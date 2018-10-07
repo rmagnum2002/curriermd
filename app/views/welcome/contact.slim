@@ -1,0 +1,91 @@
+- title "Courrier de Moldavie - contact"
+section.has-sidebar.u-padding-tb-60
+  .container
+    .row data-sticky_parent="" style=("position: relative;")
+      .col-lg-6.content-wrapper
+        div data-sticky_column=""
+          .contact-form
+            .form-title
+              h4 Online contact information
+            = form_for :feedback, url: new_feedback_path, html: {class: 'form-body'} do |f|
+              p Tous les champs marqués d'une * sont obligatoires. Nous nous engageons à ne jamais vendre ou autrement abuser de votre information.
+              .form-group.u-margin-b-25
+                = f.label :name, 'Nome'
+                = f.text_field :name, class:'f1 form-control', placeholder: "Votre nom complet", required: true
+              .form-group.u-margin-b-25
+                = f.label :email, 'Email'
+                = f.email_field :email, class:'f1 form-control', placeholder: "Votre e-mail", required: true
+              .form-group.u-margin-b-25
+                = f.label :phone, 'Téléphone'
+                = f.phone_field :phone, class:'f1 form-control', placeholder: "Votre téléphone", required: true
+              .form-group.u-margin-b-25
+                = f.label :message, 'Votre message'
+                = f.text_area :message, class:'f6 form-control', placeholder: "Votre message", rows: "7", required: true
+              .form-submit.u-margin-t-20
+                = f.button "Envoyer un message", type: 'submit', class: 'c-btn text-uppercase c-btn--solid c-btn--color-brand'
+                / button.c-btn.text-uppercase.c-btn--solid.c-btn--color-brand type="submit"  Submit this contact
+      .col-lg-6.sidebar.sidebar--right.u-md-down-margin-t-40 style=("position: relative;")
+        .side-bar__inner.u-padding-l-40.u-sm-down-padding-l-0 data-sticky_column="" style=""
+          .contact-address
+            .form-title
+              h4 Advertising contacts
+            .address-body
+              ul
+                li
+                  h4 Chisinau, Moldova
+                  p
+                    | USM, str. Mateevici, 60,
+                    br/
+                    | MD-2009
+                    br/
+                    | Section moldave de l'UPF
+                    br/
+                    = link_to '+373 690 50758', 'tel:+37369050758'
+                  = mail_to 'sgrossu@gmail.com'
+  / .span6
+  /   address
+  /     strong Section moldave de l'UPF
+  /     br/
+  /     | USM, str. Mateevici, 60,
+  /     br/
+  /     | MD-2009
+  /     br/
+  /     | Chisinau, Moldova
+  /     br/
+  /     abbr title="Phone"  Telefon:
+  /     | +(373) 69050758
+  /     br/
+  /     | mail:
+  /     a href="mailto:sgrossu@gmail.com"  sgrossu@gmail.com
+  /   .page-header
+  /   p.infoNote
+  /     | Tous les champs marqués d'une
+  /     span.req *
+  /     | sont obligatoires. Nous nous engageons à ne jamais vendre ou autrement abuser de votre information.
+  /   = form_for :feedback, url: new_feedback_path do |f|
+  /     ol
+  /       li
+  /         label for="name"
+  /           | Nome
+  /           span.req *
+  /         = f.text_field :name, class:'span5', placeholder: "Votre nom complet"
+  /       li
+  /         label for="name"
+  /           | Email
+  /           span.req *
+  /         = f.email_field :email, class:'span5', placeholder: "Votre e-mail"
+  /       li
+  /         label for="name"
+  /           | Phone
+  /           span.req *
+  /         = f.phone_field :phone, class:'span5', placeholder: "Votre téléphone"
+  /       li
+  /         label for="name"
+  /           | Message
+  /           span.req *
+  /         = f.text_area :message, class:'span5', placeholder: "Votre message", rows: "5"
+  /     .blankSeparator
+  /     .btnLeft
+  /       = f.submit "Envoyer un message", :type => 'submit', :class => 'btn btn-inverse'
+  /     br/
+
