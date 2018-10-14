@@ -7,6 +7,7 @@ class Article < ActiveRecord::Base
   }
 
   scope :contest, -> { where(is_contest: true) }
+  scope :recommended, -> { where(recomend: true) }
   scope :not_contest, -> { where(is_contest: false) }
   # translates :title, :content, :preview
   extend FriendlyId

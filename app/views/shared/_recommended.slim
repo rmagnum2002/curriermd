@@ -1,0 +1,25 @@
+.widget__title.has-ajax-load
+  h4 Recommandé
+  / .ajax-load-btns.ajax-load-btns--alt
+  /   button.prev
+  /     i.fa.fa-angle-right
+  /   button.next
+  /     i.fa.fa-angle-left
+ul.posts-wrap
+  - Article.recommended.order('id desc').first(10).each do |article|
+    li
+      figure
+        = link_to image_tag(article.avatar.url(:thumb), size: "270x150"), article if article.avatar.url
+      .post-content
+        .post-meta
+          time datetime=("2018-02-14 20:00")
+            i.fa.fa-clock-o
+            = l article.published_at.to_date, :format => :long
+          .categories
+            i.fa.fa-folder-open
+            ul
+              li
+                = link_to article.tag_list.first, tag_path(article.tag_list.first)
+        h4.post-title
+          = link_to article.title, article
+    hr

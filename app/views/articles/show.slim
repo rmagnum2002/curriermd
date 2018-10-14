@@ -43,9 +43,8 @@ section.has-sidebar.u-padding-t-50.u-padding-b-80
             .post-tags-alt.u-margin-t-40
               h6 Tags :
               .tags-wrap
-                  - @article.tag_list.map do |t|
-                    = link_to tag_path(t) do
-                      = t
+                - @article.tag_list.map do |t|
+                  = link_to t, tag_path(t)
 
           .posts-box3.has-cat.has-load-more.u-margin-t-40
             / .posts-box3__top.no-pad
@@ -146,12 +145,12 @@ section.has-sidebar.u-padding-t-50.u-padding-b-80
                   figure
                     a href="single-post-tokyo.html"
                       / img alt="" src="img/thumb/p89-370x200.jpg" /
-                      = image_tag article.avatar.url(:thumb), size: "370x200" if article.avatar.url
+                    = link_to image_tag(article.avatar.url(:thumb), size: "370x200"), article if article.avatar.url
                   .post-content
                     .post-meta
                       a.post-auth href="#"
                         i.fa.fa-user
-                        | Puffintheme
+                        = raw article.author_list.map { |t| link_to t, author_path(t) }.join(', ')
                       time datetime=("2018-02-14 20:00")
                         i.fa.fa-clock-o
                         = l article.published_at.to_date, :format => :long
