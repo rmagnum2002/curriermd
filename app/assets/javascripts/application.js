@@ -17,7 +17,6 @@
 //= require bootstrap
 //= require bootstrap.bundle
 //= require owl.carousel
-//= require ckeditor/init
 //= require flexmenu
 //= require jquery.sticky-kit
 //= require jquery.nicescroll

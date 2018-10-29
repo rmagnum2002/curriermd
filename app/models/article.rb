@@ -1,17 +1,16 @@
 class Article < ActiveRecord::Base
   # acts_as_taggable
+  extend FriendlyId
+  friendly_id :title, use: :slugged
   mount_uploader :avatar, ArticleAvatarUploader
 
-  scope :year, lambda{|year|
-    where(" EXTRACT(YEAR FROM published_at) = ? ", year ) if year.present?
+  scope :year, lambda { |year|
+    where('EXTRACT(YEAR FROM published_at) = ?', year) if year.present?
   }
 
   scope :contest, -> { where(is_contest: true) }
   scope :recommended, -> { where(recomend: true) }
   scope :not_contest, -> { where(is_contest: false) }
-  # translates :title, :content, :preview
-  extend FriendlyId
-  friendly_id :title, use: :slugged
 
   has_many :authorships
   has_many :authors, through: :authorships
@@ -23,16 +22,12 @@ class Article < ActiveRecord::Base
   before_save :create_edition_from_name
 
   def create_edition_from_name
-    # create_edition(name: new_edition_name) unless new_edition_name.blank?
-    Edition.find_or_create_by_name(name: new_edition_name) unless new_edition_name.blank?
+    return if new_edition_name.blank?
+    Edition.find_or_create_by_name(name: new_edition_name)
   end
 
-  RECOMENDED = { 1 => 'Recomended', 0 => '' }
-  STICKY = { 1 => 'Sticky', 0 => '' }
-
-  # class Translation
-  #   attr_accessible :locale
-  # end
+  RECOMENDED = { 1 => 'Recomended', 0 => '' }.freeze
+  STICKY = { 1 => 'Sticky', 0 => '' }.freeze
 
   def self.in_edition(name)
     Edition.find_by_name(name).articles
@@ -49,7 +44,7 @@ class Article < ActiveRecord::Base
   end
 
   def author_list
-    authors.map(&:name) #.join(", ")
+    authors.map(&:name)
   end
 
   def self.author_counts

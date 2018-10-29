@@ -1,3 +1,4 @@
+
 <div class="row" style="width:800px;margin:auto;">
   <%= form_for [:admin, @article] do |f| %>
   <% if @article.errors.any? %>
@@ -11,11 +12,11 @@
     </ul>
   </div>
   <% end %>
-
+<!--
   <ul class="nav nav-tabs" id="myTab">
     <li class="active"><a href="#home">Titre et Options</a></li>
     <li><a href="#profile">Contenu de l'Article</a></li>
-  </ul>
+  </ul> -->
 
   <div class="tab-content">
     <div class="tab-pane active" id="home">
@@ -48,6 +49,9 @@
         <%= f.label :tag_tokens, "Etiquettes" %>
         <%= f.text_field :tag_tokens, data: {load: @article.tags} %>
       </div>
+      <br>
+      <br>
+      <br>
       <div class="field">
         <label>Article Avatar</label>
         <%= image_tag(@article.avatar_url(:thumb)) if @article.avatar? %>
@@ -55,18 +59,21 @@
         <%= f.hidden_field :avatar_cache %>
       </div>
       <% unless @article.avatar.blank? %>
-      <div class="field">
-        <label>
-          <%= f.check_box :remove_avatar %>
-          Retirer avatar
-        </label>
-      </div>
+        <div class="field">
+          <label>
+            <%#= f.check_box :remove_avatar %>
+            Retirer avatar
+          </label>
+        </div>
       <% end %>
     <!--   <div class="field"> -->
         <%#= f.label :preview %>
         <%#= f.cktext_area :preview %>
     <!--   </div> -->
     </div>
+    <br>
+    <br>
+    <br>
     <div class="tab-pane" id="profile">
       <br>
       <div class="field">

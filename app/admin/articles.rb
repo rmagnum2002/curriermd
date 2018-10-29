@@ -1,5 +1,4 @@
 ActiveAdmin.register Article do
-
   index do
     selectable_column
     column "ID", :sortable => :id do |article|
@@ -33,20 +32,25 @@ ActiveAdmin.register Article do
   end
 
   controller do
-    #   def update
-    #     @article = Article.find(params[:id])
-    #     @sticky = Article.where(sticky: true)
+    def update
+      @article = Article.friendly.find(params[:id])
+      @sticky = Article.where(sticky: true)
 
-    #     respond_to do |format|
-    #       if @article.update_attributes(params[:article])
-    #         format.html { redirect_to admin_article_path, notice: 'Article was successfully updated.' }
-    #         format.json { head :ok }
-    #       else
-    #         format.html { render action: "edit" }
-    #         format.json { render json: @article.errors, status: :unprocessable_entity }
-    #       end
-    #     end
-    #   end
+      respond_to do |format|
+        if @article.update_attributes(permitted_params)
+          format.html { redirect_to admin_article_path, notice: 'Article was successfully updated.' }
+          format.json { head :ok }
+        else
+          format.html { render action: "edit" }
+          format.json { render json: @article.errors, status: :unprocessable_entity }
+        end
+      end
+    end
+
+    def permitted_params
+      params[:article].permit!
+    end
+
     def find_resource
       scoped_collection.friendly.find(params[:id])
     end

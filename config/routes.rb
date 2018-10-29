@@ -11,6 +11,7 @@ Rails.application.routes.draw do
   get 'welcome/index'
   get 'tags/:tag', to: 'articles#index', as: :tag
   get 'authors/:author', to: 'articles#index', as: :author
+  get 'authors', to: 'authors#index'
   get 'editions/:edition', to: 'articles#index', as: :edition
   get 'concours/:id', to: 'articles#show', as: :show_contest
   # The priority is based upon order of creation:

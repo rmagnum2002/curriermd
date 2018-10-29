@@ -12,7 +12,9 @@
 
   <div class="span8">
     <div class="thumbnail">
+      <% if @article.avatar %>
       <%= image_tag @article.avatar.url, class: "img-polaroid" %>
+      <% end %>
     </div>
   </div>
   <div class="span8">

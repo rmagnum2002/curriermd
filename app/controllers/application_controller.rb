@@ -1,13 +1,12 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery
 
-  around_action :catch_not_found
+  # around_action :catch_not_found
   before_action :set_locale_filter
   before_action :load_settings
 
-
   def load_settings
-    @settings = AppSetting.first_or_create
+    @settings ||= AppSetting.first_or_create
   end
 
   def set_locale_filter
@@ -37,15 +36,15 @@ class ApplicationController < ActionController::Base
     @search = Article.search(params[:search])
   end
 
-private
+  private
 
   def set_admin_locale
     I18n.locale = :fr
   end
 
-  def catch_not_found
-    yield
-  rescue ActiveRecord::RecordNotFound
-    redirect_to root_url, :flash => { :notice => "Wrong URL" }
-  end
+  # def catch_not_found
+  #   yield
+  # rescue ActiveRecord::RecordNotFound
+  #   redirect_to root_url, :flash => { :notice => "Wrong URL" }
+  # end
 end
