@@ -1,6 +1,6 @@
 
 <div class="row" style="width:800px;margin:auto;">
-  <%= form_for [:admin, @article] do |f| %>
+  <%= form_for([:admin, @article], enctype: true) do |f| %>
   <% if @article.errors.any? %>
   <div id="error_explanation">
     <h2><%= pluralize(@article.errors.count, "error") %> prohibited this article from being saved:</h2>
@@ -54,9 +54,9 @@
       <br>
       <div class="field">
         <label>Article Avatar</label>
-        <%= image_tag(@article.avatar_url(:thumb)) if @article.avatar? %>
+        <%#= image_tag(@article.avatar_url(:thumb)) if @article.avatar? %>
         <%= f.file_field :avatar %>
-        <%= f.hidden_field :avatar_cache %>
+        <%#= f.hidden_field :avatar_cache %>
       </div>
       <% unless @article.avatar.blank? %>
         <div class="field">
@@ -88,6 +88,7 @@
   </div>
 </div>
 <script type="text/javascript">
+  $('form').attr({enctype: "multipart/form-data"})
   $('#myTab a').click(function (e) {
     e.preventDefault();
     $(this).tab('show');

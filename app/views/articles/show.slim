@@ -29,7 +29,8 @@ section.has-sidebar.u-padding-t-50.u-padding-b-80
             .entry-content
               p
                 / img.u-radius-3.img-block alt="" src="img/thumb/p116-710x350.jpg" /
-                = image_tag @article.avatar.url(:slide), class: 'u-radius-3 img-block' if @article.avatar.url
+                - if @article.avatar.attached?
+                  = image_tag @article.avatar.variant(resize: "710x350!"), class: 'u-radius-3 img-block'
               = raw @article.content
             / .post-share-alt.u-margin-t-40
             /   h6 Share :
@@ -145,7 +146,8 @@ section.has-sidebar.u-padding-t-50.u-padding-b-80
                   figure
                     a href="single-post-tokyo.html"
                       / img alt="" src="img/thumb/p89-370x200.jpg" /
-                    = link_to image_tag(article.avatar.url(:thumb), size: "370x200"), article if article.avatar.url
+                    - if article.avatar.attached?
+                      = link_to image_tag(article.avatar.variant(resize: "370x200!")), article
                   .post-content
                     .post-meta
                       a.post-auth href="#"

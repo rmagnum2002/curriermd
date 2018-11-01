@@ -2,7 +2,8 @@ class Article < ActiveRecord::Base
   # acts_as_taggable
   extend FriendlyId
   friendly_id :title, use: :slugged
-  mount_uploader :avatar, ArticleAvatarUploader
+  # mount_uploader :avatar, ArticleAvatarUploader
+  has_one_attached :avatar
 
   scope :year, lambda { |year|
     where('EXTRACT(YEAR FROM published_at) = ?', year) if year.present?
@@ -26,8 +27,8 @@ class Article < ActiveRecord::Base
     Edition.find_or_create_by_name(name: new_edition_name)
   end
 
-  RECOMENDED = { 1 => 'Recomended', 0 => '' }.freeze
-  STICKY = { 1 => 'Sticky', 0 => '' }.freeze
+  RECOMENDED = { 1 => true, 0 => false }.freeze
+  STICKY = { 1 => true, 0 => false }.freeze
 
   def self.in_edition(name)
     Edition.find_by_name(name).articles

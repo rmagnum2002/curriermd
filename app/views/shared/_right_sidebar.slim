@@ -15,7 +15,7 @@
               - Article.where(recomend: true).each do |article|
                 li
                   figure
-                    = link_to image_tag(article.avatar.url(:thumb), size: "270x150"), article if article.avatar.url
+                    = link_to image_tag(article.avatar.variant(resize: "270x150!")), article if article.avatar.attached?
                   .post-content
                     .post-meta
                       time

@@ -5,7 +5,7 @@
     - Article.order('published_at desc').joins(:authors).where('authors.name = ? AND is_contest = ?', 'La rédaction', false).first(5).each do |article|
       li
         figure
-          = link_to image_tag(article.avatar.url(:thumb), size: "70x98"), article if article.avatar.url
+          = link_to image_tag(article.avatar.variant(resize: "70x98!")), article if article.avatar.attached?
         .post-content
           .post-meta
             time datetime=("2018-02-14 20:00")

@@ -20,8 +20,8 @@ module ArticlesHelper
   end
 
   def og_image
-    if @article.present? && @article.avatar.present?
-      "http://courrier.md#{@article.avatar.url}"
+    if @article && @article.avatar.attached?
+      "http://courrier.md#{@article.avatar}"
     else
       "http://courrier.md#{asset_path 'logo.png'}"
     end

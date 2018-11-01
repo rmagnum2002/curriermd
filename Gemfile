@@ -45,6 +45,7 @@ gem 'jquery-rails'
 gem 'slim'
 gem 'font-awesome-rails'
 gem 'owlcarousel-rails'
+gem 'image_processing', '~> 1.2'
 
 # Reduces boot times through caching; required in config/boot.rb
 gem 'bootsnap', '>= 1.1.0', require: false
