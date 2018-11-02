@@ -6,8 +6,8 @@ section.has-sidebar.u-padding-tb-60
         div data-sticky_column=""
           .contact-form
             .form-title
-              h4 Online contact information
-            = form_for :feedback, url: new_feedback_path, html: {class: 'form-body'} do |f|
+              h4 Envoie-nous un message
+            = form_for @feedback, html: {class: 'form-body'} do |f|
               p Tous les champs marqués d'une * sont obligatoires. Nous nous engageons à ne jamais vendre ou autrement abuser de votre information.
               .form-group.u-margin-b-25
                 = f.label :name, 'Nome'
@@ -28,7 +28,7 @@ section.has-sidebar.u-padding-tb-60
         .side-bar__inner.u-padding-l-40.u-sm-down-padding-l-0 data-sticky_column="" style=""
           .contact-address
             .form-title
-              h4 Advertising contacts
+              h4 Adresse
             .address-body
               ul
                 li

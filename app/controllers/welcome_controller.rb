@@ -30,10 +30,10 @@ class WelcomeController < ApplicationController
     @about = About.first
   end
 
-
   def contact
     @class_contact = true
     @search = Article.search(params[:search])
+    @feedback = Feedback.new
   end
 
   def membres
@@ -56,18 +56,6 @@ class WelcomeController < ApplicationController
     respond_to do |format|
       format.html {redirect_to :back}
       format.js
-    end
-  end
-
-  def feedback
-    @feedback = Feedback.new
-    return unless request.post?
-    @feedback = Feedback.new params[:feedback]
-    if @feedback.save
-      UserMailer.feedback(@feedback).deliver
-      redirect_to contact_path, notice: 'Feedback sent. Thank you!'
-    else
-      redirect_to contact_path, notice: 'Feedback not sent.'
     end
   end
 end

@@ -3,11 +3,10 @@ Rails.application.routes.draw do
   ActiveAdmin.routes(self)
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
   resources :articles
-  resources :feedback
+  resources :feedbacks, only: %i[create new]
   # resources :authors
   mount Ckeditor::Engine => '/ckeditor'
 
-  # get "welcome/contact"
   get 'welcome/index'
   get 'tags/:tag', to: 'articles#index', as: :tag
   get 'authors/:author', to: 'articles#index', as: :author
