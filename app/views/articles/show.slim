@@ -6,26 +6,26 @@ section.has-sidebar.u-padding-t-50.u-padding-b-80
           .m-post-content.m-post-content--tok
             .post-top
               .breadcrumbs.u-margin-b-10
-                span
-                  a href="#"  Home
-                span.separetor -
-                span
-                  a href="#"  World News
-                span.separetor -
-                span.current
-                  = @article.title
+                / span
+                /   a href="#"  Home
+                / span.separetor -
+                / span
+                /   a href="#"  World News
+                / span.separetor -
+                / span.current
+                /   = @article.title
               h1.post-title
                 = @article.title
               .post-meta
                 .item
                   time datetime=("2018-02-14 20:00")
                     i.fa.fa-clock-o
-                    | January 24, 2017 8:40AM MST
-                .item
-                  ul.categories
-                    li
-                      i.fa.fa-folder-open
-                      a href="#"  World News
+                    = l @article.published_at.to_date, format: :long
+                / .item
+                /   ul.categories
+                /     li
+                /       i.fa.fa-folder-open
+                /       a href="#"  World News
             .entry-content
               p
                 / img.u-radius-3.img-block alt="" src="img/thumb/p116-710x350.jpg" /

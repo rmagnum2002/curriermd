@@ -32,8 +32,8 @@ section.has-sidebar.u-padding-t-50
           - @articles.not_contest.each do |article|
             article.post-item
               figure
-                - if article.avatar.present?
-                  = link_to image_tag(article.avatar.url(:slide), size: "570x280"), article
+                - if article.avatar.attached?
+                  = link_to image_tag(article.avatar.variant(resize: "570x280!")), article
               .post-content
                 .post-meta
                   .item

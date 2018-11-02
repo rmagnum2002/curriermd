@@ -9,7 +9,8 @@ ul.posts-wrap
   - Article.recommended.order('id desc').first(10).each do |article|
     li
       figure
-        = link_to image_tag(article.avatar.url(:thumb), size: "270x150"), article if article.avatar.url
+        - if article.avatar.attached?
+          = link_to image_tag(article.avatar.variant(resize: "270x150!")), article
       .post-content
         .post-meta
           time datetime=("2018-02-14 20:00")
