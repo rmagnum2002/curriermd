@@ -16,14 +16,28 @@ module ArticlesHelper
   end
 
   def last_edition
-    edition = Edition.order("year desc").limit(1).first
+    @last_edition ||= Edition.order('year desc').limit(1).first
   end
 
   def og_image
-    if @article && @article.avatar.attached?
-      "http://courrier.md#{@article.avatar}"
+    return "http://courrier.md#{asset_path 'logo.png'}" unless @article && @article.avatar.attached?
+
+    Rails.application.routes.url_helpers.rails_representation_url(
+      @article.avatar.variant(resize: '710x350!').processed,
+      only_path: true
+    )
+  end
+
+  def og_description
+    if @article
+      ActionView::Base.full_sanitizer.sanitize(@article.content).truncate(
+        400, omission: '...'
+      ).html_safe
     else
-      "http://courrier.md#{asset_path 'logo.png'}"
+      "Courrier de Moldavie,
+      Bulletin de la section moldave de
+      l’Union Internationale de la Presse Francophone,
+      presse Francophone en Moldavie."
     end
   end
 end
