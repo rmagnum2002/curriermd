@@ -6,7 +6,7 @@
   /   button.next
   /     i.fa.fa-angle-left
 ul.posts-wrap
-  - Article.recommended.order('id desc').first(10).each do |article|
+  - Article.not_contest.recommended.order('id desc').last(10).each do |article|
     li
       figure
         - if article.avatar.attached?

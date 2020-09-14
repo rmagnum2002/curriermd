@@ -1,5 +1,4 @@
 class WelcomeController < ApplicationController
-
   def set_locale
     request_language = request.env['HTTP_ACCEPT_LANGUAGE']
     request_language = request_language.nil? ? nil : request_language[/[^,;]+/]
